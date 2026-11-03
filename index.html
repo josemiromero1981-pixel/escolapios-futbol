@@ -870,10 +870,208 @@ const BENJAMINC={
   markerOnly:true
 };
 BENJAMINC.teamName="EEPP San Fernando Escolapios Pozuelo 'C'";
-const DATA={"segunda-aficionado":AFICIONADO,"infantil-a":INFANTILA,alevin:ALEVIN,"alevin-f7-a":ALEVINF7A,"alevin-f7-b":ALEVINF7B,"alevin-f7-c":ALEVINF7C,"alevin-fem":ALEVINFEM,benjamin:BENJAMIN,"benjamin-b":BENJAMINB,"benjamin-c":BENJAMINC};
+/* ---------- Datos: Primera Benjamín F-7, Grupo 60 (Pozuelo de Alarcón) ---------- */
+/* ---------- Datos: Primera Benjamín F-7, Grupo 60 (Pozuelo de Alarcón - Valle de las Cañas) ---------- */
+const BENJAMIND={
+  key:"benjamin-d", label:"Benjamín D", cat:"Fútbol 7",
+  comp:"PRIMERA BENJAMÍN F-7 - Grupo 60 - POZUELO DE ALARCÓN",
+  me:"ESC", year:{"10":2026,"11":2026,"12":2026,"01":2027},
+  src:"https://www.rffm.es/competicion/calendario?temporada=22&tipojuego=2&competicion=26737943&grupo=27639529",
+  teams:{
+    ESC:{n:"EEPP San Fernando Escolapios Pozuelo 'D'",short:"Escolapios 'D'",k:[C.verde,C.blanco]},
+    RETB:{n:"C.D. Retamar-Pozuelo 'B'",k:[C.rojo,C.blanco]},
+    UADE:{n:"C.D. Unión de Aravaca 'E'",k:[C.blanco,C.negro]},
+    CALB:{n:"A.D. Cala Pozuelo 'B'",k:[C.azul,C.blanco]},
+    TAB:{n:"C.D.E. Monte Tabor 'A'",k:[C.verde,C.negro],p:"stripes"},
+    DLL:{n:"CDE David Lloyd 'A'",k:[C.blanco,C.blanco]},
+    ARAD:{n:"Aravaca C.F. - Ceiba 'D'",k:[C.azul,C.blanco],p:"stripes"},
+    UADB:{n:"C.D. Unión de Aravaca 'B'",k:[C.blanco,C.negro]},
+    UADC:{n:"C.D. Unión de Aravaca 'C'",k:[C.blanco,C.negro]},
+    CALC:{n:"A.D. Cala Pozuelo 'C'",k:[C.azul,C.blanco]},
+    POZE:{n:"C.F. Pozuelo de Alarcón 'E'",k:[C.verde,C.verde]}
+  },
+  order:["RETB","UADE","CALB","TAB","DLL","ARAD","UADB","UADC","CALC","POZE","ESC"],
+  zones:{}, zoneLegend:[],
+  dates:["16/10","23/10","06/11","13/11","20/11","27/11","11/12","18/12","15/01","22/01","29/01"],
+  m:{
+   1:[["CALC","CALB",0,1,"16/10","18:30"],["UADB","UADE",0,1,"16/10","18:30"],["DLL","ESC",1,0,"16/10","19:30"],["UADC","RETB",0,1,"17/10","18:00","Pozuelo - Colegio Retamar"],["ARAD","POZE",1,0,"28/10","18:00"]],
+   2:[["UADE","CALC",1,0,"23/10","17:30"],["ESC","UADB",0,1,"23/10","17:30"],["POZE","TAB",0,1,"23/10","18:30"],["RETB","ARAD",1,0,"23/10","18:45"],["CALB","UADC",0,0,"23/10","19:30"]],
+   3:[["ARAD","CALB",null,null,"06/11","17:30"],["TAB","DLL",null,null,"06/11","17:30"],["UADC","UADE",null,null,"06/11","18:30"],["CALC","ESC",null,null,"06/11","18:30"],["POZE","RETB",null,null,"06/11","19:30"]],
+   4:[["CALB","POZE",null,null,"13/11","17:30"],["ESC","UADC",null,null,"13/11","17:30"],["UADE","ARAD",null,null,"13/11","18:30"],["DLL","UADB",null,null,"13/11","18:30"],["RETB","TAB",null,null,"13/11","19:30"]]
+  },
+  pairs:{
+   5:"POZE-UADE CALC-DLL RETB-CALB ARAD-ESC TAB-UADB",
+   6:"CALB-TAB UADB-CALC ESC-POZE DLL-UADC UADE-RETB",
+   7:"RETB-ESC ARAD-DLL CALB-UADE TAB-CALC UADC-UADB",
+   8:"UADE-TAB UADB-ARAD ESC-CALB DLL-POZE CALC-UADC",
+   9:"RETB-DLL ARAD-CALC POZE-UADB TAB-UADC UADE-ESC",
+   10:"UADB-RETB CALC-POZE DLL-CALB UADC-ARAD TAB-ESC",
+   11:"CALB-UADB ARAD-TAB UADE-DLL RETB-CALC POZE-UADC"
+  },
+  rest:{1:"TAB",2:"DLL",3:"UADB",4:"CALC",5:"UADC",6:"ARAD",7:"POZE",8:"RETB",9:"CALB",10:"UADE",11:"ESC"},
+  acta:{1:{ref:"Martínez Torquemada, Diego"},2:{ref:"Gómez Menéndez, Marcos"}},
+  scorers:[],
+  scorersNote:"La RFFM no publica goleadores en esta categoría.",
+  squad:["Álvaro Rot, Lucas","Astarloa Rodríguez, Mikel","Asworth Manzano, Lucas","Bensusan Jung, Luis Pedro","De Andrés Sierra, Mateo","Del Cano Muñoz de Luna, Jorge","Fraile González, Ignacio","Jiménez Cernuda, Nicolás","Martín-Hinojal Sánchez, Luis","Martínez Carrillo de Albornoz, Carlos","Pedrosa Segura, Rodrigo","Sánchez Blanco, Pablo"],
+  delegates:["Lago Leboreiro, Miguel Ángel"],
+  home:"Pozuelo - Valle de las Cañas 2 (sede del grupo)",
+  futureVenue:"Pozuelo - Valle de las Cañas 2 (sede del grupo)",
+  defaultVenue:"Pozuelo - Valle de las Cañas 2",
+  markerOnly:true
+};
+BENJAMIND.teamName="EEPP San Fernando Escolapios Pozuelo 'D'";
+/* ---------- Datos: Prebenjamín F-7 Desarrollo, Grupo 1 (Boadilla) ---------- */
+const PREBENJAMINA={
+  key:"prebenjamin-a", label:"Prebenjamín A", cat:"Fútbol 7",
+  comp:"PREBENJAMÍN F-7 DESARROLLO - Grupo 1 - BOADILLA",
+  me:"ESC", year:{"10":2026,"11":2026,"12":2026,"01":2027},
+  src:"https://www.rffm.es/competicion/calendario?temporada=22&tipojuego=2&competicion=26738167&grupo=26738199",
+  teams:{
+    ARA:{n:"Aravaca C.F. - Ceiba 'A'",k:[C.azul,C.blanco],p:"stripes"},
+    NBA:{n:"C.D. Nuevo Boadilla 'A'",k:[C.amarillo,C.negro]},
+    EFA:{n:"E.F.M.O. Boadilla 'A'",k:[C.rojo,C.blanco]},
+    ESC:{n:"EE PP San Fernando Escolapios Pozuelo 'A'",short:"Escolapios 'A'",k:[C.verde,C.blanco]},
+    FRM:{n:"S.A.D. Fundación Rayo Majadahonda 'A'",k:[C.blanco,C.azul]},
+    NBB:{n:"C.D. Nuevo Boadilla 'B'",k:[C.amarillo,C.negro]},
+    TKA:{n:"CDE Toni Kroos Academy 'A'",k:[C.blanco,C.blanco]},
+    FDE:{n:"C.D.E. Football Dreams Experience 'A'",k:[C.rojo,C.rojo]},
+    ARB:{n:"Aravaca C.F. - Ceiba 'B'",k:[C.azul,C.blanco],p:"stripes"},
+    NBC:{n:"C.D. Nuevo Boadilla 'C'",k:[C.amarillo,C.negro]},
+    NBD:{n:"C.D. Nuevo Boadilla 'D'",k:[C.amarillo,C.negro]},
+    POZA:{n:"C.F. Pozuelo de Alarcón 'A'",k:[C.verde,C.verde]}
+  },
+  order:["ARA","NBA","EFA","ESC","FRM","NBB","TKA","FDE","ARB","NBC","NBD","POZA"],
+  zones:{}, zoneLegend:[],
+  dates:["17/10","24/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01"],
+  m:{
+   1:[["NBB","NBA",0,1,"17/10","09:00"],["EFA","NBC",1,0,"17/10","10:00"],["ESC","NBD",1,0,"17/10","11:00"],["ARA","ARB",1,0,"17/10","12:00"],["FRM","FDE",0,0,"17/10","13:00"],["TKA","POZA",1,0,"17/10","14:00"]],
+   2:[["NBD","EFA",0,1,"24/10","09:00"],["NBA","TKA",1,0,"24/10","10:00"],["NBC","NBB",0,1,"24/10","11:00"],["POZA","FRM",0,1,"24/10","12:00"],["ARB","ESC",0,1,"24/10","13:00"],["FDE","ARA",0,1,"24/10","14:00"]],
+   3:[["NBA","NBC",null,null,"07/11","09:00"],["NBB","NBD",null,null,"07/11","09:50"],["EFA","ARB",null,null,"07/11","10:40"],["ESC","FDE",null,null,"07/11","11:30"],["ARA","POZA",null,null,"07/11","12:20"],["TKA","FRM",null,null,"07/11","13:10"]],
+   4:[["ARB","NBB",null,null,"14/11","09:00"],["NBC","TKA",null,null,"14/11","09:50"],["NBD","NBA",null,null,"14/11","10:40"],["FRM","ARA",null,null,"14/11","11:30"],["FDE","EFA",null,null,"14/11","12:20"],["POZA","ESC",null,null,"14/11","13:10"]]
+  },
+  pairs:{
+   5:"EFA-POZA NBA-ARB NBB-FDE NBC-NBD ESC-FRM TKA-ARA",
+   6:"NBD-TKA FRM-EFA ARA-ESC POZA-NBB ARB-NBC FDE-NBA",
+   7:"NBC-FDE NBA-POZA NBB-FRM EFA-ARA TKA-ESC NBD-ARB",
+   8:"FRM-NBA FDE-NBD POZA-NBC ARB-TKA ARA-NBB ESC-EFA",
+   9:"NBB-ESC ARB-FDE TKA-EFA NBA-ARA NBD-POZA NBC-FRM",
+   10:"TKA-FDE ARA-NBC POZA-ARB FRM-NBD ESC-NBA EFA-NBB",
+   11:"NBD-ARA NBC-ESC NBA-EFA FDE-POZA ARB-FRM NBB-TKA"
+  },
+  rest:{},
+  acta:{1:{ref:"Bermejo Galán, Ángel"},2:{ref:"Blanco Moreno, Adrián"}},
+  scorers:[],
+  scorersNote:"La RFFM no publica goleadores en esta categoría.",
+  squad:["Ayuso Terol, Iñigo","Ebro Muñoz, Mikel","Galán Satrústegui, Cosme","García Hernández, Luis","Gazol García, Nicolás","Gómez Tarascón, Alejandro","Granda Petit, Javier","Linares Mora, Daniel","Marchal Sanz, Nicolás","Martín Barreras, Jaime","Pedrals Morral, Oriol","Soriano Benito, Hugo","Torres Caturla, Pablo"],
+  delegates:["Gil Echevarría, Ignacio"],
+  home:"Boadilla - Pvo. Municipal Ángel Nieto 4 (sede del grupo)",
+  futureVenue:"Boadilla - Pvo. Municipal Ángel Nieto 4 (sede del grupo)",
+  defaultVenue:"Boadilla - Pvo. Municipal Ángel Nieto 4",
+  markerOnly:true
+};
+PREBENJAMINA.teamName="EE PP San Fernando Escolapios Pozuelo 'A'";
+/* ---------- Datos: Prebenjamín F7 Iniciación, Grupo 4 (Vallmont-SEK) ---------- */
+/* ---------- Datos: Prebenjamín F7 Iniciación, Grupo 4 (Vallmont-SEK) ---------- */
+const PREBENJAMINB={
+  key:"prebenjamin-b", label:"Prebenjamín B", cat:"Fútbol 7",
+  comp:"PREBENJAMÍN F7 INICIACIÓN - Grupo 4 - VALLMONT-SEK",
+  me:"ESC", year:{"10":2026,"11":2026,"12":2026,"01":2027},
+  src:"https://www.rffm.es/competicion/calendario?temporada=22&tipojuego=2&competicion=26797573&grupo=28079221",
+  teams:{
+    ESC:{n:"EEPP San Fernando Escolapios Pozuelo 'B'",short:"Escolapios 'B'",k:[C.verde,C.blanco]},
+    ESCC:{n:"EEPP San Fernando Escolapios Pozuelo 'C'",short:"Escolapios 'C'",k:[C.verde,C.blanco]},
+    NBH:{n:"C.D. Nuevo Boadilla 'H'",k:[C.amarillo,C.negro]},
+    NBL:{n:"C.D. Nuevo Boadilla 'L'",k:[C.amarillo,C.negro]},
+    NBN:{n:"C.D. Nuevo Boadilla 'N'",k:[C.amarillo,C.negro]},
+    SEKA:{n:"C.D. SEK El Castillo 'A'",k:[C.marino,C.marino]},
+    SEKB:{n:"C.D. SEK El Castillo 'B'",k:[C.marino,C.marino]},
+    VAL:{n:"C.D. Vallmont de Villanueva del Pardillo 'A'",k:[C.amarillo,C.azul]},
+    CNV:{n:"CDE Nuevo Villanueva del Pardillo 'A'",k:[C.negro,C.negro]},
+    FRMC:{n:"S.A.D. Fundación Rayo Majadahonda 'C'",k:[C.blanco,C.azul]},
+    RMJB:{n:"C.F. Rayo Majadahonda SAD 'B'",k:[C.blanco,C.azul],p:"sash"}
+  },
+  order:["NBH","SEKA","RMJB","CNV","VAL","NBN","ESCC","FRMC","NBL","SEKB","ESC"],
+  zones:{}, zoneLegend:[],
+  dates:["16/10","23/10","06/11","13/11","20/11","27/11","11/12","18/12","15/01","22/01","29/01"],
+  m:{
+   1:[["NBH","NBL",1,0,"16/10","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESC","NBN",0,1,"26/10","18:00","Pozuelo - Colegio Escolapios"],["FRMC","ESCC",1,0,"16/10","19:40","Villanueva del Pardillo - Colegio Vallmont"],["VAL","RMJB",2,3,"29/10","18:00","Villanueva del Pardillo - Colegio Vallmont"],["SEKA","SEKB",1,0,"16/10","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"]],
+   2:[["NBL","SEKA",0,1,"23/10","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBN","NBH",0,1,"23/10","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESCC","ESC",1,0,"23/10","18:00","Villanueva del Pardillo - Colegio Vallmont"],["CNV","FRMC",1,0,"23/10","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["SEKB","VAL",0,1,"23/10","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"]],
+   3:[["NBL","NBN",null,null,"06/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBH","ESCC",null,null,"06/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESC","CNV",null,null,"06/11","19:40","Villanueva del Pardillo - Colegio Vallmont"],["FRMC","RMJB",null,null,"10/11","17:45","Majadahonda - Inst. Dep. La Oliva (Centro Oeste)"],["SEKA","VAL",null,null,"06/11","18:00","Villanueva del Pardillo - Colegio Vallmont"]],
+   4:[["NBN","SEKA",null,null,"13/11","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["ESCC","NBL",null,null,"13/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["CNV","NBH",null,null,"13/11","18:00","Villanueva del Pardillo - Colegio Vallmont"],["RMJB","ESC",null,null,"13/11","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"],["SEKB","FRMC",null,null,"13/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"]]
+  },
+  pairs:{
+   5:"FRMC-VAL NBN-ESCC NBH-RMJB NBL-CNV ESC-SEKB",
+   6:"ESCC-SEKA VAL-ESC CNV-NBN SEKB-NBH RMJB-NBL",
+   7:"NBH-VAL SEKA-FRMC ESCC-CNV NBN-RMJB NBL-SEKB",
+   8:"CNV-SEKA VAL-NBL RMJB-ESCC SEKB-NBN FRMC-ESC",
+   9:"NBN-VAL SEKA-ESC ESCC-SEKB NBH-FRMC CNV-RMJB",
+   10:"SEKA-RMJB VAL-ESCC FRMC-NBL ESC-NBH SEKB-CNV",
+   11:"CNV-VAL NBH-SEKA RMJB-SEKB NBN-FRMC NBL-ESC"
+  },
+  rest:{1:"CNV",2:"RMJB",3:"SEKB",4:"VAL",5:"SEKA",6:"FRMC",7:"ESC",8:"NBH",9:"NBL",10:"NBN",11:"ESCC"},
+  acta:{1:{ref:"Arnes Esteban, Gonzalo"},2:{ref:"Moreno Orellana, Rodrigo"}},
+  scorers:[],
+  scorersNote:"La RFFM no publica goleadores en esta categoría.",
+  squad:["Asensio Ramos, Hugo","Casajuana Paz, Telmo","De Dorremochea Martín, Bosco","Dorao Escobar, Álvaro","Garau Blanco, Álvaro","García González, Nacho","González-Frías Rioja, Ignacio","Hernández López, Alejandro","Jove Casado, Miguel","Lorenzo Ocaña, Alejandro","Pérez Fernández, Santiago","Pieltain Castellví, Francisco","Sierra Cabra, Guillermo","Suárez Reyero, Milo"],
+  delegates:["Zumaquero Rosa, Andrés"],
+  home:"Villanueva del Pardillo - Colegio Vallmont / Colegio SEK El Castillo (sedes del grupo)",
+  futureVenue:"Colegio Vallmont o Colegio SEK El Castillo (por confirmar)",
+  markerOnly:true
+};
+PREBENJAMINB.teamName="EEPP San Fernando Escolapios Pozuelo 'B'";
+/* ---------- Datos: Prebenjamín F7 Iniciación, Grupo 4 (Vallmont-SEK) ---------- */
+/* ---------- Datos: Prebenjamín F7 Iniciación, Grupo 4 (Vallmont-SEK) ---------- */
+const PREBENJAMINC={
+  key:"prebenjamin-c", label:"Prebenjamín C", cat:"Fútbol 7",
+  comp:"PREBENJAMÍN F7 INICIACIÓN - Grupo 4 - VALLMONT-SEK",
+  me:"ESC", year:{"10":2026,"11":2026,"12":2026,"01":2027},
+  src:"https://www.rffm.es/competicion/calendario?temporada=22&tipojuego=2&competicion=26797573&grupo=28079221",
+  teams:{
+    ESCB:{n:"EEPP San Fernando Escolapios Pozuelo 'B'",short:"Escolapios 'B'",k:[C.verde,C.blanco]},
+    ESC:{n:"EEPP San Fernando Escolapios Pozuelo 'C'",short:"Escolapios 'C'",k:[C.verde,C.blanco]},
+    NBH:{n:"C.D. Nuevo Boadilla 'H'",k:[C.amarillo,C.negro]},
+    NBL:{n:"C.D. Nuevo Boadilla 'L'",k:[C.amarillo,C.negro]},
+    NBN:{n:"C.D. Nuevo Boadilla 'N'",k:[C.amarillo,C.negro]},
+    SEKA:{n:"C.D. SEK El Castillo 'A'",k:[C.marino,C.marino]},
+    SEKB:{n:"C.D. SEK El Castillo 'B'",k:[C.marino,C.marino]},
+    VAL:{n:"C.D. Vallmont de Villanueva del Pardillo 'A'",k:[C.amarillo,C.azul]},
+    CNV:{n:"CDE Nuevo Villanueva del Pardillo 'A'",k:[C.negro,C.negro]},
+    FRMC:{n:"S.A.D. Fundación Rayo Majadahonda 'C'",k:[C.blanco,C.azul]},
+    RMJB:{n:"C.F. Rayo Majadahonda SAD 'B'",k:[C.blanco,C.azul],p:"sash"}
+  },
+  order:["NBH","SEKA","RMJB","CNV","VAL","NBN","ESC","FRMC","NBL","SEKB","ESCB"],
+  zones:{}, zoneLegend:[],
+  dates:["16/10","23/10","06/11","13/11","20/11","27/11","11/12","18/12","15/01","22/01","29/01"],
+  m:{
+   1:[["NBH","NBL",1,0,"16/10","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESCB","NBN",0,1,"26/10","18:00","Pozuelo - Colegio Escolapios"],["FRMC","ESC",1,0,"16/10","19:40","Villanueva del Pardillo - Colegio Vallmont"],["VAL","RMJB",2,3,"29/10","18:00","Villanueva del Pardillo - Colegio Vallmont"],["SEKA","SEKB",1,0,"16/10","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"]],
+   2:[["NBL","SEKA",0,1,"23/10","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBN","NBH",0,1,"23/10","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESC","ESCB",1,0,"23/10","18:00","Villanueva del Pardillo - Colegio Vallmont"],["CNV","FRMC",1,0,"23/10","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["SEKB","VAL",0,1,"23/10","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"]],
+   3:[["NBL","NBN",null,null,"06/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBH","ESC",null,null,"06/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESCB","CNV",null,null,"06/11","19:40","Villanueva del Pardillo - Colegio Vallmont"],["FRMC","RMJB",null,null,"10/11","17:45","Majadahonda - Inst. Dep. La Oliva (Centro Oeste)"],["SEKA","VAL",null,null,"06/11","18:00","Villanueva del Pardillo - Colegio Vallmont"]],
+   4:[["NBN","SEKA",null,null,"13/11","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["ESC","NBL",null,null,"13/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["CNV","NBH",null,null,"13/11","18:00","Villanueva del Pardillo - Colegio Vallmont"],["RMJB","ESCB",null,null,"13/11","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"],["SEKB","FRMC",null,null,"13/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"]]
+  },
+  pairs:{
+   5:"FRMC-VAL NBN-ESC NBH-RMJB NBL-CNV ESCB-SEKB",
+   6:"ESC-SEKA VAL-ESCB CNV-NBN SEKB-NBH RMJB-NBL",
+   7:"NBH-VAL SEKA-FRMC ESC-CNV NBN-RMJB NBL-SEKB",
+   8:"CNV-SEKA VAL-NBL RMJB-ESC SEKB-NBN FRMC-ESCB",
+   9:"NBN-VAL SEKA-ESCB ESC-SEKB NBH-FRMC CNV-RMJB",
+   10:"SEKA-RMJB VAL-ESC FRMC-NBL ESCB-NBH SEKB-CNV",
+   11:"CNV-VAL NBH-SEKA RMJB-SEKB NBN-FRMC NBL-ESCB"
+  },
+  rest:{1:"CNV",2:"RMJB",3:"SEKB",4:"VAL",5:"SEKA",6:"FRMC",7:"ESCB",8:"NBH",9:"NBL",10:"NBN",11:"ESC"},
+  acta:{1:{ref:"García Rodríguez, Sergi"},2:{ref:"Moreno Orellana, Rodrigo"}},
+  scorers:[],
+  scorersNote:"La RFFM no publica goleadores en esta categoría.",
+  squad:["Aceña Albert, Álvaro","Alcaraz Alejo, Fernando","Asworth Manzano, Alonso","Beuca Rybchuk, Misy","Cuñado Balbás, Diego","Fernández Flores, Noel","Ferrer Madrazo, Álvaro","Hernández de la Bandera, Marcos","Jiménez Cernuda, Guillermo","Martín Muñoz, Logan","Mateo Mata, Paul","Millán-Astray Herrán, Javier","Ortiz Germán, Carlos","Ruiz de la Villa García, Luis","Sánchez Domínguez, Gonzalo"],
+  delegates:["Lanaquera López, Antonio"],
+  home:"Villanueva del Pardillo - Colegio Vallmont / Colegio SEK El Castillo (sedes del grupo)",
+  futureVenue:"Colegio Vallmont o Colegio SEK El Castillo (por confirmar)",
+  markerOnly:true
+};
+PREBENJAMINC.teamName="EEPP San Fernando Escolapios Pozuelo 'C'";
+const DATA={"segunda-aficionado":AFICIONADO,"infantil-a":INFANTILA,alevin:ALEVIN,"alevin-f7-a":ALEVINF7A,"alevin-f7-b":ALEVINF7B,"alevin-f7-c":ALEVINF7C,"alevin-fem":ALEVINFEM,benjamin:BENJAMIN,"benjamin-b":BENJAMINB,"benjamin-c":BENJAMINC,"benjamin-d":BENJAMIND,"prebenjamin-a":PREBENJAMINA,"prebenjamin-b":PREBENJAMINB,"prebenjamin-c":PREBENJAMINC};
 const COMPS=DATA;
 /* Actualización automática (lunes a viernes): fecha de la última revisión y cambios detectados en horarios/sedes */
-const UPDATED="3 nov 2026, 22:55";
+const UPDATED="3 nov 2026, 23:50";
 const CHANGES=[];
 const TODAY=(()=>{const d=new Date();d.setHours(0,0,0,0);return d})();
 
