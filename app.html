@@ -634,9 +634,10 @@ function pendingView(k){
 
 function card(c){
   {
-    const j=c.J.find(x=>x.n===c.cur);const m=j.ms.find(x=>x.h===c.me||x.a===c.me);
+    const j=c.J.find(x=>x.n===c.cur);const m=j?j.ms.find(x=>x.h===c.me||x.a===c.me):null;
     let nx;
-    if(!m)nx=`Jornada ${j.n}: <b>descansa</b>`;
+    if(!j)nx="Sin partidos publicados";
+    else if(!m)nx=`Jornada ${j.n}: <b>descansa</b>`;
     else{const op=m.h===c.me?m.a:m.h;nx=`Próximo: <b>${dayShort(c,m.d)}${m.t?" · "+m.t:""}</b> vs ${esc(nm(c,op))}`}
     return `<a class="pick" href="#${c.key}" style="color:inherit;text-decoration:none">${shirt(c.teams[c.me],62)}<div style="min-width:0"><div class="cat">${c.cat}</div><div class="nm">${c.label}</div><div class="grp">${esc(c.comp)}</div><div class="nx">${nx}</div></div></a>`;
   }
@@ -669,6 +670,7 @@ function nextView(c){
 }
 
 function jornadaView(c){
+  if(!c.J.length)return `<div class="empty"><b>Sin jornadas publicadas</b>${esc(c.scorersNote||"La RFFM aún no ha publicado partidos de este equipo.")}</div>`;
   const j=c.J[S.jj-1];
   const m=j.ms.find(x=>x.h===c.me||x.a===c.me);
   if(!m)return `<div class="rest"><b>Escolapios descansa</b>Jornada ${j.n} · ${longDate(c,j.date)}</div>`;
@@ -686,6 +688,7 @@ function jornadaView(c){
 }
 
 function resultsView(c){
+  if(!c.J.length)return `<div class="empty"><b>Sin resultados publicados</b>${esc(c.scorersNote||"La RFFM aún no ha publicado partidos de este grupo.")}</div>`;
   const j=c.J[S.jr-1];
   const anyTime=j.ms.some(m=>m.t);
   const sorted=[...j.ms].sort((x,y)=>(x.d+(x.t||"")).localeCompare(y.d+(y.t||""),undefined,{numeric:true}));
