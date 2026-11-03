@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0f2832">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Escolapios">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>:root{color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<title>Escolapios Fútbol</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap">
+<style>
+/* Layout: app de una columna (máx. 560px) que imita la app oficial de la RFFM: cabecera fija, pestañas horizontales, tiras de jornadas deslizables */
+:root{
+  --bg:#13303b; --panel:#1a3d4a; --panel2:#21495a; --line:#2c5a6b;
+  --fg:#eef5f4; --muted:#9fbcc1; --accent:#5fc48a; --accent-ink:#0e2a22;
+  --warn:#f2a86b; --bad:#e8573e; --pitch:#2a6870;
+  --display:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+.wrap{max-width:560px;margin:0 auto;min-height:100%}
+.pad{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Selector */
+.home{padding-block:28px 40px;display:flex;flex-direction:column;gap:18px}
+.home h1{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.15;margin:0;text-wrap:balance}
+.home p{margin:0;color:var(--muted)}
+.pick{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:left;width:100%}
+.pick:hover{background:var(--panel2)}
+.pick svg{flex:none}
+.pick .cat{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.pick .nm{font-weight:800;font-size:19px;line-height:1.2}
+.pick .grp{color:var(--muted);font-size:13px}
+.pick .nx{margin-top:6px;font-size:13px}
+.pick .nx b{color:var(--accent);font-weight:600}
+.src{font-size:12px;color:var(--muted)}
+.src a{color:var(--muted)}
+
+/* Cabecera */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:#0f2832;padding-block:10px 0}
+.hrow{display:flex;align-items:center;gap:12px}
+.back{width:36px;height:36px;display:grid;place-items:center;font-size:22px;flex:none}
+.htxt{min-width:0;flex:1;text-align:center;padding-right:42px}
+.hlogo{width:30px;height:30px;flex:none;border-radius:50%}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:50px;height:50px;flex:none;border-radius:50%;background:#fff}
+.htxt .t{font-weight:800;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.htxt .s{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tabs{display:flex;overflow-x:auto;scrollbar-width:none;margin-top:8px;border-bottom:1px solid var(--line)}
+.tabs::-webkit-scrollbar,.strip::-webkit-scrollbar{display:none}
+.tab{flex:1 0 auto;padding:10px 12px;font-size:14px;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--fg);font-weight:700;border-color:var(--accent)}
+
+/* Tira de jornadas */
+.strip{display:flex;overflow-x:auto;scrollbar-width:none;background:#163542;border-bottom:1px solid var(--line);scroll-behavior:smooth}
+.jb{flex:none;padding:12px 16px;font-size:14px;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap}
+.jb[aria-selected="true"]{color:var(--fg);font-weight:700;border-color:var(--accent)}
+.jb .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-left:6px;vertical-align:middle}
+
+main{padding-block:16px 40px}
+
+/* Partido destacado */
+.match{background:radial-gradient(120% 80% at 50% 0%,var(--pitch),var(--panel) 70%);border-radius:18px;padding:22px 12px 18px;position:relative;overflow:hidden}
+.match::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(255,255,255,.08)}
+.mgrid{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:start;position:relative;z-index:1}
+.side{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;min-width:0}
+.side .tn{font-weight:700;font-size:13px;line-height:1.25;text-transform:uppercase}
+.side.me .tn{color:var(--accent)}
+.score{display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:18px}
+.sbox{background:var(--accent);color:var(--accent-ink);font-weight:800;font-size:34px;line-height:1;padding:12px 14px;border-radius:12px;min-width:96px;text-align:center;font-variant-numeric:tabular-nums}
+.sbox.pre{background:#0f2832;color:var(--fg);font-size:22px;border:1px solid var(--line)}
+.stag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:999px;background:rgba(95,196,138,.15);color:var(--accent)}
+.stag.w{background:rgba(95,196,138,.18);color:var(--accent)}
+.stag.l{background:rgba(232,87,62,.18);color:#ff9a86}
+.stag.d{background:rgba(242,168,107,.18);color:var(--warn)}
+.note{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;position:relative;z-index:1}
+.rest{background:var(--panel);border-radius:18px;padding:30px 20px;text-align:center}
+.rest b{display:block;font-size:20px;margin-bottom:6px}
+
+.info{margin-top:16px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.info h3{margin:0;background:var(--fg);color:#13303b;text-align:center;font-size:14px;letter-spacing:.06em;padding:8px;font-weight:800}
+.irow{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--panel)}
+.irow:nth-child(odd){background:var(--panel2)}
+.irow .ic{width:22px;flex:none;color:var(--accent)}
+.irow .tx{min-width:0}
+.irow .lb{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.goals{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.goals li{display:flex;gap:8px;font-size:14px}
+.goals .min{color:var(--muted);font-variant-numeric:tabular-nums;width:30px;flex:none}
+.goals .me{color:var(--accent);font-weight:600}
+
+/* Resultados */
+.day{background:var(--fg);color:#13303b;text-align:center;font-weight:700;font-size:14px;padding:8px;border-radius:12px 12px 0 0;letter-spacing:.02em}
+.list{border:1px solid var(--line);border-top:0;border-radius:0 0 12px 12px;overflow:hidden}
+.rrow{display:grid;grid-template-columns:1fr 92px 1fr;gap:6px;align-items:center;padding:14px 8px;border-top:1px solid var(--line);background:var(--panel)}
+.rrow:first-child{border-top:0}
+.rrow.mine{background:#1f4f45}
+.rt{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;min-width:0}
+.rt span{font-size:11.5px;font-weight:700;line-height:1.2;text-transform:uppercase;overflow-wrap:anywhere}
+.rmid{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.rmid .sc{font-weight:800;font-size:20px;font-variant-numeric:tabular-nums}
+.rmid .hr{font-weight:600;font-size:14px}
+.rmid .dt{font-size:11px;color:var(--muted)}
+.rmid .vn{font-size:10px;color:var(--muted);line-height:1.2}
+.restline{padding:12px 16px;background:var(--panel2);font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+
+/* Clasificación */
+.sub{display:flex;border-bottom:1px solid var(--line);margin-bottom:12px}
+.sub button{flex:1;padding:10px;color:var(--muted);border-bottom:3px solid transparent}
+.sub button[aria-selected="true"]{color:var(--fg);font-weight:700;border-color:var(--accent)}
+.tbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:13.5px}
+.tbl th{background:var(--fg);color:#13303b;font-weight:600;padding:9px 6px;text-align:center;font-size:12.5px}
+.tbl th:nth-child(2){text-align:left}
+.tbl td{padding:12px 6px;border-top:1px solid var(--line);text-align:center;background:var(--panel)}
+.tbl tr:nth-child(even) td{background:var(--panel2)}
+.tbl td.tm{text-align:left;max-width:0;width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tbl td.ps{font-weight:700;width:34px;position:relative}
+.tbl td.pts{font-weight:800}
+.tbl tr.me td{background:#1f4f45!important;color:#fff}
+.tbl tr.me td.tm{font-weight:700}
+.zone{position:absolute;left:0;top:0;bottom:0;width:5px}
+.scroll{overflow-x:auto;border-radius:12px;border:1px solid var(--line)}
+.crow{border-top:1px solid var(--line);background:var(--panel)}
+.crow:nth-child(even){background:var(--panel2)}
+.crow.me{background:#1f4f45}
+.chead{display:flex;align-items:center;gap:10px;width:100%;padding:13px 14px 13px 18px;text-align:left;position:relative}
+.chead .p{font-weight:700;width:26px;flex:none;font-variant-numeric:tabular-nums}
+.chead .n{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chead .chev{color:var(--accent);transition:transform .2s}
+.chead[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.chead .pt{font-weight:800;width:28px;text-align:right;font-variant-numeric:tabular-nums}
+.cdet{padding:0 14px 14px 54px;display:flex;flex-direction:column;gap:10px;font-size:13px}
+.stats{display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--muted)}
+.stats b{color:var(--fg);font-variant-numeric:tabular-nums}
+.form{display:flex;gap:6px}
+.form i{font-style:normal;width:24px;height:24px;border-radius:6px;display:grid;place-items:center;font-size:12px;font-weight:700}
+.form .W{background:var(--accent);color:var(--accent-ink)}
+.form .D{background:var(--warn);color:#3a2200}
+.form .L{background:var(--bad);color:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin-top:12px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+
+/* Goleadores */
+.filters{display:flex;gap:8px;margin-bottom:12px}
+.chip{padding:7px 14px;border-radius:999px;border:1px solid var(--line);font-size:13px;color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.grow{display:grid;grid-template-columns:34px 40px 1fr auto;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line);background:var(--panel)}
+.grow:nth-child(even){background:var(--panel2)}
+.grow.me{background:#1f4f45}
+.grow .pos{font-weight:800;font-size:18px;text-align:center;font-variant-numeric:tabular-nums}
+.av{width:40px;height:40px;border-radius:50%;background:#cfd8dc;display:grid;place-items:center;overflow:hidden}
+.grow .pl{min-width:0}
+.grow .pl b{display:block;font-size:13.5px;text-transform:uppercase;line-height:1.25}
+.grow .pl span{color:var(--accent);font-size:12.5px}
+.grow .gl{font-weight:800;font-size:18px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.grow .gl small{font-weight:600;font-size:13px;color:var(--muted)}
+.empty{background:var(--panel);border:1px dashed var(--line);border-radius:14px;padding:28px 20px;text-align:center;color:var(--muted)}
+.empty b{display:block;color:var(--fg);margin-bottom:6px;font-size:16px}
+
+/* Plantilla */
+.sec{background:var(--fg);color:#13303b;text-align:center;font-weight:800;font-size:14px;letter-spacing:.06em;padding:8px;border-radius:12px 12px 0 0}
+.prow{display:flex;gap:14px;align-items:center;padding:11px 16px;background:var(--panel);border-top:1px solid var(--line)}
+.prow:nth-child(even){background:var(--panel2)}
+.plist{border:1px solid var(--line);border-top:0;border-radius:0 0 12px 12px;overflow:hidden;margin-bottom:16px}
+.prow .nm{text-transform:uppercase;font-size:14px}
+.prow .gtag{margin-left:auto;font-size:12px;color:var(--accent);font-weight:600;white-space:nowrap}
+.foot{margin-top:24px;font-size:12px;color:var(--muted)}
+.foot a{color:var(--muted)}
+.search{display:flex;flex-direction:column;gap:8px}
+.search input{width:100%;font:inherit;font-size:16px;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.search input::placeholder{color:var(--muted)}
+.search input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.slist{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}
+.slist .lrow:first-child{border-top:0}
+.sempty{font-size:13px;color:var(--muted);padding:4px 2px}
+.upd{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:16px}
+.updmsg{margin:0;font-size:13px;color:var(--fg);text-align:center;max-width:40ch}
+.modal{position:fixed;inset:0;z-index:20;background:rgba(5,16,21,.72);display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-right,0px)) 24px max(16px,env(safe-area-inset-left,0px))}
+.mbox{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px 20px 18px;max-width:360px;width:100%;text-align:center;display:flex;flex-direction:column;gap:10px}
+.mh{display:flex;justify-content:center}
+.mbox h2{margin:0;font-size:18px;line-height:1.3;text-wrap:balance}
+.mbox p{margin:0;color:var(--muted);font-size:14px}
+.mbtns{display:flex;gap:10px;margin-top:8px}
+.mb{flex:1;padding:12px;border-radius:12px;font-weight:600;background:var(--panel2);border:1px solid var(--line)}
+.mb.danger{background:var(--bad);border-color:var(--bad);color:#fff}
+.pickwrap{position:relative}
+.pickwrap .pick{padding-right:56px}
+.pickheart{position:absolute;top:6px;right:4px}
+/* Favoritos y lista de equipos */
+.favs{display:flex;flex-direction:column;gap:12px}
+.lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+details.all{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
+details.all summary{list-style:none;display:flex;align-items:center;gap:10px;padding:16px;font-weight:700;cursor:pointer}
+details.all summary::-webkit-details-marker{display:none}
+details.all summary::after{content:"⌄";margin-left:auto;color:var(--accent);font-size:20px;line-height:1;transition:transform .2s}
+details.all[open] summary::after{transform:rotate(180deg)}
+details.all .cnt{font-size:12px;font-weight:600;background:var(--panel2);color:var(--muted);border-radius:999px;padding:2px 9px}
+.lg{padding:10px 16px 6px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;background:#163542;border-top:1px solid var(--line)}
+.lrow{display:flex;align-items:center;border-top:1px solid var(--line)}
+.lmain{flex:1;min-width:0;display:flex;flex-direction:column;padding:12px 16px;color:inherit;text-decoration:none}
+.lmain:hover{background:var(--panel2)}
+.ln{font-weight:600;font-size:15px}
+.lc{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.heart{width:52px;height:52px;display:grid;place-items:center;flex:none;color:var(--muted)}
+.heart[aria-pressed="true"]{color:#ff6b81}
+/* Próximos */
+.nrow{display:flex;gap:12px;align-items:center;width:100%;text-align:left;padding:12px 14px;border-top:1px solid var(--line);background:var(--panel)}
+.nrow:first-child{border-top:0}
+.nrow:nth-child(even){background:var(--panel2)}
+button.nrow:hover{background:#2a5668}
+.nd{display:flex;flex-direction:column;width:78px;flex:none;font-variant-numeric:tabular-nums}
+.nd b{font-size:13px;color:var(--accent)}
+.nd span{font-size:13px}
+.nd .tm{font-weight:700;font-size:15px}
+.nd .tm.pend{font-weight:500;font-size:12px;color:var(--warn)}
+.nb{display:flex;flex-direction:column;min-width:0;gap:2px}
+.nt{font-weight:600;font-size:14px;line-height:1.25}
+.nv{font-size:12px;color:var(--muted);line-height:1.25}
+.nchg{align-self:flex-start;font-size:11px;font-weight:700;color:#3a2200;background:var(--warn);border-radius:999px;padding:1px 8px;margin-top:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div class="wrap" id="app"></div>
+
+<script>
+/* ---------- Colores de equipación (de la ficha de cada equipo en la RFFM) ---------- */
+const C={verde:"#3c9a5b",blanco:"#f3f4f2",rojo:"#d0382a",azul:"#2b55c2",marino:"#1d2b57",naranja:"#ee6b2a",amarillo:"#f2c32e",negro:"#1c1c1c",celeste:"#7cc4ec"};
+
+/* ---------- Datos: Preferente Alevín, Grupo 1 ---------- */
+const ALEVIN={
+  key:"alevin", label:"Alevín A", cat:"Fútbol 11",
+  comp:"PREFERENTE ALEVÍN - Grupo 1",
+  me:"ESC", year:{"10":2026,"11":2026,"12":2026,"01":2027,"02":2027,"03":2027,"04":2027,"05":2027},
+  src:"https://www.rffm.es/competicion/calendario?temporada=22&tipojuego=1&competicion=26737850&grupo=26737851",
+  teams:{
+    ALP:{n:"C.D. Alpedrete 'A'",k:[C.rojo,C.azul]},
+    PUE:{n:"C.D. Puerta de Madrid 'A'",k:[C.marino,C.amarillo]},
+    DV7B:{n:"CD DV7 Madrid 'B'",k:[C.rojo,C.rojo]},
+    UZN:{n:"Unión Zona Norte 'A'",k:[C.marino,C.celeste]},
+    ARA:{n:"Aravaca C.F. - Ceiba 'B'",k:[C.azul,C.blanco],p:"stripes"},
+    LRB:{n:"Las Rozas C.F. 'B'",k:[C.azul,C.blanco]},
+    ESC:{n:"EEPP San Fernando Escolapios Pozuelo 'A'",short:"Escolapios 'A'",k:[C.verde,C.blanco]},
+    FPA:{n:"C.D.E. F.P.A. Las Rozas 'B'",k:[C.naranja,C.naranja]},
+    NBC:{n:"C.D. Nuevo Boadilla 'C'",k:[C.amarillo,C.negro]},
+    ADF:{n:"Fundación ADF 'A'",k:[C.blanco,C.marino]},
+    ARR:{n:"U.D. Arroyofresno 'A'",k:[C.naranja,C.negro]},
+    EFP:{n:"Escuela Fútbol Barrio Pilar 'A'",k:[C.verde,C.verde]},
+    FUE:{n:"Club Fuentelarreyna 'A'",k:[C.rojo,C.rojo]},
+    RET:{n:"C.D. Retamar-Pozuelo 'A'",k:[C.rojo,C.blanco]}
+  },
+  order:["UZN","PUE","EFP","RET","DV7B","ARA","LRB","FPA","ESC","ADF","FUE","ALP","NBC","ARR"],
+  zones:{1:"up",2:"up",12:"warn",13:"down",14:"down"},
+  zoneLegend:[["var(--accent)","Puestos de ascenso"],["var(--warn)","Promoción de descenso"],["var(--bad)","Descenso"]],
+  dates:["10/10","17/10","24/10","31/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02","13/02","20/02","27/02","06/03","13/03","20/03","03/04","10/04","17/04","24/04","01/05","08/05"],
+  // [local, visitante, gl, gv, fecha, hora, sede]
+  m:{
+   1:[["ALP","PUE",1,6,"10/10","10:50","Alpedrete - Pvo. Municipal"],["ARR","EFP",1,3,"11/10","11:30","Isla Tabarca"],["ESC","FPA",1,1,"10/10","13:00","Pozuelo - Colegio Escolapios"],["DV7B","UZN",0,4,"10/10","11:00","Universidad Alfonso X el Sabio"],["ARA","LRB",4,1,"10/10","12:15","Aravaca - Antonio Sanfiz"],["NBC","ADF",0,1,"10/10","13:45","Boadilla - Pvo. Municipal Ángel Nieto 3"],["FUE","RET",2,3,"22/10","18:40","Valdeyeros"]],
+   2:[["PUE","FUE",5,3,"17/10","16:00","Majadahonda - Inst. Dep. La Oliva"],["EFP","ALP",6,1,"17/10","09:15","C.D.M. Vicente del Bosque"],["FPA","ARR",5,1,"17/10","13:00","Las Rozas - Recinto Ferial"],["UZN","ESC",6,0,"17/10","15:00","Pvo. La Cabrera - Bº del Pilar"],["LRB","DV7B",2,3,"17/10","16:15","Las Rozas - Pvo. Dehesa de Navalcarbón 2"],["ADF","ARA",3,4,"17/10","15:30","Fundación"],["RET","NBC",5,0,"17/10","12:45","Pozuelo - Colegio Retamar"]],
+   3:[["PUE","EFP",4,0,"24/10","16:00","Majadahonda - Inst. Dep. La Oliva"],["ALP","FPA",1,1,"24/10","10:00","Alpedrete - Pvo. Municipal"],["ARR","UZN",2,6,"25/10","12:30","Isla Tabarca"],["ESC","LRB",1,2,"24/10","10:20","Pozuelo - Colegio Escolapios"],["DV7B","ADF",2,1,"24/10","10:00","Universidad Alfonso X el Sabio"],["ARA","RET",0,3,"24/10","19:40","Aravaca - Antonio Sanfiz"],["FUE","NBC",4,3,"24/10","12:45","Valdeyeros"]],
+   4:[["EFP","FUE",5,0,"31/10","09:15","C.D.M. Vicente del Bosque"],["FPA","PUE",0,2,"31/10","11:15","Las Rozas - Recinto Ferial"],["UZN","ALP",12,3,"31/10","13:40","Pvo. La Cabrera - Bº del Pilar"],["LRB","ARR",3,2,"31/10","11:15","Las Rozas - Pvo. Dehesa de Navalcarbón 1"],["ADF","ESC",2,3,"31/10","10:40","Fundación"],["RET","DV7B",0,4,"31/10","12:45","Pozuelo - Colegio Retamar"],["NBC","ARA",null,null,"31/10","13:58","Boadilla - Pvo. Municipal Ángel Nieto 3"]],
+   5:[["EFP","FPA",null,null,"07/11","13:45","C.D.M. Vicente del Bosque"],["PUE","UZN",null,null,"07/11","18:00","Majadahonda - Inst. Dep. La Oliva"],["ALP","LRB",null,null,"07/11","12:00","Alpedrete - Pvo. Municipal"],["ARR","ADF",null,null,"07/11","16:30","Isla Tabarca"],["ESC","RET",null,null,"07/11","11:30","Pozuelo - Colegio Escolapios"],["DV7B","NBC",null,null,"08/11","13:15","Universidad Alfonso X el Sabio"],["FUE","ARA",null,null,"07/11","14:25","Valdeyeros"]]
+  },
+  pairs:{
+   6:"FPA-FUE UZN-EFP LRB-PUE ADF-ALP RET-ARR ARA-DV7B NBC-ESC",
+   7:"FPA-UZN EFP-LRB PUE-ADF ALP-RET ARR-NBC ESC-ARA FUE-DV7B",
+   8:"UZN-FUE LRB-FPA ADF-EFP RET-PUE NBC-ALP ARA-ARR DV7B-ESC",
+   9:"UZN-LRB FPA-ADF EFP-RET PUE-NBC ALP-ARA ARR-DV7B FUE-ESC",
+   10:"LRB-FUE ADF-UZN RET-FPA NBC-EFP ARA-PUE DV7B-ALP ESC-ARR",
+   11:"LRB-ADF UZN-RET FPA-NBC EFP-ARA PUE-DV7B ALP-ESC FUE-ARR",
+   12:"FUE-ADF RET-LRB NBC-UZN ARA-FPA DV7B-EFP ESC-PUE ARR-ALP",
+   13:"ADF-RET LRB-NBC UZN-ARA FPA-DV7B EFP-ESC PUE-ARR ALP-FUE",
+   14:"PUE-ALP EFP-ARR FPA-ESC UZN-DV7B LRB-ARA ADF-NBC RET-FUE",
+   15:"FUE-PUE ALP-EFP ARR-FPA ESC-UZN DV7B-LRB ARA-ADF NBC-RET",
+   16:"EFP-PUE FPA-ALP UZN-ARR LRB-ESC ADF-DV7B RET-ARA NBC-FUE",
+   17:"FUE-EFP PUE-FPA ALP-UZN ARR-LRB ESC-ADF DV7B-RET ARA-NBC",
+   18:"FPA-EFP UZN-PUE LRB-ALP ADF-ARR RET-ESC NBC-DV7B ARA-FUE",
+   19:"FUE-FPA EFP-UZN PUE-LRB ALP-ADF ARR-RET ESC-NBC DV7B-ARA",
+   20:"UZN-FPA LRB-EFP ADF-PUE RET-ALP NBC-ARR ARA-ESC DV7B-FUE",
+   21:"FUE-UZN FPA-LRB EFP-ADF PUE-RET ALP-NBC ARR-ARA ESC-DV7B",
+   22:"LRB-UZN ADF-FPA RET-EFP NBC-PUE ARA-ALP DV7B-ARR ESC-FUE",
+   23:"FUE-LRB UZN-ADF FPA-RET EFP-NBC PUE-ARA ALP-DV7B ARR-ESC",
+   24:"ADF-LRB RET-UZN NBC-FPA ARA-EFP DV7B-PUE ESC-ALP ARR-FUE",
+   25:"ADF-FUE LRB-RET UZN-NBC FPA-ARA EFP-DV7B PUE-ESC ALP-ARR",
+   26:"RET-ADF NBC-LRB ARA-UZN DV7B-FPA ESC-EFP ARR-PUE FUE-ALP"
+  },
+  rest:{},
+  // detalle de los partidos de Escolapios (actas RFFM)
+  acta:{
+   1:{ref:"El Azizi Belhadj, Azeddin",g:[["32","Quemada Cespedosa, Alberto","FPA"],["56","Sánchez Montañez Gómez Pimpollo, Alberto","ESC"]]},
+   2:{ref:"Fumero León, Gustavo",g:[["10","García del Peso, Samuel","UZN"],["18","Gómez Román, Luca","UZN"],["41","Aparicio Cañadas, Hugo","UZN"],["45","García del Peso, Samuel","UZN"],["50","Torres Fernández, Luca","UZN"],["59","Fabián Ramos, Taylor","UZN"]]},
+   3:{ref:"Huerto Querejazu, Alejandro",g:[["10","Quesada Gutiérrez, Pablo","LRB"],["40","Rojo Fernández Campoamor, Alejandro","ESC"],["59","Valentín Hernández, Alberto","LRB"]]},
+   4:{ref:"Summers Sánchez, Alejandro",g:[["2","Migoya Alonso, Guillermo","ADF"],["15","Bano Prieto, Diego","ESC"],["17","Rojo Fernández Campoamor, Alejandro","ESC"],["48","Rojo Fernández Campoamor, Alejandro","ESC"],["57","Migoya Alonso, Guillermo","ADF"]]}
+  },
+  scorers:[
+   ["Cortazar Rojo, Lucas","ARA",6,1],["Asensio Ortega, Marcos","EFP",6,0],["García del Peso, Samuel","UZN",5,0],["Muñoz Marques, Víctor","PUE",5,0],["De Luis Muñoz, Hernán","UZN",4,0],["Pérez Guzmán, Alonso","ALP",4,1],["Zayas Parada, Daniel","FUE",4,1],["Orient del Bosque, Mario","PUE",4,0],["Orol Bermúdez, Antonio","RET",4,0],["Giannotti, Francesco","EFP",4,0],
+   ["López-Dóriga Arroyo, Nicolás","RET",3,1],["Belloso Simón, Marcos","UZN",3,0],["Villagómez Álvarez, Antonio","PUE",3,0],["Valentín Hernández, Alberto","LRB",3,0],["López Escobar, Marcos","NBC",3,0],["Rojo Fernández Campoamor, Alejandro","ESC",3,0],["Aparicio Cañadas, Hugo","UZN",3,0],["Gómez González, Alejandro","ARR",3,0],
+   ["Larrea Hernández, Jon","FUE",2,0],["Gómez Román, Luca","UZN",2,0],["Migoya Alonso, Guillermo","ADF",2,0],["Mendiola Cruz, Alex","DV7B",2,0],["Quesada Gutiérrez, Pablo","LRB",2,0],["Lebrero Garcés, Marcos","EFP",2,0],["Tomé Rojas, Yeremi","UZN",2,0],["Mata Población, Juan Miguel","UZN",2,0],["Quemada Cespedosa, Alberto","FPA",2,0],["Soiza Herraiz, Lucas","DV7B",2,0],["Rodríguez Hernández, Alonso","ADF",2,0],["Utrilla Martínez, Izan","DV7B",2,0],["Álvarez de Neyra González, Bosco","ADF",2,0],["Blanco Rodríguez-Manzaneque, Jacobo","PUE",2,0],
+   ["Sánchez Montañez Gómez Pimpollo, Alberto","ESC",1,0],["Tejero Juárez, Joel","ALP",1,0],["Monroy Hernández, Beltrán","UZN",1,0],["Pelegrí Moreno, Beltrán","RET",1,0],["Galán Morgado, Alex","DV7B",1,0],["Criado Moya, Joel","ALP",1,0],["Sánchez Martínez, Pablo Esteban","FUE",1,0],["Osborne Martínez Echecarria, Juan","ARA",1,0],["Ayala Milla, Leo","DV7B",1,0],["Gómez de las Cortinas Maceda, Álvaro","RET",1,0],["Moreno Escrich, Alejandro","UZN",1,0],["Díaz Ordóñez de Barraicua, Rodrigo","FPA",1,0],["Segovia Nuño, Aimar","UZN",1,0],["Olarte Galán, Álvaro","NBC",1,0],["Haaxman Espinosa de los Monteros, Nicolás","RET",1,0],["Martín Tuñas, Leo","UZN",1,0],["Mejías Galiano, David","FUE",1,0],["Bano Prieto, Diego","ESC",1,0],["Riera Olivencia, Nicolás","PUE",1,0],["Rabadán Azañedo, Pablo","ADF",1,0],["Huerta Carrascosa, Diego","LRB",1,0],["Palazuelos Martínez, Daniel Jesús","PUE",1,0],["Fernández Contreras, Álvaro","FUE",1,0],["González Miranda, Miguel","PUE",1,0],["Del Canto Calo, Marcos","NBC",1,0],["Fabián Ramos, Taylor","UZN",1,0],["Lattari Tubio, Joaquín","DV7B",1,0],["Pinto Vázquez, Eduardo","FPA",1,0],["Aleu Gracia, Mario","FPA",1,0],["Porto Herranz, Álvaro","UZN",1,0],["Inclán Campos, Pablo","FPA",1,0],["Bujalante Nieto, Sergio","EFP",1,0],["Martínez Goyanes, Manuel","ARA",1,0],["Romero Calderón, Matteo Joaquín","EFP",1,0],["Leal Navarro, Illán","ARR",1,0],["Fernández Ortiz, Alejandro","LRB",1,0],["Madrigal Jiménez, Telmo","LRB",1,0],["Torres Fernández, Luca","UZN",1,0],["Márquez Jiménez, Juan","ARR",1,0],["Bedón Noriega, Thiago","ARR",1,0]
+  ],
+  scorersNote:null,
+  squad:["Bano Prieto, Diego","Bellver Seoanez, Juan","Boticario Pérez de Sevilla, Álvaro","Boticario Pérez de Sevilla, Jaime","Cujo Sebastián, Aníbal","Fernández-Aller Rodríguez, Javier","García González, Sergio","Garnica Leal, Jorge","López Boleas, Martín","Lozano Redondo, Saúl","Miralles Martínez, Mateo","Moreira Barrio, Alberto","Morillo de la Fuente, Jorge","Pan Martín, Manuel","Reyes Yeguas, Álvaro","Rojo Fernández Campoamor, Alejandro","Romero Pachón, Guillermo","Rueda Plaza, Hugo","Sánchez Montañez Gómez Pimpollo, Alberto","Santiago Gallo, Ignacio","Tauroni Jiménez-Alfaro, Iñigo","Zamora Ampuero, Alfredo"],
+  delegates:["Escondrillas García, Diego"],
+  home:"Pozuelo - Colegio Escolapios",
+  futureVenue:"Por confirmar", markerOnly:false
+};
+
+/* ---------- Datos: División de Honor Benjamín F-7, Grupo 1 (Ángel Nieto) ---------- */
+const BENJAMIN={
+  key:"benjamin", label:"Benjamín A", cat:"Fútbol 7",
+  comp:"DIVISIÓN DE HONOR BENJAMÍN F-7 - Grupo 1 - BOADILLA (ÁNGEL NIETO)",
+  me:"ESC", year:{"10":2026,"11":2026,"12":2026,"01":2027,"02":2027},
+  src:"https://www.rffm.es/competicion/calendario?temporada=22&competicion=26738273&grupo=26738274&tipojuego=2&jornada=1",
+  teams:{
+    VIL:{n:"A.D. Villaviciosa de Odón 'A'",k:[C.blanco,C.blanco]},
+    TOR:{n:"C.D. Minifútbol Torrelodones 'A'",k:[C.verde,C.negro]},
+    FRM:{n:"S.A.D. Fundación Rayo Majadahonda 'A'",k:[C.blanco,C.azul]},
+    FPA:{n:"C.D.E. F.P.A. Las Rozas 'A'",k:[C.naranja,C.naranja]},
+    GET:{n:"Getafe C.F. S.A.D. 'D'",k:[C.azul,C.azul]},
+    DV7:{n:"CD DV7 Madrid 'A'",k:[C.rojo,C.rojo]},
+    TKA:{n:"CDE Toni Kroos Academy 'A'",k:[C.blanco,C.blanco]},
+    ESC:{n:"EEPP San Fernando Escolapios Pozuelo 'A'",short:"Escolapios 'A'",k:[C.verde,C.blanco]},
+    RMJ:{n:"C.F. Rayo Majadahonda SAD 'A'",k:[C.blanco,C.azul],p:"sash"},
+    LRA:{n:"Las Rozas C.F. 'A'",k:[C.azul,C.blanco]},
+    NBA:{n:"C.D. Nuevo Boadilla 'A'",k:[C.amarillo,C.negro]},
+    RVC:{n:"S.A.D. Fundación Rayo Vallecano 'C'",k:[C.blanco,C.blanco],p:"sash"},
+    ARA:{n:"Aravaca C.F. - Ceiba 'A'",k:[C.azul,C.blanco],p:"stripes"}
+  },
+  order:["FPA","RMJ","TKA","GET","DV7","FRM","ARA","NBA","VIL","LRA","TOR","ESC","RVC"],
+  zones:{}, zoneLegend:[],
+  dates:["03/10","17/10","24/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02"],
+  m:{
+   1:[["VIL","TOR",1,0,"03/10","09:00"],["NBA","RVC",1,0,"03/10","10:00"],["GET","DV7",1,0,"03/10","11:00"],["TKA","ESC",1,0,"03/10","12:00"],["RMJ","LRA",1,0,"03/10","13:00"],["FRM","FPA",0,1,"03/10","14:00"]],
+   2:[["DV7","FRM",0,0,"17/10","09:00"],["ESC","GET",0,1,"17/10","10:00"],["ARA","NBA",1,0,"17/10","11:00"],["RVC","RMJ",0,1,"17/10","12:00"],["FPA","VIL",1,0,"17/10","13:00"],["LRA","TKA",0,1,"17/10","14:00"]],
+   3:[["GET","LRA",0,1,"24/10","09:00"],["VIL","DV7",0,1,"24/10","10:00"],["FRM","ESC",1,0,"24/10","11:00"],["TOR","FPA",0,1,"24/10","12:00"],["TKA","RVC",1,0,"24/10","13:00"],["RMJ","ARA",1,0,"24/10","14:00"]],
+   4:[["ARA","TKA",null,null,"07/11","09:00"],["NBA","RMJ",null,null,"07/11","10:00"],["RVC","GET",null,null,"07/11","11:00"],["LRA","FRM",null,null,"07/11","12:00"],["DV7","TOR",null,null,"07/11","13:00"],["ESC","VIL",null,null,"07/11","14:00"]]
+  },
+  pairs:{
+   5:"TOR-ESC VIL-LRA TKA-NBA GET-ARA FRM-RVC FPA-DV7",
+   6:"RVC-VIL ARA-FRM LRA-TOR NBA-GET ESC-FPA RMJ-TKA",
+   7:"FRM-NBA TOR-RVC VIL-ARA DV7-ESC GET-RMJ FPA-LRA",
+   8:"RMJ-FRM TKA-GET LRA-DV7 NBA-VIL RVC-FPA ARA-TOR",
+   9:"DV7-RVC ESC-LRA TOR-NBA VIL-RMJ FPA-ARA FRM-TKA",
+   10:"TKA-VIL ARA-DV7 RMJ-TOR GET-FRM NBA-FPA RVC-ESC",
+   11:"ESC-ARA VIL-GET DV7-NBA LRA-RVC TOR-TKA FPA-RMJ",
+   12:"NBA-ESC RMJ-DV7 FRM-VIL TKA-FPA ARA-LRA GET-TOR",
+   13:"DV7-TKA RVC-ARA ESC-RMJ TOR-FRM FPA-GET LRA-NBA"
+  },
+  rest:{1:"ARA",2:"TOR",3:"NBA",4:"FPA",5:"RMJ",6:"DV7",7:"TKA",8:"ESC",9:"GET",10:"LRA",11:"FRM",12:"RVC",13:"VIL"},
+  acta:{1:{ref:"Vela Jurado, Daniel"},2:{ref:"Abanades Martín, Sergi"},3:{ref:"Vallés Rodríguez, Axel"},4:{ref:"Bautista Cáceres, Bryan"}},
+  scorers:[],
+  scorersNote:"La RFFM no publica goleadores en esta categoría.",
+  squad:["Bano Prieto, Marco","Córdoba Gómez, Gonzalo","Gazol García, Tristán","González Gutiérrez, Alonso","Hevia-Campomanes Urrutia, Alberto","Majidi, Seyed Matiar","Martín Barreras, Álvaro","Molinary Martín, Álvaro","Paramio Sabugal, Mateo","Prieto Candil, Jorge","Romero Panchón, Daniel","Sánchez Cuesta, Pablo","Suciu Borislavov, Eduard Alexandru","Zamora Ampuero, Miguel"],
+  delegates:["Aycart Martínez, Juan Francisco"],
+  home:"Boadilla - Pvo. Municipal Ángel Nieto 2",
+  futureVenue:"Boadilla - Pvo. Municipal Ángel Nieto (sede del grupo)",
+  defaultVenue:"Boadilla - Pvo. Municipal Ángel Nieto 2",
+  markerOnly:true
+};
+
+/* ---------- Todos los equipos del club (ficha RFFM del club 4482) ----------
+   k: clave; los que tienen datos cargados están en COMPS (DATA). El resto muestra "datos pendientes"
+   hasta que la actualización diaria los cargue porque alguien los ha marcado como favoritos. */
+const CATALOG=[
+  {k:"segunda-aficionado",cat:"Fútbol 11",label:"Aficionado",comp:"Segunda Aficionado",id:8960999},
+  {k:"infantil-a",cat:"Fútbol 11",label:"Infantil A",comp:"Segunda Infantil",id:3023},
+  {k:"alevin",cat:"Fútbol 11",label:"Alevín A",comp:"Preferente Alevín - Grupo 1",id:3025},
+  {k:"alevin-f7-a",cat:"Alevín F-7",label:"Alevín F-7 A",comp:"Primera Alevín F-7",id:13561830},
+  {k:"alevin-f7-b",cat:"Alevín F-7",label:"Alevín F-7 B",comp:"Segunda Alevín F-7",id:13561833},
+  {k:"alevin-f7-c",cat:"Alevín F-7",label:"Alevín F-7 C",comp:"Segunda Alevín F-7",id:27500196},
+  {k:"alevin-fem",cat:"Alevín F-7",label:"Alevín Femenino",comp:"Primera Femenino Alevín F-7",id:20654759},
+  {k:"benjamin",cat:"Benjamín F-7",label:"Benjamín A",comp:"División de Honor Benjamín F-7 - Grupo 1",id:300164},
+  {k:"benjamin-b",cat:"Benjamín F-7",label:"Benjamín B",comp:"Preferente Benjamín F-7 - Grupo 24",id:12521863},
+  {k:"benjamin-c",cat:"Benjamín F-7",label:"Benjamín C",comp:"Preferente Benjamín F-7 - Grupo 24",id:3355039},
+  {k:"benjamin-d",cat:"Benjamín F-7",label:"Benjamín D",comp:"Primera Benjamín F-7",id:12521865},
+  {k:"prebenjamin-a",cat:"Prebenjamín",label:"Prebenjamín A",comp:"Prebenjamín",id:12521866},
+  {k:"prebenjamin-b",cat:"Prebenjamín",label:"Prebenjamín B",comp:"Prebenjamín",id:12521868},
+  {k:"prebenjamin-c",cat:"Prebenjamín",label:"Prebenjamín C",comp:"Prebenjamín",id:12521870},
+  {k:"prebenjamin-d",cat:"Prebenjamín",label:"Prebenjamín D",comp:"Prebenjamín",id:19682677},
+  {k:"prebenjamin-e",cat:"Prebenjamín",label:"Prebenjamín E",comp:"Prebenjamín",id:12521878},
+  {k:"debutante-a",cat:"Debutante",label:"Debutante A",comp:"Debutante",id:12521879},
+  {k:"debutante-b",cat:"Debutante",label:"Debutante B",comp:"Debutante",id:12521880},
+  {k:"debutante-c",cat:"Debutante",label:"Debutante C",comp:"Debutante",id:28301892}
+];
+/* Plantillas de todos los equipos (ficha de cada equipo en la RFFM, 3 nov 2026) para el buscador de jugadores */
+const ROSTERS={
+  "segunda-aficionado":["ASUAR PEREZ, IGNACIO","BONED GONZALEZ, JAVIER","CHOZAS MARTINEZ, JORGE","DE LOPE PEREZ, ALVARO","ESTEBANEZ DE LA TORRE, ARTURO","FERRANDIZ MADERAL, PABLO","GARAÑA CASTAÑO, IVÁN","GIL VICENTE, JORGE","LARRABE VALDIVIA, CARLOS","MARTIN JIMENEZ, MATEO","MARTINEZ FERNANDEZ, LUCAS","MARTINEZ SALAZAR LOPEZ, PABLO","MONTERO BARBARIN, JAIME","NEGUERUELA ABREU, NICOLAS","PAREDES PEREZ, VICTOR","PEREZ HICKMAN DURAN, JAVIER","ROJANO DORRONSORO, JAIME","RUEDA MARIN, BELTRAN DOMINGO","SEGARRA PORRES, FERNANDO","TUR MAYORAL, DANIEL","TUR MAYORAL, DIEGO","VELASCO JUAN, JOAQUIN"],
+  "infantil-a":["ACEÑA ALBERT, GUILLERMO","ADASME VOZMEDIANO, DANIEL","AMIAN MANZANO, ALEJANDRO","AMIAN MANZANO, IGNACIO","ARIMONDI MARTINEZ, ENZO","BAHILLO JEREZ, JOSE MARIA","BARRIONUEVO LASERNA, JORGE","BRAVO LLAMAS, ALEJANDRO","COSTAGUTA GAVILANES, JORGE","EIHAMY, SHAHDAD","LATORRE CARLON, LUCAS","LENCE RIVERA, JOSE IGNACIO","MEROÑO REED, DANIEL LUKA","MHAMMEDI-ALAOUI GOMEZ, RAYAN MARC","NUÑEZ NUÑEZ, ALVARO","POBLACIONES LOPEZ OTAZU, PABLO","RODRIGUEZ ALONSO, FERNANDO","RODRIGUEZ CARRASCO, ALEX","RODRIGUEZ CATALUÑA, HUGO","SANCHEZ ROLDAN, RUBEN","SCOTT-GLENDONWYN MORILLA, ROQUE","SOBRINO KORTE, ELOOI","VILLENA BUEY, RODRIGO"],
+  "alevin-f7-a":["ACEÑA ALBERT, JORGE","CERRATO CUESTA, CARLOS","CRESPO BROX, ADRIAN","FERNANDEZ RAMOS, ANTONIO","GARCIA BUENDIA, ALEJANDRO","GARCIA SANCHEZ-TEMBLEQUE, DAVID","LENCE RIVERA, GONZALO","MARCHAL SANZ, JAIME","MARTÍN BONILLA, ÓLIVER","SICRE GONZALEZ, CARLOS","VALLES MARTINEZ, ALVARO","VELASQUEZ GONZALEZ, LUCAS","VELEZ LADAGA, BRUNO","VISA, ROBERT IOAN"],
+  "alevin-f7-b":["AYUSO TEROL, JUAN","BALLESTEROS BARBERA, LUCAS","BERDUGO JORDAN, JAIME","BLANCO RODRIGUEZ, GONZALO","CARDENAS ANGULO, SEBASTIAN","CERVANTES GARCIA, ALVARO","EBRO MUÑOZ, IKER","FERNANDEZ GORDO, GUILLERMO","GOMEZ FERNANDEZ, JORGE","HEREDIA WILDE, JAIME","ORDOQUI DELLA LOGGIA, FRANCISCO","PARRILLA ALONSO, MAURO","RODRIGUEZ BOLET, DIEGO","SELAS AREIA, DANIEL","VELASQUEZ GONZALEZ, JERONIMO"],
+  "alevin-f7-c":["CORRAL VELAYOS, MARCOS","CUESTA ESCRIBANO, JAIME","CUÑADO BALBAS, DANIEL","DEL CANO MUÑOZ DE LA LUNA, ENRIQUE","DOMINGUEZ CARRIO, DANI","FERREIRO GONZALEZ, JON","GARCIA FERNANDEZ, RAFAEL","GARCIA HERNANDEZ, DARIO","GARCIA SANCHEZ, HUGO","GOMEZ BARQUERO CIDONCHA, GUILLERMO","INARANJA AZCOITIA, JAVIER","JIMENEZ SANCHEZ, PABLO","MADRID DUQUE, FERNANDO","ORTEGA LOPEZ, IGNACIO","RODRIGUEZ BARRERO, JAIME","RODRIGUEZ DE LAZARO ROS, GONZALO","RUIZ DE VILLA GARCIA, MANUEL","VALDES GRAIÑO, GONZALO"],
+  "alevin-fem":["ANCOCHEA TOSCANO, MARTA JULIETA","ARAGON SERIS, ISABEL","BERMUDEZ DE CASTRO MEROÑO, VALENTINA","BRAVO SEPÚLVEDA, CAYETANA","GOIBURU PELLEGRINI, MARTINA","HEVIA CAMPOMANES URRUTIA, ALICIA","LOBATO JUNQUERA, ISABEL","MASSARI BRIZUELA, CAMILA","POVEDA HERNANDEZ, CELIA","REDONDO RUFO, SOFIA","SOBRINO MARÍN, JULIETA"],
+  "benjamin-b":["ABALOS GONZALEZ, MATEO","AYLAGAS FERNANDEZ, ALEX","CABANAS ANDRONACHI, ALEJANDRO","CABANAS ANDRONACHI, RODRIGO","DOMINGUEZ VILLASECA, TEO","GARCIA GONZALEZ, MATEO","GARNICA LEAL, BORJA","GRANADO FERNANDEZ CRIADO, ALVARO","MARTIN MALUENDA, BORJA","MARTIN-PEÑASCO MORENO, LUIS","MARTINEZ MARTIN, JACOBO","MENDEZ CUELLAR, ALEJANDRO","RUEDA PLAZA, LUCAS","TORRES GORDILLO, LUCAS"],
+  "benjamin-c":["BELLVER SEOANEZ, JOSE","BERMUDEZ DE CASTRO MEROÑO, YAGO","CERVANTES GARCIA, MANUEL","GARCIA-BERNALT BENITO, JUAN","HERNÁNDEZ DE LA BANDERA, HECTOR","JIMENEZ SANCHEZ, MIGUEL","MORILLO INGLESE, SANTIAGO DAVID","POBLACIONES LOPEZ-OTAZU, IGNACIO","RODRIGUEZ DE LAZARO ROS, MARCO","RUIZ HIDALGO, ALEJANDRO","RUIZ DE VILLA GARCIA, DIEGO"],
+  "benjamin-d":["ALVARO ROT, LUCAS","ASTARLOA RODRIGUEZ, MIKEL","ASWORTH MANZANO, LUCAS","BENSUSAN JUNG, LUIS PEDRO","DE ANDRÉS SIERRA, MATEO","DEL CANO MUÑOZ DE LUNA, JORGE","FRAILE GONZALEZ, IGNACIO","JIMENEZ CERNUDA, NICOLAS","MARTIN-HINOJAL SANCHEZ, LUIS","MARTINEZ CARRILLO DE ALBORNOZ, CARLOS","PEDROSA SEGURA, RODRIGO","SANCHEZ BLANCO, PABLO"],
+  "prebenjamin-a":["AYUSO TEROL, IÑIGO","EBRO MUÑOZ, MIKEL","GALAN SATRUSTEGUI, COSME","GARCIA HERNANDEZ, LUIS","GAZOL GARCIA, NICOLAS","GOMEZ TARASCON, ALEJANDRO","GRANDA PETIT, JAVIER","LINARES MORA, DANIEL","MARCHAL SANZ, NICOLAS","MARTIN BARRERAS, JAIME","PEDRALS MORRAL, ORIOL","SORIANO BENITO, HUGO","TORRES CATURLA, PABLO"],
+  "prebenjamin-b":["ASENSIO RAMOS, HUGO","CASAJUANA PAZ, TELMO","DE DORREMOCHEA MARTIN, BOSCO","DORAO ESCOBAR, ALVARO","GARAU BLANCO, ALVARO","GARCIA GONZALEZ, NACHO","GONZÁLEZ-FRIAS RIOJA, IGNACIO","HERNANDEZ LOPEZ, ALEJANDRO","JOVE CASADO, MIGUEL","LORENZO OCAÑA, ALEJANDRO","PEREZ FERNANDEZ, SANTIAGO","PIELTAIN CASTELLVI, FRANCISCO","SIERRA CABRA, GUILLERMO","SUAREZ REYERO, MILO"],
+  "prebenjamin-c":["ACEÑA ALBERT, ALVARO","ALCARAZ ALEJO, FERNANDO","ASWORTH MANZANO, ALONSO","BEUCA RYBCHUK, MISY","CUÑADO BALBAS, DIEGO","FERNÁNDEZ FLORES, NOEL","FERRER MADRAZO, ALVARO","HERNANDEZ DE LA BANDERA, MARCOS","JIMENEZ CERNUDA, GUILLERMO","MARTIN MUÑOZ, LOGAN","MATEO MATA, PAUL","MILLAN-ASTRAY HERRAN, JAVIER","ORTIZ GERMAN, CARLOS","RUIZ DE LA VILLA GARCIA, LUIS","SÁNCHEZ DOMÍNGUEZ, GONZALO"],
+  "prebenjamin-d":["CASTELLÁ MONTAÑA, MARTIN","CASTELLÁ MONTAÑA, TRISTAN","DIMAS LOPEZ, MARCOS","ESTEBAN GIL, GONZALO","FERHATI ALVAREZ, LORENZO","GOMEZ SANZ, GONZALO","GUTIERREZ USATEGUI, NICOLAS","LOPEZ BOLEAS, TELMO","LUCINI ARCE, VERA","MARTIN GALVAN, ALVARO","OTERO AGUADO, SANTIAGO","REBOLLO CORTIJO, CESAR"],
+  "prebenjamin-e":["AMARILES RIVAS, MIGUEL ÁNGEL","FERHATI ALVAREZ DE TOLEDO, GIULIA","GARCIA-BARCELO GUTIERREZ DE CALDERON, RAFAEL","LUSSON FALCON, GONZALO","MARTIN BONILLA, LEONARDO","MARTIN MALUENDA, MARIA","PÉREZ-MARIN APARICIO, JAVIER","PÉREZ-MARIN APARICIO, MARCO","QUINTANILLA MUÑOZ, FRANCISCO","SAAVEDRA SALDIAS, JULEN ALEJANDRO"],
+  "debutante-a":[],"debutante-b":[],"debutante-c":[]
+};
+ALEVIN.teamName="EEPP San Fernando Escolapios Pozuelo 'A'";
+BENJAMIN.teamName="EEPP San Fernando Escolapios Pozuelo 'A'";
+/* DATA: equipos con datos cargados. La actualización diaria añade aquí nuevos objetos con la misma forma que ALEVIN. */
+/* ---------- Datos: Preferente Benjamín F-7, Grupo 24 (Boadilla) ---------- */
+const BENJAMINB={
+  key:"benjamin-b", label:"Benjamín B", cat:"Fútbol 7",
+  comp:"PREFERENTE BENJAMÍN F-7 - Grupo 24 - BOADILLA",
+  me:"ESC", year:{"10":2026,"11":2026,"12":2026,"01":2027,"02":2027},
+  src:"https://www.rffm.es/competicion/calendario?temporada=22&tipojuego=2&competicion=26737926&grupo=26800707",
+  teams:{
+    ESC:{n:"EEPP San Fernando Escolapios Pozuelo 'B'",short:"Escolapios 'B'",k:[C.verde,C.blanco]},
+    ESCC:{n:"EEPP San Fernando Escolapios Pozuelo 'C'",short:"Escolapios 'C'",k:[C.verde,C.blanco]},
+    FDE:{n:"C.D.E. Football Dreams Experience 'A'",k:[C.rojo,C.rojo]},
+    TKC:{n:"CDE Toni Kroos Academy 'C'",k:[C.blanco,C.blanco]},
+    CAL:{n:"A.D. Cala Pozuelo 'A'",k:[C.azul,C.blanco]},
+    NBD:{n:"C.D. Nuevo Boadilla 'D'",k:[C.amarillo,C.negro]},
+    NBE:{n:"C.D. Nuevo Boadilla 'E'",k:[C.amarillo,C.negro]},
+    NBF:{n:"C.D. Nuevo Boadilla 'F'",k:[C.amarillo,C.negro]},
+    POZB:{n:"C.F. Pozuelo de Alarcón 'B'",k:[C.verde,C.verde]},
+    POZC:{n:"C.F. Pozuelo de Alarcón 'C'",k:[C.verde,C.verde]},
+    POZD:{n:"C.F. Pozuelo de Alarcón 'D'",k:[C.verde,C.verde]},
+    EFB:{n:"E.F.M.O. Boadilla 'B'",k:[C.rojo,C.blanco]},
+    EFC:{n:"E.F.M.O. Boadilla 'C'",k:[C.rojo,C.blanco]}
+  },
+  order:["FDE","TKC","CAL","NBD","NBE","POZB","EFC","POZC","ESC","EFB","NBF","POZD","ESCC"],
+  zones:{}, zoneLegend:[],
+  dates:["03/10","17/10","24/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02"],
+  m:{
+   1:[["NBD","NBE",1,0,"03/10","09:00"],["POZC","NBF",0,0,"03/10","10:00"],["FDE","POZB",1,0,"03/10","11:00"],["ESCC","ESC",0,1,"03/10","12:00"],["EFB","EFC",0,0,"03/10","13:00"],["TKC","CAL",1,0,"03/10","14:00"]],
+   2:[["POZB","POZC",1,0,"17/10","09:00"],["NBE","POZD",1,0,"17/10","10:00"],["NBF","NBD",0,1,"17/10","11:00"],["CAL","EFB",1,0,"17/10","12:00"],["ESC","FDE",0,1,"17/10","13:00"],["EFC","ESCC",1,0,"17/10","14:00"]],
+   3:[["FDE","EFC",0,0,"24/10","09:00"],["NBD","POZB",0,1,"24/10","10:00"],["POZC","ESC",1,0,"24/10","11:00"],["NBE","NBF",1,0,"24/10","12:00"],["ESCC","CAL",0,1,"24/10","13:00"],["POZD","TKC",0,1,"24/10","15:05"]],
+   4:[["NBF","POZD",null,null,"07/11","09:00"],["CAL","FDE",null,null,"07/11","10:00"],["TKC","EFB",null,null,"07/11","11:00"],["EFC","POZC",null,null,"07/11","12:00"],["POZB","NBE",null,null,"07/11","13:00"],["ESC","NBD",null,null,"07/11","14:00"]],
+   5:[["ESCC","TKC",null,null,"14/11","09:00"],["NBE","ESC",null,null,"14/11","10:00"],["NBD","EFC",null,null,"14/11","11:00"],["POZD","EFB",null,null,"14/11","12:00"],["POZC","CAL",null,null,"14/11","13:00"],["NBF","POZB",null,null,"14/11","14:00"]]
+  },
+  pairs:{
+   6:"ESC-NBF EFB-ESCC POZB-POZD TKC-FDE CAL-NBD EFC-NBE",
+   7:"POZD-ESCC NBF-EFC NBE-CAL POZB-ESC POZC-TKC FDE-EFB",
+   8:"EFB-POZC TKC-NBD ESCC-FDE EFC-POZB ESC-POZD CAL-NBF",
+   9:"POZB-CAL ESC-EFC NBE-TKC NBD-EFB POZD-FDE POZC-ESCC",
+   10:"CAL-ESC FDE-POZC EFC-POZD ESCC-NBD TKC-NBF EFB-NBE",
+   11:"NBD-FDE POZB-TKC NBF-EFB POZD-POZC NBE-ESCC EFC-CAL",
+   12:"TKC-ESC POZD-CAL ESCC-NBF FDE-NBE EFB-POZB POZC-NBD",
+   13:"EFC-TKC ESC-EFB NBE-POZC NBF-FDE NBD-POZD POZB-ESCC"
+  },
+  rest:{1:"POZD",2:"TKC",3:"EFB",4:"ESCC",5:"FDE",6:"POZC",7:"NBD",8:"NBE",9:"NBF",10:"POZB",11:"ESC",12:"EFC",13:"CAL"},
+  acta:{1:{ref:"García Barahona, Carolina"},2:{ref:"Blanco Moreno, Adrián"},3:{ref:"Cano Alcojor, Nico"}},
+  scorers:[],
+  scorersNote:"La RFFM no publica goleadores en esta categoría.",
+  squad:["Ábalos González, Mateo","Aylagas Fernández, Alex","Cabanas Andronachi, Alejandro","Cabanas Andronachi, Rodrigo","Domínguez Villaseca, Teo","García González, Mateo","Garnica Leal, Borja","Granado Fernández Criado, Álvaro","Martín Maluenda, Borja","Martín-Peñasco Moreno, Luis","Martínez Martín, Jacobo","Méndez Cuéllar, Alejandro","Rueda Plaza, Lucas","Torres Gordillo, Lucas"],
+  delegates:["Zumaquero Rosa, Andrés"],
+  home:"Boadilla - Condesa Chinchón 2 (sede del grupo)",
+  futureVenue:"Boadilla - Condesa Chinchón 2 (sede del grupo)",
+  defaultVenue:"Boadilla - Condesa Chinchón 2",
+  markerOnly:true
+};
+BENJAMINB.teamName="EEPP San Fernando Escolapios Pozuelo 'B'";
+const DATA={alevin:ALEVIN,benjamin:BENJAMIN,"benjamin-b":BENJAMINB};
+const COMPS=DATA;
+/* Actualización automática (lunes a viernes): fecha de la última revisión y cambios detectados en horarios/sedes */
+const UPDATED="3 nov 2026, 22:15";
+const CHANGES=[];
+const TODAY=(()=>{const d=new Date();d.setHours(0,0,0,0);return d})();
+
+/* ---------- Preparación ---------- */
+function build(c){
+  c.J=[];
+  for(let n=1;n<=c.dates.length;n++){
+    let ms;
+    if(c.m[n]) ms=c.m[n].map(a=>({h:a[0],a:a[1],hg:a[2],ag:a[3],d:a[4],t:a[5],v:a[6]||c.defaultVenue||""}));
+    else ms=c.pairs[n].split(" ").map(p=>{const[h,a]=p.split("-");return{h,a,hg:null,ag:null,d:c.dates[n-1],t:null,v:null}});
+    let rest=c.rest[n]||null;
+    c.J.push({n,date:c.dates[n-1],ms,rest});
+  }
+  // jornada actual: la primera con partidos sin jugar cuya fecha >= hoy
+  c.cur=c.J.findIndex(j=>toDate(c,j.date)>=TODAY)+1||c.J.length;
+}
+function toDate(c,dm){const[d,m]=dm.split("/");return new Date(c.year[m],+m-1,+d)}
+const MES=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+const DIA=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+function longDate(c,dm){const dt=toDate(c,dm);return `${dt.getDate()} ${MES[dt.getMonth()]} - ${DIA[dt.getDay()]}`}
+function dayHeader(c,dm){const dt=toDate(c,dm);return `${DIA[dt.getDay()].toUpperCase()} ${String(dt.getDate()).padStart(2,"0")} DE ${MES[dt.getMonth()].toUpperCase()}`}
+function nm(c,code){const t=c.teams[code];return t.n}
+function esc(s){return String(s).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]))}
+
+function standings(c){
+  const s={};Object.keys(c.teams).forEach(k=>s[k]={k,pj:0,pg:0,pe:0,pp:0,gf:0,gc:0,pts:0,form:[]});
+  c.J.forEach(j=>j.ms.forEach(m=>{
+    if(m.hg==null)return;
+    const H=s[m.h],A=s[m.a];H.pj++;A.pj++;H.gf+=m.hg;H.gc+=m.ag;A.gf+=m.ag;A.gc+=m.hg;
+    if(m.hg>m.ag){H.pg++;A.pp++;H.pts+=3;H.form.push("W");A.form.push("L")}
+    else if(m.hg<m.ag){A.pg++;H.pp++;A.pts+=3;A.form.push("W");H.form.push("L")}
+    else{H.pe++;A.pe++;H.pts++;A.pts++;H.form.push("D");A.form.push("D")}
+  }));
+  return Object.values(s).sort((x,y)=>y.pts-x.pts||(y.gf-y.gc)-(x.gf-x.gc)||y.gf-x.gf||c.order.indexOf(x.k)-c.order.indexOf(y.k));
+}
+
+/* ---------- Camisetas ---------- */
+let sid=0;
+function shirt(team,size){
+  const[body,trim]=team.k;const id="s"+(sid++);
+  const light=["#f3f4f2","#f2c32e","#7cc4ec"].includes(body);
+  const edge=light?"rgba(0,0,0,.18)":"rgba(255,255,255,.12)";
+  let pat="";
+  if(team.p==="stripes")pat=`<g clip-path="url(#${id})">${[0,1,2,3,4,5].map(i=>i%2?`<rect x="${12+i*12.7}" y="0" width="12.7" height="100" fill="${trim}"/>`:"").join("")}</g>`;
+  if(team.p==="sash")pat=`<g clip-path="url(#${id})"><path d="M20 22 L34 22 L84 96 L70 96 Z" fill="${C.rojo}"/></g>`;
+  const P="M30 8 L42 4 Q50 12 58 4 L70 8 L94 22 L84 42 L74 36 L74 96 L26 96 L26 36 L16 42 L6 22 Z";
+  return `<svg width="${size}" height="${size}" viewBox="0 0 100 100" aria-hidden="true"><defs><clipPath id="${id}"><path d="${P}"/></clipPath></defs><path d="${P}" fill="${body}" stroke="${edge}" stroke-width="1.5"/>${pat}<path d="M42 4 Q50 16 58 4" fill="none" stroke="${trim===body?(light?"#9aa":"#fff"):trim}" stroke-width="4" stroke-linecap="round"/><path d="M57 30 h9 v7 q0 6 -4.5 8 q-4.5 -2 -4.5 -8 z" fill="none" stroke="${light?"rgba(0,0,0,.35)":"rgba(255,255,255,.8)"}" stroke-width="2"/></svg>`;
+}
+
+/* ---------- Estado ---------- */
+const S={comp:null,tab:"proximos",jj:1,jr:1,sub:"clas",onlyMe:false,open:null};
+const app=document.getElementById("app");
+
+/* ---------- Favoritos: cada persona los suyos ----------
+   Se guardan en este navegador y, si el visor lo permite, en favs/<id de la persona> para que la
+   actualización diaria sepa qué equipos cargar. */
+const FAV={list:[]};
+(function(){let l=null;try{l=JSON.parse(localStorage.getItem("esc-favs"))}catch(e){}FAV.list=Array.isArray(l)?l:["alevin","benjamin"]})();
+let DB=null,UID=null;
+function saveFav(){
+  try{localStorage.setItem("esc-favs",JSON.stringify(FAV.list))}catch(e){}
+  if(DB&&UID)DB.doc("favs/"+UID).set({teams:FAV.list,updated:Date.now()}).catch(()=>{});
+}
+(async()=>{
+  try{
+    if(!window.claude||!window.claude.use)return;
+    const[db,user]=await Promise.all([claude.use("db"),claude.use("user")]);
+    if(!db||!user)return;
+    const id=await user.id();if(!id)return;
+    DB=db;UID=id;
+    const snap=await db.doc("favs/"+id).get();
+    const t=snap.exists?snap.data().teams:null;
+    if(Array.isArray(t)){FAV.list=t;try{localStorage.setItem("esc-favs",JSON.stringify(t))}catch(e){}if(!S.comp)render()}
+    else saveFav();
+  }catch(e){}
+})();
+function heart(on){return on
+  ?'<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8.3 3.2 4.5 6.9 4.5c2.2 0 3.8 1.3 5.1 3 1.3-1.7 2.9-3 5.1-3 3.7 0 5.9 3.8 4.4 7.3C19.5 16.4 12 21 12 21z" fill="#ff6b81"/></svg>'
+  :'<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8.3 3.2 4.5 6.9 4.5c2.2 0 3.8 1.3 5.1 3 1.3-1.7 2.9-3 5.1-3 3.7 0 5.9 3.8 4.4 7.3C19.5 16.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>';}
+
+function route(){
+  const h=location.hash.slice(1);
+  S.pending=null;
+  if(COMPS[h]){S.comp=COMPS[h];S.jj=S.comp.cur;S.jr=S.comp.cur;S.open=null}
+  else{S.comp=null;if(CATALOG.some(x=>x.k===h))S.pending=h}
+  render();
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+
+function render(){
+  renderMain();
+  if(S.confirm){
+    const e=CATALOG.find(x=>x.k===S.confirm);
+    app.insertAdjacentHTML("beforeend",`<div class="modal" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="mbox"><div class="mh">${heart(true)}</div><h2 id="mt">¿Dejar de seguir a ${esc(e?e.label:"este equipo")}?</h2><p>${esc(e?e.comp:"")}. Dejará de aparecer en Mis equipos. Puedes volver a marcarlo cuando quieras.</p><div class="mbtns"><button class="mb" data-cancel="1" id="mcancel">Cancelar</button><button class="mb danger" data-unfav="${S.confirm}">Dejar de seguir</button></div></div></div>`);
+    const b=document.getElementById("mcancel");if(b)b.focus();
+  }
+}
+function renderMain(){
+  sid=0;
+  if(S.pending){app.innerHTML=pendingView(S.pending);return}
+  if(!S.comp){app.innerHTML=homeView();return}
+  const c=S.comp;
+  const tabs=[["proximos","Próximos"],["jornada","Jornada"],["resultados","Resultados"],["clasificacion","Clasificación"],["goleadores","Goleadores"],["plantilla","Plantilla"]];
+  let body="";
+  if(S.tab==="proximos")body=`<main class="pad">${nextView(c)}</main>`;
+  if(S.tab==="jornada")body=strip(c,"jj")+`<main class="pad">${jornadaView(c)}</main>`;
+  if(S.tab==="resultados")body=strip(c,"jr")+`<main class="pad">${resultsView(c)}</main>`;
+  if(S.tab==="clasificacion")body=`<main class="pad">${tableView(c)}</main>`;
+  if(S.tab==="goleadores")body=`<main class="pad">${scorersView(c)}</main>`;
+  if(S.tab==="plantilla")body=`<main class="pad">${squadView(c)}</main>`;
+  app.innerHTML=`<header class="top"><div class="pad"><div class="hrow"><a class="back" href="#" aria-label="Volver a elegir equipo" style="color:inherit;text-decoration:none">‹</a><img class="hlogo" src="${LOGO}" alt="" width="30" height="30"><div class="htxt"><div class="t">${esc((c.teamName||"EEPP San Fernando Escolapios Pozuelo").toUpperCase())}</div><div class="s">${esc(c.comp)}</div></div></div></div>
+  <div class="tabs pad" role="tablist">${tabs.map(([k,l])=>`<button class="tab" role="tab" data-tab="${k}" aria-selected="${S.tab===k}">${l}</button>`).join("")}</div></header>${body}`;
+  const st=app.querySelector(".strip .jb[aria-selected=true]");
+  if(st){const p=st.parentElement;p.style.scrollBehavior="auto";p.scrollLeft=st.offsetLeft-p.clientWidth/2+st.clientWidth/2;p.style.scrollBehavior=""}
+}
+
+function homeView(){
+  const favs=FAV.list.filter(k=>CATALOG.some(x=>x.k===k));
+  const favCard=k=>{
+    const c=COMPS[k];const e=CATALOG.find(x=>x.k===k);
+    if(!c)return `<a class="pick" href="#${k}" style="color:inherit;text-decoration:none">${shirt({k:[C.verde,C.blanco]},62)}<div style="min-width:0"><div class="cat">${esc(e.cat)}</div><div class="nm">${esc(e.label)}</div><div class="grp">${esc(e.comp)}</div><div class="nx" style="color:var(--warn)">Datos pendientes: se cargan en la próxima actualización</div></div></a>`;
+    return card(c);
+  };
+  const favWrap=k=>{const e=CATALOG.find(x=>x.k===k);return `<div class="pickwrap">${favCard(k)}<button class="heart pickheart" data-fav="${k}" aria-pressed="true" aria-label="Dejar de seguir: ${esc(e.label)}">${heart(true)}</button></div>`};
+  const mine=favs.length?favs.map(favWrap).join(""):`<div class="empty"><b>Aún no tienes equipos favoritos</b>Abre la lista de abajo y toca el corazón de los equipos que quieras seguir.</div>`;
+  const groups=[...new Set(CATALOG.map(x=>x.cat))];
+  const list=groups.map(g=>`<div class="lg">${esc(g)}</div>`+CATALOG.filter(x=>x.cat===g).map(x=>{const on=favs.includes(x.k);return `<div class="lrow"><a href="#${x.k}" class="lmain"><span class="ln">${esc(x.label)}</span><span class="lc">${esc(x.comp)}${COMPS[x.k]?"":" · datos pendientes"}</span></a><button class="heart" data-fav="${x.k}" aria-pressed="${on}" aria-label="${on?"Quitar de favoritos":"Añadir a favoritos"}: ${esc(x.label)}">${heart(on)}</button></div>`}).join("")).join("");
+  return `<div class="home pad"><div class="brand"><img src="${LOGO}" alt="Escudo de Escuelas Pías San Fernando" width="50" height="50"><h1>EEPP San Fernando Escolapios Pozuelo</h1></div><div><p>Tus equipos favoritos aparecen aquí. Márcalos con el corazón en la lista de todos los equipos.</p></div><section class="favs"><div class="lbl">Mis equipos</div>${mine}</section><div class="search"><label class="lbl" for="q">Buscar por jugador</label><input id="q" type="search" placeholder="Nombre o apellido del niño o la niña" autocomplete="off" value="${esc(S.q||"")}"><div id="sres">${searchResults(S.q)}</div></div><details class="all"${S.allOpen||!favs.length?" open":""}><summary><span>Todos los equipos del club</span><span class="cnt">${CATALOG.length}</span></summary><div class="alist">${list}</div></details><p class="src">Datos de la Real Federación de Fútbol de Madrid (rffm.es). Última revisión: ${UPDATED}. Se revisa de lunes a viernes.${CHANGES.length?` <b style="color:var(--warn)">${CHANGES.length} cambio${CHANGES.length>1?"s":""} de horario o sede detectado${CHANGES.length>1?"s":""}.</b>`:""} <a href="https://www.rffm.es/fichaclub/4482" target="_blank" rel="noopener">Ficha del club en la RFFM</a></p>${updButton("")}</div>`;
+}
+
+function norm(x){return String(x).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase()}
+function tc(x){const low=["de","del","la","las","los","y"];return String(x).toLowerCase().split(/(\s+|-)/).map((w,i)=>low.includes(w)&&i>0?w:w.charAt(0).toUpperCase()+w.slice(1)).join("")}
+function rosterOf(k){return (COMPS[k]&&COMPS[k].squad)||ROSTERS[k]||[]}
+function searchResults(q){
+  q=(q||"").trim();if(q.length<2)return "";
+  const toks=norm(q).split(/\s+/).filter(Boolean);const out=[];
+  CATALOG.forEach(e=>rosterOf(e.k).forEach(p=>{const n=norm(p);if(toks.every(t=>n.includes(t)))out.push([p,e])}));
+  if(!out.length)return `<div class="sempty">No hay ningún jugador con ese nombre en los equipos del club. Prueba con el primer apellido.</div>`;
+  const favs=FAV.list;
+  return `<div class="slist">${out.slice(0,30).map(([p,e])=>{const on=favs.includes(e.k);return `<div class="lrow"><a href="#${e.k}" class="lmain"><span class="ln">${esc(tc(p))}</span><span class="lc">${esc(e.label)} · ${esc(e.comp)}</span></a><button class="heart" data-fav="${e.k}" aria-pressed="${on}" aria-label="${on?"Quitar de favoritos":"Añadir a favoritos"}: ${esc(e.label)}">${heart(on)}</button></div>`}).join("")}</div>${out.length>30?`<div class="sempty">Hay ${out.length} coincidencias; escribe también el nombre para afinar.</div>`:""}`;
+}
+
+/* ---------- Actualización forzada: lanza la tarea programada de actualización ---------- */
+const LOGO="data:image/png;base64,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";
+const UPDATE_TASK="trig_01WWk1oMgEcbNMDozriTpVzP";
+async function forceUpdate(k){
+  const msg=m=>{S.updMsg=m;render()};
+  let last=0;try{last=+localStorage.getItem("esc-upd")||0}catch(e){}
+  if(Date.now()-last<15*60*1000){msg("Ya hay una actualización en marcha. Tarda unos 10–15 minutos y la app se recarga sola al terminar.");return}
+  msg("Pidiendo la actualización…");
+  let mcp=null;try{mcp=window.claude&&window.claude.use?await claude.use("mcp"):null}catch(e){}
+  if(!mcp){msg("Desde este dispositivo no se puede lanzar la actualización. Se hará sola en la próxima revisión (lunes a viernes por la mañana).");return}
+  try{if(DB&&UID)await DB.doc("favs/"+UID).set({teams:FAV.list,updated:Date.now()})}catch(e){}
+  try{
+    await mcp.callTool("Claude Code Remote","fire_trigger",{trigger_id:UPDATE_TASK,text:"Actualización pedida desde la app."+(k?" Prioriza cargar el equipo con clave "+k+".":"")+" Favoritos de quien la pide: "+FAV.list.join(", ")+"."});
+    try{localStorage.setItem("esc-upd",String(Date.now()))}catch(e){}
+    msg("Actualización en marcha. Tarda unos 10–15 minutos; la app se recargará sola con los datos nuevos.");
+  }catch(e){
+    const c=e&&e.code;
+    msg(c==="not_granted"||c==="consent_denied"||c==="denied"?"Hace falta permitir el acceso para lanzar la actualización. Vuelve a pulsar el botón y acepta el permiso.":"No se ha podido lanzar la actualización"+(c?" ("+c+")":"")+". Se hará sola en la próxima revisión.");
+  }
+}
+function inClaude(){return !!(window.claude&&window.claude.use)}
+function updButton(k){if(!inClaude())return "";return `<div class="upd"><button class="chip" data-upd="${k||""}">↻ Actualizar datos ahora</button>${S.updMsg?`<p class="updmsg" role="status">${esc(S.updMsg)}</p>`:""}</div>`}
+
+function pendingView(k){
+  const e=CATALOG.find(x=>x.k===k);const on=FAV.list.includes(k);
+  return `<header class="top"><div class="pad"><div class="hrow"><a class="back" href="#" aria-label="Volver" style="color:inherit;text-decoration:none">‹</a><img class="hlogo" src="${LOGO}" alt="" width="30" height="30"><div class="htxt"><div class="t">${esc(e.label.toUpperCase())}</div><div class="s">${esc(e.comp)}</div></div></div></div></header>
+  <main class="pad"><div class="empty" style="margin-top:8px"><b>Datos todavía no cargados</b>${!inClaude()?"Este equipo se está incorporando a la app. Sus partidos, clasificación y plantilla aparecerán en las próximas actualizaciones (de lunes a viernes por la mañana).":on?"Ya está en tus favoritos. Sus partidos, clasificación y plantilla se cargarán en la próxima actualización (de lunes a viernes por la mañana).":"Márcalo como favorito y sus datos se cargarán en la próxima actualización (de lunes a viernes por la mañana)."}<div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap"><button class="chip" data-fav="${k}" aria-pressed="${on}">${on?"Quitar de favoritos":"Añadir a favoritos"}</button></div>${on?updButton(k):""}</div>
+  <p class="foot"><a href="https://www.rffm.es/fichaequipo/${e.id}" target="_blank" rel="noopener">Ver ficha del equipo en la RFFM</a></p></main>`;
+}
+
+function card(c){
+  {
+    const j=c.J.find(x=>x.n===c.cur);const m=j.ms.find(x=>x.h===c.me||x.a===c.me);
+    let nx;
+    if(!m)nx=`Jornada ${j.n}: <b>descansa</b>`;
+    else{const op=m.h===c.me?m.a:m.h;nx=`Próximo: <b>${dayShort(c,m.d)}${m.t?" · "+m.t:""}</b> vs ${esc(nm(c,op))}`}
+    return `<a class="pick" href="#${c.key}" style="color:inherit;text-decoration:none">${shirt(c.teams[c.me],62)}<div style="min-width:0"><div class="cat">${c.cat}</div><div class="nm">${c.label}</div><div class="grp">${esc(c.comp)}</div><div class="nx">${nx}</div></div></a>`;
+  }
+}
+function dayShort(c,dm){const dt=toDate(c,dm);return `${DIA[dt.getDay()].slice(0,3).toLowerCase()} ${dt.getDate()} ${MES[dt.getMonth()].slice(0,3).toLowerCase()}`}
+
+function strip(c,key){
+  return `<div class="strip pad" role="tablist" aria-label="Jornadas">${c.J.map(j=>`<button class="jb" data-j="${key}:${j.n}" aria-selected="${S[key]===j.n}">Jornada ${j.n}${j.n===c.cur?'<span class="dot" title="Jornada actual"></span>':""}</button>`).join("")}</div>`;
+}
+
+function outcome(c,m){
+  if(m.hg==null)return null;
+  const mine=m.h===c.me?m.hg:m.ag,their=m.h===c.me?m.ag:m.hg;
+  return mine>their?["w","Victoria"]:mine<their?["l","Derrota"]:["d","Empate"];
+}
+
+function nextView(c){
+  const ch=CHANGES.filter(x=>x.team===c.key);
+  const banner=ch.length?`<div class="info" style="margin:0 0 16px;border-color:var(--warn)"><h3 style="background:var(--warn)">CAMBIOS RECIENTES</h3>${ch.map(x=>`<div class="irow"><div class="tx"><div class="lb">Jornada ${x.j} · detectado ${esc(x.when)}</div>${esc(x.txt)}</div></div>`).join("")}</div>`:"";
+  const up=c.J.filter(j=>toDate(c,j.date)>=TODAY);
+  const rows=up.map(j=>{
+    const m=j.ms.find(x=>x.h===c.me||x.a===c.me);
+    const chg=ch.some(x=>x.j===j.n);
+    if(!m)return `<div class="nrow rest"><div class="nd"><b>J${j.n}</b><span>${dayShort(c,j.date)}</span></div><div class="nb"><span class="nt" style="color:var(--muted)">Descansa</span></div></div>`;
+    const homeG=m.h===c.me,op=homeG?m.a:m.h;
+    const venue=m.v||c.futureVenue;
+    return `<button class="nrow" data-goj="${j.n}"><div class="nd"><b>J${j.n}</b><span>${dayShort(c,m.d)}</span><span class="tm ${m.t?"":"pend"}">${m.t?m.t+"h":"Hora pendiente"}</span></div>${shirt(c.teams[op],40)}<div class="nb"><span class="nt">${homeG?"vs":"en casa de"} ${esc(nm(c,op))}</span><span class="nv">${esc(venue)}</span>${chg?'<span class="nchg">Cambiado</span>':""}</div></button>`;
+  }).join("");
+  return `${banner}<div class="day">PRÓXIMOS PARTIDOS</div><div class="list">${rows||'<div class="restline">No quedan partidos en esta fase.</div>'}</div><p class="foot">La RFFM publica la hora y la sede jornada a jornada, normalmente la semana del partido. Última revisión: ${UPDATED}.</p>`;
+}
+
+function jornadaView(c){
+  const j=c.J[S.jj-1];
+  const m=j.ms.find(x=>x.h===c.me||x.a===c.me);
+  if(!m)return `<div class="rest"><b>Escolapios descansa</b>Jornada ${j.n} · ${longDate(c,j.date)}</div>`;
+  const played=m.hg!=null;const oc=outcome(c,m);
+  const side=code=>`<div class="side ${code===c.me?"me":""}">${shirt(c.teams[code],118)}<div class="tn">${esc(nm(c,code))}</div></div>`;
+  const center=played?`<div class="sbox">${m.hg}-${m.ag}</div><span class="stag ${oc[0]}">${oc[1]}</span>`:`<div class="sbox pre">${m.t||"--:--"}</div><span class="stag">Previa</span>`;
+  const a=c.acta[j.n]||{};
+  const ic={cal:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',pin:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',wh:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="14" r="5"/><path d="M12 10l9-4v5l-7 2"/></svg>',ball:'<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 5h-5L8 10z"/></svg>'};
+  let rows=`<div class="irow"><span class="ic">${ic.cal}</span><div class="tx">${longDate(c,m.d)} ${m.t?m.t+"h":"· horario pendiente"}</div></div>`;
+  rows+=`<div class="irow"><span class="ic">${ic.pin}</span><div class="tx">${esc(m.v||c.futureVenue)}</div></div>`;
+  rows+=`<div class="irow"><span class="ic">${ic.wh}</span><div class="tx">${a.ref?esc(a.ref):'<span style="color:var(--muted)">Árbitro sin designar</span>'}</div></div>`;
+  if(played&&a.g&&a.g.length)rows+=`<div class="irow"><span class="ic">${ic.ball}</span><div class="tx" style="flex:1"><div class="lb">Goles</div><ul class="goals">${a.g.map(g=>`<li class="${g[2]===c.me?"me":""}"><span class="min">${g[0]}'</span><span>${esc(g[1])}</span></li>`).join("")}</ul></div></div>`;
+  const note=c.markerOnly&&played?`<div class="note">En benjamín la RFFM no publica el marcador real: pone 1-0 al ganador y 0-0 si hay empate.</div>`:"";
+  return `<div class="match"><div class="mgrid">${side(m.h)}<div class="score">${center}</div>${side(m.a)}</div>${note}</div><section class="info"><h3>INFORMACIÓN</h3>${rows}</section>`;
+}
+
+function resultsView(c){
+  const j=c.J[S.jr-1];
+  const anyTime=j.ms.some(m=>m.t);
+  const sorted=[...j.ms].sort((x,y)=>(x.d+(x.t||"")).localeCompare(y.d+(y.t||""),undefined,{numeric:true}));
+  const ms=anyTime?sorted:j.ms;
+  const row=m=>{
+    const mid=m.hg!=null?`<span class="sc">${m.hg} - ${m.ag}</span><span class="dt">${m.d!==j.date?dayShort(c,m.d)+" · ":""}${m.t}h</span>`:m.t?`<span class="hr">${m.t}h</span>${m.d!==j.date?`<span class="dt">${dayShort(c,m.d)}</span>`:""}${m.hg==null&&toDate(c,m.d)<TODAY?'<span class="dt">Sin resultado</span>':""}`:`<span class="hr" style="color:var(--muted)">--:--</span><span class="dt">Pendiente</span>`;
+    const vn=m.v&&!c.markerOnly?`<span class="vn">${esc(m.v)}</span>`:"";
+    return `<div class="rrow ${m.h===c.me||m.a===c.me?"mine":""}"><div class="rt">${shirt(c.teams[m.h],54)}<span>${esc(nm(c,m.h))}</span></div><div class="rmid">${mid}${vn}</div><div class="rt">${shirt(c.teams[m.a],54)}<span>${esc(nm(c,m.a))}</span></div></div>`;
+  };
+  const sede=c.markerOnly?`<div class="restline">Sede: ${esc(j.ms[0].v||c.futureVenue)}</div>`:"";
+  const rest=j.rest?`<div class="restline">Descansa: <b style="color:var(--fg)">${esc(nm(c,j.rest))}</b></div>`:"";
+  const note=c.markerOnly?`<p class="foot">En benjamín la RFFM solo indica quién gana (1-0) o si hay empate (0-0).</p>`:"";
+  return `<div class="day">${dayHeader(c,j.date)}</div><div class="list">${ms.map(row).join("")}${rest}${sede}</div>${note}`;
+}
+
+function tableView(c){
+  const st=standings(c);
+  const zc={up:"var(--accent)",warn:"var(--warn)",down:"var(--bad)"};
+  const sub=`<div class="sub" role="tablist"><button data-sub="clas" aria-selected="${S.sub==="clas"}">Clasificación</button><button data-sub="det" aria-selected="${S.sub==="det"}">Detalles</button></div>`;
+  let out;
+  if(S.sub==="clas"){
+    out=`<div class="list" style="border-top:1px solid var(--line);border-radius:12px"><div class="chead" style="background:var(--fg);color:#13303b;font-weight:600;font-size:13px;padding-block:9px;cursor:default"><span class="p"></span><span class="n">EQUIPO</span><span class="pt">PTS</span><span style="width:16px"></span></div>${st.map((r,i)=>{
+      const pos=i+1,z=c.zones[pos],open=S.open===r.k;
+      return `<div class="crow ${r.k===c.me?"me":""}"><button class="chead" data-open="${r.k}" aria-expanded="${open}">${z?`<span class="zone" style="background:${zc[z]}"></span>`:""}<span class="p">${pos}.</span><span class="n">${esc(nm(c,r.k))}</span><span class="pt">${r.pts}</span><span class="chev">⌄</span></button>${open?`<div class="cdet"><div class="stats"><span>PJ <b>${r.pj}</b></span><span>PG <b>${r.pg}</b></span><span>PE <b>${r.pe}</b></span><span>PP <b>${r.pp}</b></span><span>GF <b>${r.gf}</b></span><span>GC <b>${r.gc}</b></span></div><div class="form" aria-label="Resultados por jornada">${r.form.map(f=>`<i class="${f}">${{W:"G",D:"E",L:"P"}[f]}</i>`).join("")||'<span style="color:var(--muted)">Sin partidos</span>'}</div></div>`:""}</div>`;
+    }).join("")}</div>`;
+  }else{
+    out=`<div class="scroll"><table class="tbl"><thead><tr><th></th><th>EQUIPO</th><th>PTS</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th></tr></thead><tbody>${st.map((r,i)=>{const z=c.zones[i+1];return `<tr class="${r.k===c.me?"me":""}"><td class="ps">${z?`<span class="zone" style="background:${zc[z]}"></span>`:""}${i+1}.</td><td class="tm">${esc(nm(c,r.k))}</td><td class="pts">${r.pts}</td><td>${r.pj}</td><td>${r.pg}</td><td>${r.pe}</td><td>${r.pp}</td><td>${r.gf}</td><td>${r.gc}</td></tr>`}).join("")}</tbody></table></div>`;
+  }
+  const leg=c.zoneLegend.length?`<div class="legend">${c.zoneLegend.map(([col,l])=>`<span style="--c:${col}">${l}</span>`).join("")}</div>`:"";
+  const note=c.markerOnly?`<p class="foot">En benjamín GF y GC cuentan partidos ganados y perdidos, no goles reales.</p>`:"";
+  return sub+out+leg+note;
+}
+
+function scorersView(c){
+  if(!c.scorers.length)return `<div class="empty"><b>Sin tabla de goleadores</b>${c.scorersNote}</div>`;
+  const rows=c.scorers.map((r,i)=>({pos:i+1,r})).filter(x=>!S.onlyMe||x.r[1]===c.me);
+  const av='<svg viewBox="0 0 40 40" width="40" height="40"><circle cx="20" cy="15" r="7" fill="#8a9599"/><path d="M6 40c2-9 8-13 14-13s12 4 14 13z" fill="#8a9599"/></svg>';
+  return `<div class="filters"><button class="chip" data-only="0" aria-pressed="${!S.onlyMe}">Todo el grupo</button><button class="chip" data-only="1" aria-pressed="${S.onlyMe}">Solo Escolapios</button></div>
+  <div class="list" style="border-top:1px solid var(--line);border-radius:12px">${rows.map(({pos,r})=>`<div class="grow ${r[1]===c.me?"me":""}"><span class="pos">${pos}</span><span class="av">${av}</span><div class="pl"><b>${esc(r[0])}</b><span>${esc(nm(c,r[1]))}</span></div><span class="gl">${r[2]}${r[3]?` <small>(${r[3]}p)</small>`:""}</span></div>`).join("")}</div>
+  <p class="foot">Posición tal y como la publica la RFFM tras la jornada 4.</p>`;
+}
+
+function squadView(c){
+  const goals={};c.scorers.forEach(r=>{if(r[1]===c.me)goals[r[0]]=r[2]});
+  const av='<svg viewBox="0 0 40 40" width="36" height="36" style="border-radius:50%;background:#cfd8dc;flex:none"><circle cx="20" cy="15" r="7" fill="#8a9599"/><path d="M6 40c2-9 8-13 14-13s12 4 14 13z" fill="#8a9599"/></svg>';
+  return `<div class="sec">JUGADORES (${c.squad.length})</div><div class="plist">${c.squad.map(p=>`<div class="prow">${av}<span class="nm">${esc(p)}</span>${goals[p]?`<span class="gtag">${goals[p]} ${goals[p]>1?"goles":"gol"}</span>`:""}</div>`).join("")}</div>
+  <div class="sec">DELEGADO</div><div class="plist">${c.delegates.map(p=>`<div class="prow">${av}<span class="nm">${esc(p)}</span></div>`).join("")}</div>
+  <p class="foot">La RFFM no distingue porteros en la ficha del equipo. Campo de casa: ${esc(c.home)}.</p>`;
+}
+
+app.addEventListener("click",e=>{
+  const t=e.target.closest("button");if(!t)return;
+  if(t.dataset.upd!==undefined){forceUpdate(t.dataset.upd);return}
+  const keep=()=>{const y=window.scrollY;render();window.scrollTo(0,y)};
+  if(t.dataset.fav){const k=t.dataset.fav;if(FAV.list.includes(k)){S.confirm=k;keep();return}FAV.list=[...FAV.list,k];saveFav();keep();return}
+  if(t.dataset.unfav){const k=t.dataset.unfav;FAV.list=FAV.list.filter(x=>x!==k);S.confirm=null;saveFav();keep();return}
+  if(t.dataset.cancel){S.confirm=null;keep();return}
+  if(t.dataset.tab){S.tab=t.dataset.tab;render();window.scrollTo(0,0)}
+  else if(t.dataset.goj){S.jj=+t.dataset.goj;S.tab="jornada";render();window.scrollTo(0,0)}
+  else if(t.dataset.j){const[k,n]=t.dataset.j.split(":");S[k]=+n;render()}
+  else if(t.dataset.sub){S.sub=t.dataset.sub;render()}
+  else if(t.dataset.open){S.open=S.open===t.dataset.open?null:t.dataset.open;render()}
+  else if(t.dataset.only){S.onlyMe=t.dataset.only==="1";render()}
+});
+
+app.addEventListener("input",e=>{if(e.target.id==="q"){S.q=e.target.value;const r=document.getElementById("sres");if(r)r.innerHTML=searchResults(S.q)}});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&S.confirm){S.confirm=null;const y=window.scrollY;render();window.scrollTo(0,y)}});
+app.addEventListener("click",e=>{if(e.target.classList&&e.target.classList.contains("modal")){S.confirm=null;const y=window.scrollY;render();window.scrollTo(0,y)}});
+app.addEventListener("toggle",e=>{if(e.target.matches&&e.target.matches("details.all"))S.allOpen=e.target.open},true);
+Object.values(COMPS).forEach(build);
+route();
+</script>
+
+
+</body>
+</html>
