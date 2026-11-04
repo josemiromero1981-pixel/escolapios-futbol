@@ -1048,10 +1048,180 @@ const PREBENJAMINC={
   markerOnly:true
 };
 PREBENJAMINC.teamName="EEPP San Fernando Escolapios Pozuelo 'C'";
-const DATA={"segunda-aficionado":AFICIONADO,"infantil-a":INFANTILA,alevin:ALEVIN,"alevin-f7-a":ALEVINF7A,"alevin-f7-b":ALEVINF7B,"alevin-f7-c":ALEVINF7C,"alevin-fem":ALEVINFEM,benjamin:BENJAMIN,"benjamin-b":BENJAMINB,"benjamin-c":BENJAMINC,"benjamin-d":BENJAMIND,"prebenjamin-a":PREBENJAMINA,"prebenjamin-b":PREBENJAMINB,"prebenjamin-c":PREBENJAMINC};
+/* ---------- Datos: Prebenjamín F7 Iniciación, Grupo 6 (Boadilla) ---------- */
+const PREBENJAMIND={
+  key:"prebenjamin-d", label:"Prebenjamín D", cat:"Fútbol 7",
+  comp:"PREBENJAMÍN F7 INICIACIÓN - Grupo 6 - BOADILLA",
+  me:"ESC", year:{"10":2026,"11":2026,"12":2026,"01":2027,"02":2027},
+  src:"https://www.rffm.es/competicion/calendario?temporada=22&tipojuego=2&competicion=26797573&grupo=28107657",
+  teams:{
+    NBE:{n:"C.D. Nuevo Boadilla 'E'",k:[C.amarillo,C.negro]},
+    NBO:{n:"C.D. Nuevo Boadilla 'O'",k:[C.amarillo,C.negro]},
+    AUC:{n:"C.D.E. AUPA - Ciudad de Boadilla Mentema 'C'",k:[C.celeste,C.marino]},
+    TKC:{n:"CDE Toni Kroos Academy 'C'",k:[C.blanco,C.blanco]},
+    EFB:{n:"E.F.M.O. Boadilla 'B'",k:[C.rojo,C.blanco]},
+    AUB:{n:"C.D.E. AUPA - Ciudad de Boadilla Mentema 'B'",k:[C.celeste,C.marino]},
+    NBG:{n:"C.D. Nuevo Boadilla 'G'",k:[C.amarillo,C.negro]},
+    NBK:{n:"C.D. Nuevo Boadilla 'K'",k:[C.amarillo,C.negro]},
+    MTA:{n:"C.D.E. Monte Tabor 'A'",k:[C.azul,C.blanco]},
+    EFC:{n:"E.F.M.O. Boadilla 'C'",k:[C.rojo,C.blanco]},
+    ESC:{n:"EE PP San Fernando Escolapios Pozuelo 'D'",short:"Escolapios 'D'",k:[C.verde,C.blanco]}
+  },
+  order:["NBE","NBO","AUC","TKC","EFB","AUB","NBG","NBK","MTA","EFC","ESC"],
+  zones:{}, zoneLegend:[],
+  dates:["24/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02"],
+  m:{
+   1:[["NBG","NBE",0,1,"24/10","09:00"],["EFB","NBK",1,0,"24/10","10:00"],["EFC","NBO",0,1,"24/10","11:00"],["ESC","TKC",0,1,"24/10","12:00"],["AUC","MTA",1,0,"24/10","13:23","Boadilla - Condesa de Chinchón 1"]],
+   2:[["NBK","NBG",null,null,"07/11","09:00"],["NBO","EFB",null,null,"07/11","09:50"],["TKC","EFC",null,null,"07/11","10:40"],["MTA","ESC",null,null,"07/11","11:30"],["AUB","AUC",null,null,"07/11","12:20"]],
+   3:[["EFB","TKC",null,null,"14/11","09:00"],["NBE","NBK",null,null,"14/11","09:50"],["NBG","NBO",null,null,"14/11","10:40"],["ESC","AUB",null,null,"14/11","11:30"],["EFC","MTA",null,null,"14/11","12:20"]]
+  },
+  pairs:{
+   4:"NBO-NBE TKC-NBG MTA-EFB AUB-EFC AUC-ESC",
+   5:"EFC-AUC NBG-MTA EFB-AUB NBK-NBO NBE-TKC",
+   6:"MTA-NBE ESC-EFC TKC-NBK AUC-EFB AUB-NBG",
+   7:"EFB-ESC NBE-AUB NBG-AUC NBO-TKC NBK-MTA",
+   8:"AUB-NBK MTA-NBO AUC-NBE ESC-NBG EFC-EFB",
+   9:"TKC-MTA NBK-AUC NBE-ESC NBG-EFC NBO-AUB",
+   10:"AUC-NBO AUB-TKC ESC-NBK EFC-NBE EFB-NBG",
+   11:"NBK-EFC NBE-EFB MTA-AUB TKC-AUC NBO-ESC"
+  },
+  rest:{1:"AUB",2:"NBE",3:"AUC",4:"NBK",5:"ESC",6:"NBO",7:"EFC",8:"TKC",9:"EFB",10:"MTA",11:"NBG"},
+  acta:{1:{ref:"Sánchez Ortiz, Miguel"}},
+  scorers:[],
+  scorersNote:"La RFFM no publica goleadores en esta categoría.",
+  squad:["Castellá Montaña, Martín","Castellá Montaña, Tristán","Dimas López, Marcos","Esteban Gil, Gonzalo","Ferhati Álvarez, Lorenzo","Gómez Sanz, Gonzalo","Gutiérrez Usategui, Nicolás","López Boleas, Telmo","Lucini Arce, Vera","Martín Galván, Álvaro","Otero Aguado, Santiago","Rebollo Cortijo, César"],
+  delegates:["González Robisco, Francisco José"],
+  home:"Boadilla - Condesa de Chinchón 3 (sede del grupo)",
+  futureVenue:"Boadilla - Condesa de Chinchón 3 (sede del grupo)",
+  defaultVenue:"Boadilla - Condesa de Chinchón 3",
+  markerOnly:true
+};
+PREBENJAMIND.teamName="EE PP San Fernando Escolapios Pozuelo 'D'";
+/* ---------- Datos: Prebenjamín F7 Iniciación, Grupo 5 (Brunete) ---------- */
+const PREBENJAMINE={
+  key:"prebenjamin-e", label:"Prebenjamín E", cat:"Fútbol 7",
+  comp:"PREBENJAMÍN F7 INICIACIÓN - Grupo 5 - BRUNETE",
+  me:"ESC", year:{"10":2026,"11":2026,"12":2026,"01":2027},
+  src:"https://www.rffm.es/competicion/calendario?temporada=22&tipojuego=2&competicion=26797573&grupo=28079393",
+  teams:{
+    ESC:{n:"EE PP San Fernando Escolapios Pozuelo 'E'",short:"Escolapios 'E'",k:[C.verde,C.blanco]},
+    LRB:{n:"Las Rozas C.F. 'B'",k:[C.azul,C.blanco]},
+    NBF:{n:"C.D. Nuevo Boadilla 'F'",k:[C.amarillo,C.negro]},
+    NBI:{n:"C.D. Nuevo Boadilla 'I'",k:[C.amarillo,C.negro]},
+    NBJ:{n:"C.D. Nuevo Boadilla 'J'",k:[C.amarillo,C.negro]},
+    NBM:{n:"C.D. Nuevo Boadilla 'M'",k:[C.amarillo,C.negro]},
+    VCB:{n:"C.D. Villanueva de la Cañada 'B'",k:[C.verde,C.negro]},
+    QUI:{n:"CDE Quijorna City",k:[C.azul,C.azul]},
+    EFBA:{n:"Escuela de Fútbol de Brunete 'A'",k:[C.rojo,C.blanco]},
+    EFBB:{n:"Escuela de Fútbol de Brunete 'B'",k:[C.rojo,C.blanco]},
+    FPAD:{n:"C.D.E. F.P.A. Las Rozas 'D'",k:[C.naranja,C.naranja]},
+    FRMB:{n:"S.A.D. Fundación Rayo Majadahonda 'B'",k:[C.blanco,C.azul]}
+  },
+  order:["LRB","NBF","VCB","QUI","EFBA","FPAD","ESC","NBI","NBJ","NBM","EFBB","FRMB"],
+  zones:{}, zoneLegend:[],
+  dates:["16/10","23/10","06/11","13/11","20/11","27/11","11/12","18/12","15/01","22/01","29/01"],
+  m:{
+   1:[["NBF","NBI",1,0,"16/10","18:00","Brunete - Los Arcos"],["VCB","NBJ",1,0,"16/10","18:00","Brunete - Los Arcos"],["QUI","NBM",1,0,"16/10","18:50","Brunete - Los Arcos"],["EFBA","EFBB",1,0,"16/10","19:40","Brunete - Los Arcos"],["LRB","FRMB",8,2,"27/10","17:50","Majadahonda - Inst. Dep. La Oliva (Centro Oeste)"],["ESC","FPAD",0,1,"27/10","18:30","Las Rozas - Recinto Ferial"]],
+   2:[["FRMB","QUI",0,1,"23/10","18:00","Brunete - Los Arcos"],["FPAD","LRB",0,1,"23/10","18:00","Brunete - Los Arcos"],["NBI","EFBA",0,1,"23/10","18:50","Brunete - Los Arcos"],["NBJ","NBF",0,1,"23/10","18:50","Brunete - Los Arcos"],["NBM","VCB",0,1,"23/10","19:40","Brunete - Los Arcos"],["EFBB","ESC",0,1,"23/10","19:40","Brunete - Los Arcos"]],
+   3:[["NBF","NBM",null,null,"06/11","18:00","Brunete - Los Arcos"],["LRB","EFBB",null,null,"06/11","18:00","Brunete - Los Arcos"],["EFBA","ESC",null,null,"06/11","18:00","Brunete - Los Arcos"],["VCB","FRMB",null,null,"06/11","18:50","Brunete - Los Arcos"],["QUI","FPAD",null,null,"06/11","18:50","Brunete - Los Arcos"],["NBI","NBJ",null,null,"06/11","19:40","Brunete - Los Arcos"]],
+   4:[["NBJ","EFBA",null,null,"13/11","18:00","Brunete - Los Arcos"],["EFBB","QUI",null,null,"13/11","18:00","Brunete - Los Arcos"],["NBM","NBI",null,null,"13/11","18:50","Brunete - Los Arcos"],["FPAD","VCB",null,null,"13/11","18:50","Brunete - Los Arcos"],["FRMB","NBF",null,null,"13/11","19:40","Brunete - Los Arcos"],["ESC","LRB",null,null,"13/11","19:40","Brunete - Los Arcos"]]
+  },
+  pairs:{
+   5:"NBI-FRMB EFBA-LRB NBF-FPAD VCB-EFBB NBJ-NBM QUI-ESC",
+   6:"NBM-EFBA EFBB-NBF FRMB-NBJ FPAD-NBI ESC-VCB LRB-QUI",
+   7:"NBI-EFBB EFBA-QUI NBM-FRMB NBJ-FPAD NBF-ESC VCB-LRB",
+   8:"FRMB-EFBA EFBB-NBJ LRB-NBF QUI-VCB FPAD-NBM ESC-NBI",
+   9:"NBM-EFBB NBF-QUI FRMB-FPAD NBJ-ESC EFBA-VCB NBI-LRB",
+   10:"EFBA-FPAD EFBB-FRMB LRB-NBJ VCB-NBF ESC-NBM QUI-NBI",
+   11:"FPAD-EFBB NBF-EFBA NBM-LRB NBI-VCB FRMB-ESC NBJ-QUI"
+  },
+  rest:{},
+  acta:{1:{ref:"Pérez Romero, David"},2:{ref:"Viles Martínez, Diego"}},
+  scorers:[],
+  scorersNote:"La RFFM no publica goleadores en esta categoría.",
+  squad:["Amariles Rivas, Miguel Ángel","Ferhati Álvarez de Toledo, Giulia","García-Barceló Gutiérrez de Calderón, Rafael","Lusson Falcón, Gonzalo","Martín Bonilla, Leonardo","Martín Maluenda, María","Pérez-Marín Aparicio, Javier","Pérez-Marín Aparicio, Marco","Quintanilla Muñoz, Francisco","Saavedra Saldías, Julen Alejandro"],
+  delegates:["Chowanietz López, Adrián"],
+  home:"Brunete - Los Arcos (sede del grupo)",
+  futureVenue:"Brunete - Los Arcos (sede del grupo)",
+  markerOnly:true
+};
+PREBENJAMINE.teamName="EE PP San Fernando Escolapios Pozuelo 'E'";
+const DEBUTANTEA={
+  key:"debutante-a", label:"Debutante A", cat:"Fútbol 5",
+  comp:"DEBUTANTE - Grupo 21 - BOADILLA",
+  me:"ESC", year:{"11":2026,"12":2026,"01":2027,"02":2027,"03":2027,"04":2027,"05":2027},
+  src:"https://www.rffm.es/competicion/calendario?temporada=22&tipojuego=4&competicion=26738029&grupo=26738045",
+  teams:{
+    NBA:{n:"C.D. Nuevo Boadilla 'A'",k:[C.amarillo,C.negro]},
+    NBB:{n:"C.D. Nuevo Boadilla 'B'",k:[C.amarillo,C.negro]},
+    NBC:{n:"C.D. Nuevo Boadilla 'C'",k:[C.amarillo,C.negro]},
+    NBD:{n:"C.D. Nuevo Boadilla 'D'",k:[C.amarillo,C.negro]},
+    AUPB:{n:"C.D.E. AUPA - Ciudad de Boadilla Mentema 'B'",k:[C.celeste,C.marino]},
+    AUPA:{n:"C.D.E. AUPA - Ciudad de Boadilla Mentema 'A'",k:[C.celeste,C.marino]},
+    FCB:{n:"CDE F.C. Boadilla del Monte 'A'",k:[C.verde,C.blanco]},
+    TKA:{n:"CDE Toni Kroos Academy 'A'",k:[C.blanco,C.blanco]},
+    EFA:{n:"E.F.M.O. Boadilla 'A'",k:[C.rojo,C.blanco]},
+    EFB:{n:"E.F.M.O. Boadilla 'B'",k:[C.rojo,C.blanco]},
+    ESC:{n:"EE PP San Fernando Escolapios Pozuelo 'A'",short:"Escolapios 'A'",k:[C.verde,C.blanco]},
+    ESCB:{n:"EE PP San Fernando Escolapios Pozuelo 'B'",short:"Escolapios 'B'",k:[C.verde,C.blanco]},
+    ESCC:{n:"EE PP San Fernando Escolapios Pozuelo 'C'",short:"Escolapios 'C'",k:[C.verde,C.blanco]}
+  },
+  order:["NBA","NBB","NBC","NBD","AUPB","AUPA","FCB","TKA","EFA","EFB","ESC","ESCB","ESCC"],
+  zones:{}, zoneLegend:[],
+  dates:[],
+  m:{},
+  pairs:{},
+  rest:{},
+  acta:{},
+  scorers:[],
+  scorersNote:"La RFFM aún no ha publicado los emparejamientos de este grupo (solo las fechas: 16 jornadas, la 1.ª el 21/11/2026). La RFFM no publica goleadores en esta categoría.",
+  squad:[],
+  delegates:[],
+  home:"Boadilla (sede del grupo, campo por confirmar)",
+  futureVenue:"Boadilla (sede del grupo, por confirmar)",
+  markerOnly:true
+};
+DEBUTANTEA.teamName="EE PP San Fernando Escolapios Pozuelo 'A'";
+const DEBUTANTEB={
+  key:"debutante-b", label:"Debutante B", cat:"Fútbol 5",
+  comp:"DEBUTANTE - Grupo 21 - BOADILLA",
+  me:"ESC", year:{"11":2026,"12":2026,"01":2027,"02":2027,"03":2027,"04":2027,"05":2027},
+  src:"https://www.rffm.es/competicion/calendario?temporada=22&tipojuego=4&competicion=26738029&grupo=26738045",
+  teams:{
+    NBA:{n:"C.D. Nuevo Boadilla 'A'",k:[C.amarillo,C.negro]},
+    NBB:{n:"C.D. Nuevo Boadilla 'B'",k:[C.amarillo,C.negro]},
+    NBC:{n:"C.D. Nuevo Boadilla 'C'",k:[C.amarillo,C.negro]},
+    NBD:{n:"C.D. Nuevo Boadilla 'D'",k:[C.amarillo,C.negro]},
+    AUPB:{n:"C.D.E. AUPA - Ciudad de Boadilla Mentema 'B'",k:[C.celeste,C.marino]},
+    AUPA:{n:"C.D.E. AUPA - Ciudad de Boadilla Mentema 'A'",k:[C.celeste,C.marino]},
+    FCB:{n:"CDE F.C. Boadilla del Monte 'A'",k:[C.verde,C.blanco]},
+    TKA:{n:"CDE Toni Kroos Academy 'A'",k:[C.blanco,C.blanco]},
+    EFA:{n:"E.F.M.O. Boadilla 'A'",k:[C.rojo,C.blanco]},
+    EFB:{n:"E.F.M.O. Boadilla 'B'",k:[C.rojo,C.blanco]},
+    ESC:{n:"EE PP San Fernando Escolapios Pozuelo 'B'",short:"Escolapios 'B'",k:[C.verde,C.blanco]},
+    ESCB:{n:"EE PP San Fernando Escolapios Pozuelo 'A'",short:"Escolapios 'A'",k:[C.verde,C.blanco]},
+    ESCC:{n:"EE PP San Fernando Escolapios Pozuelo 'C'",short:"Escolapios 'C'",k:[C.verde,C.blanco]}
+  },
+  order:["NBA","NBB","NBC","NBD","AUPB","AUPA","FCB","TKA","EFA","EFB","ESCB","ESC","ESCC"],
+  zones:{}, zoneLegend:[],
+  dates:[],
+  m:{},
+  pairs:{},
+  rest:{},
+  acta:{},
+  scorers:[],
+  scorersNote:"La RFFM aún no ha publicado los emparejamientos de este grupo (solo las fechas: 16 jornadas, la 1.ª el 21/11/2026). La RFFM no publica goleadores en esta categoría.",
+  squad:[],
+  delegates:[],
+  home:"Boadilla (sede del grupo, campo por confirmar)",
+  futureVenue:"Boadilla (sede del grupo, por confirmar)",
+  markerOnly:true
+};
+DEBUTANTEB.teamName="EE PP San Fernando Escolapios Pozuelo 'B'";
+const DATA={"segunda-aficionado":AFICIONADO,"infantil-a":INFANTILA,alevin:ALEVIN,"alevin-f7-a":ALEVINF7A,"alevin-f7-b":ALEVINF7B,"alevin-f7-c":ALEVINF7C,"alevin-fem":ALEVINFEM,benjamin:BENJAMIN,"benjamin-b":BENJAMINB,"benjamin-c":BENJAMINC,"benjamin-d":BENJAMIND,"prebenjamin-a":PREBENJAMINA,"prebenjamin-b":PREBENJAMINB,"prebenjamin-c":PREBENJAMINC,"prebenjamin-d":PREBENJAMIND,"prebenjamin-e":PREBENJAMINE,"debutante-a":DEBUTANTEA,"debutante-b":DEBUTANTEB};
 const COMPS=DATA;
 /* Actualización automática (lunes a viernes): fecha de la última revisión y cambios detectados en horarios/sedes */
-const UPDATED="3 nov 2026, 23:50";
+const UPDATED="4 nov 2026, 08:22";
 const CHANGES=[];
 const TODAY=(()=>{const d=new Date();d.setHours(0,0,0,0);return d})();
 
@@ -1197,7 +1367,7 @@ function searchResults(q){
 
 /* ---------- Actualización forzada: lanza la tarea programada de actualización ---------- */
 const LOGO="data:image/png;base64,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";
-const UPDATE_TASK="trig_01WWk1oMgEcbNMDozriTpVzP";
+const UPDATE_TASK="trig_01Cnkw8B2JSmnBDyZEidP3uq";
 async function forceUpdate(k){
   const msg=m=>{S.updMsg=m;render()};
   let last=0;try{last=+localStorage.getItem("esc-upd")||0}catch(e){}
