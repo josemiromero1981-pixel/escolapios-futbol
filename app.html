@@ -248,7 +248,7 @@ const ALEVIN={
     FUE:{n:"Club Fuentelarreyna 'A'",k:[C.rojo,C.rojo]},
     RET:{n:"C.D. Retamar-Pozuelo 'A'",k:[C.rojo,C.blanco]}
   },
-  order:["UZN","PUE","RET","EFP","DV7B","ARA","LRB","FPA","ESC","ADF","ARR","FUE","ALP","NBC"],
+  order:["UZN","RET","PUE","DV7B","EFP","ARA","LRB","NBC","FUE","FPA","ALP","ESC","ADF","ARR"],
   zones:{1:"up",2:"up",12:"warn",13:"down",14:"down"},
   zoneLegend:[["var(--accent)","Puestos de ascenso"],["var(--warn)","Promoción de descenso"],["var(--bad)","Descenso"]],
   dates:["10/10","17/10","24/10","31/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02","13/02","20/02","27/02","06/03","13/03","20/03","03/04","10/04","17/04","24/04","01/05","08/05"],
@@ -259,11 +259,11 @@ const ALEVIN={
    3:[["PUE","EFP",4,0,"24/10","16:00","Majadahonda - Inst. Dep. La Oliva"],["ALP","FPA",1,1,"24/10","10:00","Alpedrete - Pvo. Municipal"],["ARR","UZN",2,6,"25/10","12:30","Isla Tabarca"],["ESC","LRB",1,2,"24/10","10:20","Pozuelo - Colegio Escolapios"],["DV7B","ADF",2,1,"24/10","10:00","Universidad Alfonso X el Sabio"],["ARA","RET",0,3,"24/10","19:40","Aravaca - Antonio Sanfiz"],["FUE","NBC",4,3,"24/10","12:45","Valdeyeros"]],
    4:[["EFP","FUE",5,0,"31/10","09:15","C.D.M. Vicente del Bosque"],["FPA","PUE",0,2,"31/10","11:15","Las Rozas - Recinto Ferial"],["UZN","ALP",12,3,"31/10","13:40","Pvo. La Cabrera - Bº del Pilar"],["LRB","ARR",3,2,"31/10","11:15","Las Rozas - Pvo. Dehesa de Navalcarbón 1"],["ADF","ESC",2,3,"31/10","10:40","Fundación"],["RET","DV7B",0,4,"31/10","12:45","Pozuelo - Colegio Retamar"],["NBC","ARA",null,null,"31/10","13:58","Boadilla - Pvo. Municipal Ángel Nieto 3"]],
    5:[["EFP","FPA",1,0,"07/11","13:45","C.D.M. Vicente del Bosque"],["PUE","UZN",0,1,"07/11","18:00","Majadahonda - Inst. Dep. La Oliva - Ctro. Oeste"],["ALP","LRB",1,1,"07/11","12:00","Alpedrete - Pvo. Municipal"],["ARR","ADF",6,2,"07/11","16:30","Isla Tabarca"],["ESC","RET",1,7,"07/11","11:30","Pozuelo - Colegio Escolapios"],["DV7B","NBC",3,0,"08/11","13:15","Universidad Alfonso X el Sabio"],["FUE","ARA",0,1,"07/11","14:25","Valdeyeros"]],
-   6:[["FPA","FUE",null,null,"14/11","12:45","Las Rozas - Recinto Ferial"],["UZN","EFP",null,null,"14/11","19:40","Pvo. La Cabrera - Bº del Pilar"],["LRB","PUE",null,null,"14/11","11:00","Las Rozas - Pvo. Dehesa de Navalcarbón 1"],["ADF","ALP",null,null,"14/11","12:05","Fundación"],["RET","ARR",null,null,"14/11","18:00","Pozuelo - Colegio Retamar"],["NBC","ESC",null,null,"15/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 3"],["ARA","DV7B",null,null,"14/11","11:15","Aravaca - Antonio Sanfiz"]],
-   7:[["FPA","UZN",null,null,"21/11",null,"Las Rozas - Recinto Ferial"],["EFP","LRB",null,null,"21/11",null,"C.D.M. Vicente del Bosque"],["PUE","ADF",null,null,"21/11","16:00","Majadahonda - Inst. Dep. La Oliva - Ctro. Oeste"],["ALP","RET",null,null,"21/11","09:50","Alpedrete - Pvo. Municipal"],["ARR","NBC",null,null,"21/11",null,"Isla Tabarca"],["ESC","ARA",null,null,"21/11",null,"Pozuelo - Colegio Escolapios"],["FUE","DV7B",null,null,"21/11",null,"Valdeyeros"]]
+   6:[["FPA","FUE",0,1,"14/11","12:45","Las Rozas - Recinto Ferial"],["UZN","EFP",1,0,"14/11","19:40","Pvo. La Cabrera - Bº del Pilar"],["LRB","PUE",0,1,"14/11","11:00","Las Rozas - Pvo. Dehesa de Navalcarbón 1"],["ADF","ALP",2,3,"14/11","12:05","Fundación"],["RET","ARR",3,1,"14/11","18:00","Pozuelo - Colegio Retamar"],["NBC","ESC",6,0,"15/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 3"],["ARA","DV7B",1,2,"14/11","11:15","Aravaca - Antonio Sanfiz"]],
+   7:[["FPA","UZN",null,null,"21/11","12:30","Las Rozas - Recinto Ferial"],["EFP","LRB",null,null,"21/11","12:05","C.D.M. Vicente del Bosque"],["PUE","ADF",null,null,"21/11","16:00","Majadahonda - Inst. Dep. La Oliva - Ctro. Oeste"],["ALP","RET",null,null,"21/11","09:50","Alpedrete - Pvo. Municipal"],["ARR","NBC",null,null,"22/11","12:00","Isla Tabarca"],["ESC","ARA",null,null,"21/11",null,"Pozuelo - Colegio Escolapios"],["FUE","DV7B",null,null,"21/11","09:15","Valdeyeros"]],
+   8:[["UZN","FUE",null,null,"28/11",null,"Pvo. La Cabrera - Bº del Pilar"],["LRB","FPA",null,null,"28/11",null,"Las Rozas - Pvo. Dehesa de Navalcarbón 1"],["ADF","EFP",null,null,"28/11",null,"Fundación"],["RET","PUE",null,null,"28/11",null,"Pozuelo - Colegio Retamar"],["NBC","ALP",null,null,"28/11",null,"Boadilla - Pvo. Municipal Ángel Nieto 2"],["ARA","ARR",null,null,"28/11",null,"Aravaca - Antonio Sanfiz"],["DV7B","ESC",null,null,"28/11",null,"Universidad Alfonso X el Sabio"]]
   },
   pairs:{
-   8:"UZN-FUE LRB-FPA ADF-EFP RET-PUE NBC-ALP ARA-ARR DV7B-ESC",
    9:"UZN-LRB FPA-ADF EFP-RET PUE-NBC ALP-ARA ARR-DV7B FUE-ESC",
    10:"LRB-FUE ADF-UZN RET-FPA NBC-EFP ARA-PUE DV7B-ALP ESC-ARR",
    11:"LRB-ADF UZN-RET FPA-NBC EFP-ARA PUE-DV7B ALP-ESC FUE-ARR",
@@ -290,20 +290,22 @@ const ALEVIN={
    2:{ref:"Fumero León, Gustavo",g:[["10","García del Peso, Samuel","UZN"],["18","Gómez Román, Luca","UZN"],["41","Aparicio Cañadas, Hugo","UZN"],["45","García del Peso, Samuel","UZN"],["50","Torres Fernández, Luca","UZN"],["59","Fabián Ramos, Taylor","UZN"]]},
    3:{ref:"Huerto Querejazu, Alejandro",g:[["10","Quesada Gutiérrez, Pablo","LRB"],["40","Rojo Fernández Campoamor, Alejandro","ESC"],["59","Valentín Hernández, Alberto","LRB"]]},
    4:{ref:"Summers Sánchez, Alejandro",g:[["2","Migoya Alonso, Guillermo","ADF"],["15","Bano Prieto, Diego","ESC"],["17","Rojo Fernández Campoamor, Alejandro","ESC"],["48","Rojo Fernández Campoamor, Alejandro","ESC"],["57","Migoya Alonso, Guillermo","ADF"]]},
-   5:{ref:"Tenorio Núñez, Mario",g:[["5","Orol Bermúdez, Antonio","RET"],["15","Gómez de las Cortinas Maceda, Álvaro","RET"],["23","Tauroni Jiménez-Alfaro, Iñigo","ESC"],["32","Mesía García-Noblejas, Javier","RET"],["50","López-Dóriga Arroyo, Nicolás","RET"],["52","Gómez de las Cortinas Maceda, Álvaro","RET"],["59","López-Dóriga Arroyo, Nicolás","RET"],["65","Tuñón Morán, Tomás","RET"]]}
+   5:{ref:"Tenorio Núñez, Mario",g:[["5","Orol Bermúdez, Antonio","RET"],["15","Gómez de las Cortinas Maceda, Álvaro","RET"],["23","Tauroni Jiménez-Alfaro, Iñigo","ESC"],["32","Mesía García-Noblejas, Javier","RET"],["50","López-Dóriga Arroyo, Nicolás","RET"],["52","Gómez de las Cortinas Maceda, Álvaro","RET"],["59","López-Dóriga Arroyo, Nicolás","RET"],["65","Tuñón Morán, Tomás","RET"]]},
+   6:{ref:"Viles Martínez, Diego",g:[["3","Gomez Sanchez, Oliver","NBC"],["26","Vico Vallejo, Jacobo","NBC"],["48","Vico Vallejo, Jacobo","NBC"],["54","Ruiz Robles, Angel Gabriel","NBC"],["56","Cucalon Echevarria, Antonio","NBC"],["60","Gomez Sanchez, Oliver","NBC"]]}
   },
   scorers:[
-   ["Cortázar Rojo, Lucas","ARA",6,1],["Asensio Ortega, Marcos","EFP",6,0],["García del Peso, Samuel","UZN",5,0],["López-Dóriga Arroyo, Nicolás","RET",5,1],["Muñoz Marques, Víctor","PUE",5,0],["Orol Bermúdez, Antonio","RET",5,0],["De Luis Muñoz, Hernán","UZN",4,0],["Pérez Guzmán, Alonso","ALP",4,1],
-   ["Orient del Bosque, Mario","PUE",4,0],["Giannotti, Francesco","EFP",4,0],["Zayas Parada, Daniel","FUE",4,1],["Gómez González, Alejandro","ARR",4,0],["Gómez de las Cortinas Maceda, Álvaro","RET",3,0],["Belloso Simón, Marcos","UZN",3,0],["Villagómez Álvarez, Antonio","PUE",3,0],["López Escobar, Marcos","NBC",3,0],
-   ["Aparicio Cañadas, Hugo","UZN",3,0],["Valentín Hernández, Alberto","LRB",3,0],["Rojo Fernández Campoamor, Alejandro","ESC",3,0],["Álvarez de Neyra González, Bosco","ADF",3,0],["Larrea Hernández, Jon","FUE",2,0],["Migoya Alonso, Guillermo","ADF",2,0],["Gómez Román, Luca","UZN",2,0],["Moreno Escrich, Alejandro","UZN",2,0],
-   ["Mata Población, Juan Miguel","UZN",2,0],["Galán Morgado, Alex","DV7B",2,0],["Tomé Rojas, Yeremi","UZN",2,0],["Lebrero Garcés, Marcos","EFP",2,0],["Mendiola Cruz, Alex","DV7B",2,0],["Bujalante Nieto, Sergio","EFP",2,0],["Quesada Gutiérrez, Pablo","LRB",2,0],["Quemada Cespedosa, Alberto","FPA",2,0],
-   ["Soiza Herraiz, Lucas","DV7B",2,0],["Rica Rodríguez, Pelayo","ARR",2,0],["Rodríguez Hernández, Alonso","ADF",2,0],["Utrilla Martínez, Izan","DV7B",2,0],["Bedón Noriega, Thiago","ARR",2,0],["Cebrián Córdoba, Daniel","DV7B",2,0],["Blanco Rodríguez-Manzaneque, Jacobo","PUE",2,0],["Monroy Hernández, Beltrán","UZN",1,0],
-   ["Sánchez Montañez Gómez Pimpollo, Alberto","ESC",1,0],["Mesía García-Noblejas, Javier","RET",1,0],["Riera Olivencia, Nicolás","PUE",1,0],["Meseguer López, Carlos","ALP",1,0],["Ayala Milla, Leo","DV7B",1,0],["Tejero Juárez, Joel","ALP",1,0],["Pelegri Moreno, Beltrán","RET",1,0],["Díaz Ordóñez de Barraicua, Rodrigo","FPA",1,0],
-   ["Osborne Martínez Echecarria, Juan","ARA",1,0],["Martínez Goyanes, Manuel","ARA",1,0],["De Juana Riera, Gonzalo","ADF",1,0],["Olarte Galán, Álvaro","NBC",1,0],["Sánchez Martínez, Pablo Esteban","FUE",1,0],["Criado Moya, Joel","ALP",1,0],["Torres Fernández, Luca","UZN",1,0],["Mejías Galiano, David","FUE",1,0],
-   ["Tauroni Jiménez-Alfaro, Iñigo","ESC",1,0],["Segovia Nuño, Aimar","UZN",1,0],["Martín Tuñas, Leo","UZN",1,0],["Bano Prieto, Diego","ESC",1,0],["Haaxman Espinosa de los Monteros, Nicolás","RET",1,0],["Fernández Contreras, Álvaro","FUE",1,0],["Pérez Carretero, Daniel","ARR",1,0],["Del Canto Calo, Marcos","NBC",1,0],
-   ["Palazuelos Martínez, Daniel Jesús","PUE",1,0],["Hernández Martín, Yago","ARR",1,0],["González Miranda, Miguel","PUE",1,0],["Huerta Carrascosa, Diego","LRB",1,0],["Lattari Tubio, Joaquín","DV7B",1,0],["Pinto Vázquez, Eduardo","FPA",1,0],["Aleu Gracia, Mario","FPA",1,0],["Inclán Campos, Pablo","FPA",1,0],
-   ["Romero Calderón, Matteo Joaquín","EFP",1,0],["Fernández Ortiz, Alejandro","LRB",1,0],["Leal Navarro, Illan","ARR",1,0],["Vacchi Cedillo, Leonardo","LRB",1,0],["Rabadán Azañedo, Pablo","ADF",1,0],["Tuñón Morán, Tomás","RET",1,0],["Madrigal Jiménez, Telmo","LRB",1,0],["Márquez Jiménez, Juan","ARR",1,0],
-   ["Porto Herranz, Álvaro","UZN",1,0],["Fabián Ramos, Taylor","UZN",1,0],["Castro Céspedes, Gabriel","ARA",1,0]
+   ["Cortazar Rojo, Lucas","ARA",7,1],["Asensio Ortega, Marcos","EFP",6,0],["López-Dóriga Arroyo, Nicolás","RET",5,1],["Garcia del Peso, Samuel","UZN",5,0],["Muñoz Marques, Victor","PUE",5,0],["Perez Guzman, Alonso","ALP",5,1],["Orol Bermúdez, Antonio","RET",5,0],["De Luis Muñoz, Hernan","UZN",4,0],
+   ["Giannotti, Francesco","EFP",4,0],["Gomez Gonzalez, Alejandro","ARR",4,0],["Orient del Bosque, Mario","PUE",4,0],["Zayas Parada, Daniel","FUE",4,1],["Villagomez Alvarez, Antonio","PUE",3,0],["Gomez de las Cortinas Maceda, Alvaro","RET",3,0],["Belloso Simon, Marcos","UZN",3,0],["Rojo Fernandez Campoamor, Alejandro","ESC",3,0],
+   ["Valentin Hernandez, Alberto","LRB",3,0],["Rica Rodriguez, Pelayo","ARR",3,0],["Blanco Rodriguez-Manzaneque, Jacobo","PUE",3,0],["Rodriguez Hernandez, Alonso","ADF",3,0],["Aparicio Cañadas, Hugo","UZN",3,0],["Alvarez de Neyra Gonzalez, Bosco","ADF",3,0],["Lopez Escobar, Marcos","NBC",3,0],["Migoya Alonso, Guillermo","ADF",2,0],
+   ["Larrea Hernandez, Jon","FUE",2,0],["Gomez Roman, Luca","UZN",2,0],["Vico Vallejo, Jacobo","NBC",2,0],["Moreno Escrich, Alejandro","UZN",2,0],["Segovia Nuño, Aimar","UZN",2,0],["Mata Poblacion, Juan Miguel","UZN",2,0],["Galan Morgado, Alex","DV7B",2,0],["Soiza Herraiz, Lucas","DV7B",2,0],
+   ["Delor Astraldi, Santiago","DV7B",2,0],["Mendiola Cruz, Alex","DV7B",2,0],["Lebrero Garces, Marcos","EFP",2,0],["Tome Rojas, Yeremi","UZN",2,0],["Quesada Gutierrez, Pablo","LRB",2,0],["Bujalante Nieto, Sergio","EFP",2,0],["Quemada Cespedosa, Alberto","FPA",2,0],["Gomez Sanchez, Oliver","NBC",2,0],
+   ["Bedon Noriega, Thiago","ARR",2,0],["Utrilla Martinez, Izan","DV7B",2,0],["Cebrian Cordoba, Daniel","DV7B",2,0],["Cucalon Echevarria, Antonio","NBC",1,0],["Meseguer Lopez, Carlos","ALP",1,0],["Mesía García-Noblejas, Javier","RET",1,0],["Sanchez Montañez Gomez Pimpollo, Alberto","ESC",1,0],["Pelegri Moreno, Beltran","RET",1,0],
+   ["Monroy Hernandez, Beltran","UZN",1,0],["Ayala Milla, Leo","DV7B",1,0],["Tejero Juarez, Joel","ALP",1,0],["Riera Olivencia, Nicolás","PUE",1,0],["Insfran Maidana, Alexis Nicolas","ALP",1,0],["Leal Navarro, Illan","ARR",1,0],["Osborne Martinez Echecarria, Juan","ARA",1,0],["Echaniz Rodriguez, Jaime","ADF",1,0],
+   ["Vacchi Cedillo, Leonardo","LRB",1,0],["De Juana Riera, Gonzalo","ADF",1,0],["Torres Fernandez, Luca","UZN",1,0],["Martinez Goyanes, Manuel","ARA",1,0],["Sanchez Martinez, Pablo Esteban","FUE",1,0],["Bano Prieto, Diego","ESC",1,0],["Palazuelos Martínez, Daniel Jesús","PUE",1,0],["Diaz Ordoñez de Barraicua, Rodrigo","FPA",1,0],
+   ["Ballesteros Amat, Alvaro","RET",1,0],["Haaxman Espinosa de los Monteros, Nicolás","RET",1,0],["Martin Tuñas, Leo","UZN",1,0],["Tauroni Jimenez-Alfaro, Iñigo","ESC",1,0],["Criado Moya, Joel","ALP",1,0],["Olarte Galan, Alvaro","NBC",1,0],["Mejias Galiano, David","FUE",1,0],["Gonzalo de la Cueva, Joel","ALP",1,0],
+   ["Perez Carretero, Daniel","ARR",1,0],["Cano Hidalgo, Juan","RET",1,0],["Lattari Tubio, Joaquin","DV7B",1,0],["Del Canto Calo, Marcos","NBC",1,0],["Fernandez Contreras, Alvaro","FUE",1,0],["Tuñón Moran, Tomás","RET",1,0],["Juma Minciuna, David","FUE",1,0],["Huerta Carrascosa, Diego","LRB",1,0],
+   ["Hernandez Martin, Yago","ARR",1,0],["Rabadan Azañedo, Pablo","ADF",1,0],["González Miranda, Miguel","PUE",1,0],["Castro Cespedes, Gabriel","ARA",1,0],["Fabian Ramos, Taylor","UZN",1,0],["Porto Herranz, Alvaro","UZN",1,0],["Garcia Lomelino, Carlos","RET",1,0],["Pinto Vazquez, Eduardo","FPA",1,0],
+   ["Marquez Jimenez, Juan","ARR",1,0],["Madrigal Jimenez, Telmo","LRB",1,0],["Fernandez Ortiz, Alejandro","LRB",1,0],["Ruiz Robles, Angel Gabriel","NBC",1,0],["Romero Calderon, Matteo Joaquin","EFP",1,0],["Inclan Campos, Pablo","FPA",1,0],["Aleu Gracia, Mario","FPA",1,0]
   ],
   scorersNote:null,
   squad:["Bano Prieto, Diego","Bellver Seoanez, Juan","Boticario Pérez de Sevilla, Álvaro","Boticario Pérez de Sevilla, Jaime","Cujo Sebastián, Aníbal","Fernández-Aller Rodríguez, Javier","García González, Sergio","Garnica Leal, Jorge","López Boleas, Martín","Lozano Redondo, Saúl","Miralles Martínez, Mateo","Moreira Barrio, Alberto","Morillo de la Fuente, Jorge","Pan Martín, Manuel","Reyes Yeguas, Álvaro","Rojo Fernández Campoamor, Alejandro","Romero Pachón, Guillermo","Rueda Plaza, Hugo","Sánchez Montañez Gómez Pimpollo, Alberto","Santiago Gallo, Ignacio","Tauroni Jiménez-Alfaro, Iñigo","Zamora Ampuero, Alfredo"],
@@ -333,7 +335,7 @@ const BENJAMIN={
     RVC:{n:"S.A.D. Fundación Rayo Vallecano 'C'",k:[C.blanco,C.blanco],p:"sash"},
     ARA:{n:"Aravaca C.F. - Ceiba 'A'",k:[C.azul,C.blanco],p:"stripes"}
   },
-  order:["FPA","RMJ","TKA","GET","DV7","FRM","ARA","NBA","VIL","LRA","TOR","ESC","RVC"],
+  order:["TKA","FPA","RMJ","GET","FRM","LRA","TOR","NBA","VIL","DV7","ARA","ESC","RVC"],
   zones:{}, zoneLegend:[],
   dates:["03/10","17/10","24/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02"],
   m:{
@@ -341,7 +343,7 @@ const BENJAMIN={
    2:[["DV7","FRM",0,0,"17/10","09:00"],["ESC","GET",0,1,"17/10","10:00"],["ARA","NBA",1,0,"17/10","11:00"],["RVC","RMJ",0,1,"17/10","12:00"],["FPA","VIL",1,0,"17/10","13:00"],["LRA","TKA",0,1,"17/10","14:00"]],
    3:[["GET","LRA",0,1,"24/10","09:00"],["VIL","DV7",0,1,"24/10","10:00"],["FRM","ESC",1,0,"24/10","11:00"],["TOR","FPA",0,1,"24/10","12:00"],["TKA","RVC",1,0,"24/10","13:00"],["RMJ","ARA",1,0,"24/10","14:00"]],
    4:[["DV7","TOR",0,1,"07/11","13:00"],["ESC","VIL",0,0,"07/11","14:00"],["LRA","FRM",0,1,"07/11","12:00"],["RVC","GET",0,1,"07/11","11:00"],["ARA","TKA",0,1,"07/11","09:00"],["NBA","RMJ",0,1,"07/11","10:00"]],
-   5:[["FPA","DV7",null,null,"14/11","14:00"],["TOR","ESC",null,null,"14/11","09:00"],["VIL","LRA",null,null,"14/11","10:00"],["FRM","RVC",null,null,"14/11","13:00"],["GET","ARA",null,null,"14/11","12:00"],["TKA","NBA",null,null,"14/11","11:00"]],
+   5:[["FPA","DV7",1,0,"14/11","14:00"],["TOR","ESC",0,0,"14/11","09:00"],["VIL","LRA",0,1,"14/11","10:00"],["FRM","RVC",1,0,"14/11","13:00"],["GET","ARA",1,0,"14/11","12:00"],["TKA","NBA",0,0,"14/11","11:00"]],
    6:[["ESC","FPA",null,null,"21/11","13:00"],["LRA","TOR",null,null,"21/11","11:00"],["RVC","VIL",null,null,"21/11","09:00"],["ARA","FRM",null,null,"21/11","10:00"],["NBA","GET",null,null,"21/11","12:00"],["RMJ","TKA",null,null,"21/11","14:00"]]
   },
   pairs:{
@@ -358,7 +360,8 @@ const BENJAMIN={
    1:{ref:"Vela Jurado, Daniel"},
    2:{ref:"Abanades Martín, Sergi"},
    3:{ref:"Vallés Rodríguez, Axel"},
-   4:{ref:"Bautista Cáceres, Bryan"}
+   4:{ref:"Bautista Cáceres, Bryan"},
+   5:{ref:"Fernández Neira, Julián"}
   },
   scorers:[],
   scorersNote:"La RFFM no publica goleadores en esta categoría.",
@@ -436,7 +439,7 @@ const BENJAMINB={
     EFB:{n:"E.F.M.O. Boadilla 'B'",k:[C.rojo,C.blanco]},
     EFC:{n:"E.F.M.O. Boadilla 'C'",k:[C.rojo,C.blanco]}
   },
-  order:["TKC","CAL","FDE","NBD","NBE","POZB","EFC","POZC","NBF","ESC","EFB","POZD","ESCC"],
+  order:["TKC","CAL","EFC","POZB","NBE","FDE","NBD","NBF","EFB","POZC","ESC","POZD","ESCC"],
   zones:{}, zoneLegend:[],
   dates:["03/10","17/10","24/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02"],
   m:{
@@ -444,11 +447,11 @@ const BENJAMINB={
    2:[["POZB","POZC",1,0,"17/10","09:00"],["NBE","POZD",1,0,"17/10","10:00"],["NBF","NBD",0,1,"17/10","11:00"],["CAL","EFB",1,0,"17/10","12:00"],["ESC","FDE",0,1,"17/10","13:00"],["EFC","ESCC",1,0,"17/10","14:00"]],
    3:[["FDE","EFC",0,0,"24/10","09:00"],["NBD","POZB",0,1,"24/10","10:00"],["POZC","ESC",1,0,"24/10","11:00"],["NBE","NBF",1,0,"24/10","12:00"],["ESCC","CAL",0,1,"24/10","13:00"],["POZD","TKC",0,1,"24/10","15:05"]],
    4:[["NBF","POZD",1,0,"07/11","09:00"],["POZB","NBE",1,0,"07/11","13:00"],["ESC","NBD",0,0,"07/11","14:00"],["EFC","POZC",1,0,"07/11","12:00"],["CAL","FDE",1,0,"07/11","10:00"],["TKC","EFB",1,0,"07/11","11:00"]],
-   5:[["NBF","POZB",null,null,"14/11","14:00"],["NBE","ESC",null,null,"14/11","10:00"],["NBD","EFC",null,null,"14/11","11:00"],["POZC","CAL",null,null,"14/11","13:00"],["ESCC","TKC",null,null,"14/11","09:00"],["POZD","EFB",null,null,"14/11","12:00"]],
-   6:[["POZB","POZD",null,null,"21/11","11:00"],["ESC","NBF",null,null,"21/11","09:00"],["EFC","NBE",null,null,"21/11","14:00"],["CAL","NBD",null,null,"21/11","13:00"],["TKC","FDE",null,null,"21/11","12:00"],["EFB","ESCC",null,null,"21/11","10:00"]]
+   5:[["NBF","POZB",null,null,"14/11","14:00"],["NBE","ESC",1,0,"14/11","10:00"],["NBD","EFC",0,1,"14/11","11:00"],["POZC","CAL",0,1,"14/11","13:00"],["ESCC","TKC",0,1,"14/11","09:00"],["POZD","EFB",0,1,"14/11","12:00"]],
+   6:[["POZB","POZD",null,null,"21/11","11:00"],["ESC","NBF",null,null,"21/11","09:00"],["EFC","NBE",null,null,"21/11","14:00"],["CAL","NBD",null,null,"21/11","13:00"],["TKC","FDE",null,null,"21/11","12:00"],["EFB","ESCC",null,null,"21/11","10:00"]],
+   7:[["POZB","ESC",null,null,"28/11","12:00"],["NBF","EFC",null,null,"28/11","10:00"],["NBE","CAL",null,null,"28/11","11:00"],["POZC","TKC",null,null,"28/11","13:00"],["FDE","EFB",null,null,"28/11","14:00"],["POZD","ESCC",null,null,"28/11","09:00"]]
   },
   pairs:{
-   7:"POZD-ESCC NBF-EFC NBE-CAL POZB-ESC POZC-TKC FDE-EFB",
    8:"EFB-POZC TKC-NBD ESCC-FDE EFC-POZB ESC-POZD CAL-NBF",
    9:"POZB-CAL ESC-EFC NBE-TKC NBD-EFB POZD-FDE POZC-ESCC",
    10:"CAL-ESC FDE-POZC EFC-POZD ESCC-NBD TKC-NBF EFB-NBE",
@@ -460,7 +463,8 @@ const BENJAMINB={
   acta:{
    1:{ref:"García Barahona, Carolina"},
    2:{ref:"Blanco Moreno, Adrián"},
-   3:{ref:"Cano Alcojor, Nico"}
+   3:{ref:"Cano Alcojor, Nico"},
+   5:{ref:"Mingo Mingo, Alejandro"}
   },
   scorers:[],
   scorersNote:"La RFFM no publica goleadores en esta categoría.",
@@ -494,7 +498,7 @@ const AFICIONADO={
     PRO:{n:"C.D. Prodet Pozuelo",k:[C.azul,C.verde]},
     DV7:{n:"CD DV7 Madrid",k:[C.rojo,C.rojo]}
   },
-  order:["LMB","PUEB","LIBB","DV7","RET","TORB","ESC","ELRB","UVPB","NAV","INT","PRO","SER","ESCO"],
+  order:["PUEB","LIBB","TORB","LMB","RET","ESC","DV7","INT","ELRB","UVPB","NAV","PRO","SER","ESCO"],
   zones:{}, zoneLegend:[],
   dates:["11/10","18/10","25/10","01/11","08/11","15/11","22/11","29/11","13/12","20/12","17/01","24/01","31/01","07/02","14/02","21/02","28/02","07/03","14/03","21/03","04/04","11/04","18/04","25/04","02/05","09/05"],
   m:{
@@ -503,11 +507,11 @@ const AFICIONADO={
    3:[["LIBB","ESCO",5,3,"25/10","17:00","Alcorcón - Alfredo Cenarriaga 1"],["TORB","INT",2,0,"25/10","12:15","Torrelodones - Julián Ariza"],["ELRB","PUEB",0,2,"25/10","12:15","Las Rozas - El Abajón"],["NAV","UVPB",3,3,"25/10","12:00","Navalagamella - Juan Antonio Gutiérrez 'Jaipi'"],["SER","DV7",0,6,"25/10","15:30","Navalagamella - Juan Antonio Gutiérrez 'Jaipi'"],["ESC","RET",2,5,"25/10","19:20","Pozuelo - Colegio Escolapios"],["LMB","PRO",3,0,"25/10","11:00","Las Matas - Pvo. Municipal San José"]],
    4:[["ESCO","LMB",1,3,"29/10","20:30","El Escorial - Navaarmado"],["INT","LIBB",3,4,"01/11","17:00","Aravaca - Ntra. Sra. Buen Camino"],["PUEB","TORB",1,0,"01/11","20:00","Majadahonda - Atlético de Madrid C.D. Campo 2"],["UVPB","ELRB",null,null,"06/12","20:30","Villanueva del Pardillo 1 (Municipal Juan Manuel Angelina)"],["DV7","NAV",0,0,"29/10","20:00","Universidad Alfonso X el Sabio"],["RET","SER",8,1,"01/11","21:00","Pozuelo - Colegio Retamar"],["PRO","ESC",1,3,"01/11","20:00","Pozuelo - Valle de las Cañas 2"]],
    5:[["ESCO","INT",3,9,"08/11","11:00","El Escorial - Navaarmado"],["LIBB","PUEB",1,0,"08/11","16:45","Alcorcón - Alfredo Cenarriaga 1"],["TORB","UVPB",4,0,"08/11","12:30","Torrelodones - Julián Ariza"],["ELRB","DV7",0,1,"08/11","16:15","Las Rozas - El Abajón"],["NAV","RET",0,4,"08/11","12:00","Navalagamella - Juan Antonio Gutiérrez 'Jaipi'"],["SER","PRO",3,3,"08/11","16:10","Navalagamella - Juan Antonio Gutiérrez 'Jaipi'"],["LMB","ESC",4,0,"08/11","10:30","Las Matas - Pvo. Municipal San José"]],
-   6:[["INT","LMB",null,null,"15/11","16:15","Aravaca - Ntra. Sra. Buen Camino"],["PUEB","ESCO",null,null,"15/11","20:00","Majadahonda - Atlético de Madrid C.D. Campo 2"],["UVPB","LIBB",null,null,"15/11","19:30","Quijorna - La Dehesa"],["DV7","TORB",null,null,"15/11","11:45","Universidad Alfonso X el Sabio"],["RET","ELRB",null,null,"15/11","18:45","Pozuelo - Colegio Retamar"],["PRO","NAV",null,null,"15/11","18:00","Pozuelo - Valle de las Cañas 2"],["ESC","SER",null,null,"15/11","20:00","Pozuelo - Colegio Escolapios"]],
-   7:[["INT","PUEB",null,null,"22/11","13:15","Aravaca - Ntra. Sra. Buen Camino"],["ESCO","UVPB",null,null,"22/11",null,"El Escorial - Navaarmado"],["LIBB","DV7",null,null,"22/11",null,"Alcorcón - Alfredo Cenarriaga 1"],["TORB","RET",null,null,"22/11",null,"Torrelodones - Julián Ariza"],["ELRB","PRO",null,null,"22/11",null,"Las Rozas - El Abajón"],["NAV","ESC",null,null,"22/11","12:00","Navalagamella - Juan Antonio Gutiérrez 'Jaipi'"],["LMB","SER",null,null,"22/11",null,"Las Matas - Pvo. Municipal San José"]]
+   6:[["INT","LMB",4,1,"15/11","16:45","Aravaca - Ntra. Sra. Buen Camino"],["PUEB","ESCO",null,null,"15/11","20:00","Majadahonda - Atlético de Madrid C.D. Campo 2"],["UVPB","LIBB",null,null,"15/11","19:30","Quijorna - La Dehesa"],["DV7","TORB",2,3,"15/11","11:45","Universidad Alfonso X el Sabio"],["RET","ELRB",null,null,"15/11","18:45","Pozuelo - Colegio Retamar"],["PRO","NAV",1,2,"15/11","18:00","Pozuelo - Valle de las Cañas 2"],["ESC","SER",null,null,"15/11","20:00","Pozuelo - Colegio Escolapios"]],
+   7:[["INT","PUEB",null,null,"22/11","13:15","Aravaca - Ntra. Sra. Buen Camino"],["ESCO","UVPB",null,null,"22/11","17:00","El Escorial - Navaarmado"],["LIBB","DV7",null,null,"22/11",null,"Alcorcón - Alfredo Cenarriaga 1"],["TORB","RET",null,null,"22/11","12:00","Torrelodones - Julián Ariza"],["ELRB","PRO",null,null,"22/11","13:00","Las Rozas - El Abajón"],["NAV","ESC",null,null,"22/11","12:00","Navalagamella - Juan Antonio Gutiérrez 'Jaipi'"],["LMB","SER",null,null,"22/11","12:45","Las Matas - Pvo. Municipal San José"]],
+   8:[["PUEB","LMB",null,null,"29/11",null,"Majadahonda - Atlético de Madrid C.D. Campo 2"],["UVPB","INT",null,null,"29/11",null,"Villanueva del Pardillo 1 (Municipal Juan Manuel Angelina)"],["DV7","ESCO",null,null,"29/11",null,"Universidad Alfonso X el Sabio"],["RET","LIBB",null,null,"29/11",null,"Pozuelo - Colegio Retamar"],["PRO","TORB",null,null,"29/11","20:00","Pozuelo - Valle de las Cañas 2"],["ESC","ELRB",null,null,"29/11",null,"Pozuelo - Colegio Escolapios"],["SER","NAV",null,null,"29/11",null,"Valdemorillo - Pvo. Mpal. Dehesa Algodonales"]]
   },
   pairs:{
-   8:"PUEB-LMB UVPB-INT DV7-ESCO RET-LIBB ESC-ELRB SER-NAV PRO-TORB",
    9:"PUEB-UVPB INT-DV7 ESCO-RET LIBB-PRO TORB-ESC ELRB-SER LMB-NAV",
    10:"UVPB-LMB DV7-PUEB RET-INT ESC-LIBB SER-TORB NAV-ELRB PRO-ESCO",
    11:"UVPB-DV7 PUEB-RET INT-PRO ESCO-ESC LIBB-SER TORB-NAV LMB-ELRB",
@@ -536,18 +540,18 @@ const AFICIONADO={
    5:{ref:"Sanz García, Hugo",g:[["13","Ibarreta Toribio, Alejandro","LMB"],["19","Díaz Martín, Álvaro","LMB"],["27","Conde Vidales, Carlos","LMB"],["49","Casado Castro, Enrique","LMB"]]}
   },
   scorers:[
-   ["Álvarez del Moral, Pablo","INT",5,1],["Durán Gallego, Guillermo","ESCO",4,0],["Suárez Morillo, Michael Elody","LIBB",4,0],["García Heredia, Álvaro","TORB",4,0],["De Campos Santos, Hugo","LIBB",4,1],["Ruiz Brull, Blas","PUEB",4,0],["Terol Fornes, Iñigo","RET",3,0],["Sagredo Caparroz, Pablo","INT",3,0],
-   ["Simarro Cuevas, Pablo","TORB",3,1],["Asenjo Tudurí, Santiago","DV7",3,0],["Mayoral Castillo, Diego","DV7",3,0],["García Yanguas, Alberto","DV7",3,0],["Conde Vidales, Carlos","LMB",3,0],["Lázaro Rodríguez, Lukas","LMB",3,0],["González Roca, Álvaro","INT",3,0],["Casado Castro, Enrique","LMB",3,0],
-   ["Orellana Ramón, Alejandro Edison","TORB",3,0],["Díaz Cano, Hugo","ESCO",2,0],["Martín Consuegra González, Jaime","RET",2,0],["Ozores Kindelán, Jacobo","RET",2,0],["Guitián Buxens, Jaime","RET",2,0],["Díez Castro, César","PUEB",2,0],["Rico Tío, Carlos","ELRB",2,0],["Pascual Amor, Álvaro","UVPB",2,0],
-   ["Atero Redondo, Francisco Javier","PUEB",2,0],["García Guerra, Alejandro","ELRB",2,0],["Echeverría García, Héctor","LIBB",2,1],["Puente Bringas, Javier","PUEB",2,0],["Gil Gimeno, Beltrán","PRO",2,0],["Ibarreta Toribio, Alejandro","LMB",2,0],["Chozas Martínez, Jorge","ESC",2,0],["Huertas Plaza, Mateo","INT",2,0],
-   ["Jardón Clemente, Javier","DV7",2,0],["De Lope Rumayor, Gonzalo","RET",2,0],["Ventosinos León, Víctor","SER",2,0],["García Teijo, Lucas","PRO",2,0],["Oliveros Martín, Diego","PRO",2,0],["Osorio de Rebellón Moreno, Jaime","RET",1,0],["Lozano Magán, Pablo","SER",1,0],["Alonso del Río, Jorge","UVPB",1,0],
-   ["Villarino Bonet, Carlos","RET",1,0],["Garrido del Peso, Diego","LIBB",1,0],["Carretero López, Ignacio","NAV",1,0],["Marquet de Solís, Guillermo","INT",1,0],["Regojo Rey, Pedro Denis","RET",1,0],["Cano Suárez, Lucas","TORB",1,0],["Jáudenes Baillo, Eduardo","RET",1,0],["Hay, Pierre Louis Sebastien Ernest","DV7",1,0],
-   ["De Ocio Fernández de Casadevante, Pablo","RET",1,0],["Gómez Pereira, Saúl","NAV",1,0],["Ucero Parera, Dídac","ELRB",1,0],["Rojano Dorronsoro, Jaime","ESC",1,0],["Larrabe Valdivia, Carlos","ESC",1,0],["Tur Mayoral, Diego","ESC",1,0],["Tortajada Berdejo, Carlos José","PUEB",1,0],["Blanco Escolar, Diego","UVPB",1,0],
-   ["Ferrándiz Maderal, Pablo","ESC",1,0],["Segarra Porres, Fernando","ESC",1,0],["García Custodio, Martín","UVPB",1,0],["Rincón Cordero, Fabio","LMB",1,0],["Fernández Benítez, Daniel","INT",1,0],["Serrano González, Iker","DV7",1,0],["Rueda Marín, Beltrán Domingo","ESC",1,0],["Pereira Ortiz, Marcos","ELRB",1,0],
-   ["Galera Gómez, Javier","UVPB",1,0],["Lanchas Pego, Rodrigo","TORB",1,0],["Valdivielso Melgar, Pablo","PUEB",1,0],["Negueruela Abreu, Nicolás","ESC",1,0],["Alvarado Rumbea, Enrique Alejandro","ESCO",1,0],["Cole de Andrés, Yuval","INT",1,0],["Martínez Ferrández, Alberto","PUEB",1,0],["Espinosa Sánchez, Lucas","SER",1,0],
-   ["Amigo Muñoz, Ignacio","PUEB",1,0],["Kabkab, Anas","NAV",1,0],["Escober Torres, Milton","NAV",1,0],["Díaz Martín, Álvaro","LMB",1,0],["Lacosta Colorado, Gonzalo","DV7",1,0],["Rumayor Beltrán, Alejandro José","RET",1,0],["Moreno Vaquero, Ignacio María","RET",1,1],["Hinojosa Ruiz, Óscar","RET",1,0],
-   ["Corral Carabantes, Guillermo","PRO",1,0],["Alonso Buyvolov, Daniel","DV7",1,0],["Bravo Cortés, Diego","NAV",1,0],["Ventosinos León, Sergio","ESCO",1,0],["Milán Sierra, Alfonso","RET",1,0],["Paredes Pérez, Víctor","ESC",1,1],["Pérez Hickman Durán, Javier","ESC",1,0],["Soler Pérez, Álvaro","DV7",1,0],
-   ["Chamba Caiza, Héctor Vicente","LIBB",1,0],["Caballero Urosa, Jorge","LMB",1,0],["Del Amo Gómez, Alejandro","PUEB",1,0]
+   ["Alvarez del Moral, Pablo","INT",7,1],["Sagredo Caparroz, Pablo","INT",5,0],["Garcia Heredia, Alvaro","TORB",5,0],["Duran Gallego, Guillermo","ESCO",4,0],["Suarez Morillo, Michael Elody","LIBB",4,0],["Ruiz Brull, Blas","PUEB",4,0],["De Campos Santos, Hugo","LIBB",4,1],["Terol Fornes, Iñigo","RET",3,0],
+   ["Simarro Cuevas, Pablo","TORB",3,1],["Orellana Ramon, Alejandro Edison","TORB",3,0],["Asenjo Tuduri, Santiago","DV7",3,0],["Mayoral Castillo, Diego","DV7",3,0],["Garcia Yanguas, Alberto","DV7",3,0],["Bravo Cortes, Diego","NAV",3,0],["Garcia Teijo, Lucas","PRO",3,0],["Conde Vidales, Carlos","LMB",3,0],
+   ["Gonzalez Roca, Alvaro","INT",3,0],["Lazaro Rodriguez, Lukas","LMB",3,0],["Casado Castro, Enrique","LMB",3,0],["Martin Consuegra Gonzalez, Jaime","RET",2,0],["Diaz Cano, Hugo","ESCO",2,0],["Ozores Kindelán, Jacobo","RET",2,0],["Guitian Buxens, Jaime","RET",2,0],["Garcia Guerra, Alejandro","ELRB",2,0],
+   ["Pascual Amor, Alvaro","UVPB",2,0],["Rico Tio, Carlos","ELRB",2,0],["Atero Redondo, Francisco Javier","PUEB",2,0],["Echeverria Garcia, Hector","LIBB",2,1],["Diez Castro, Cesar","PUEB",2,0],["De Lope Rumayor, Gonzalo","RET",2,0],["Ventosinos Leon, Victor","SER",2,0],["Chozas Martinez, Jorge","ESC",2,0],
+   ["Puente Bringas, Javier","PUEB",2,0],["Serrano Gonzalez, Iker","DV7",2,1],["Oliveros Martin, Diego","PRO",2,0],["Ibarreta Toribio, Alejandro","LMB",2,0],["Gil Gimeno, Beltran","PRO",2,0],["Caballero Urosa, Jorge","LMB",2,0],["Jardon Clemente, Javier","DV7",2,0],["Alonso Buyvolov, Daniel","DV7",2,0],
+   ["Timón Martínez, Iván","TORB",2,0],["Huertas Plaza, Mateo","INT",2,0],["Lozano Magan, Pablo","SER",1,0],["Osorio de Rebellón Moreno, Jaime","RET",1,0],["Alonso del Rio, Jorge","UVPB",1,0],["Garrido del Peso, Diego","LIBB",1,0],["Villarino Bonet, Carlos","RET",1,0],["Rojano Dorronsoro, Jaime","ESC",1,0],
+   ["Carretero Lopez, Ignacio","NAV",1,0],["Hay, Pierre Louis Sebastien Ernest","DV7",1,0],["Ucero Parera, Didac","ELRB",1,0],["De Ocio Fernandez de Casadevante, Pablo","RET",1,0],["Regojo Rey, Pedro Denis","RET",1,0],["Jáudenes Baillo, Eduardo","RET",1,0],["Cano Suarez, Lucas","TORB",1,0],["Ferrandiz Maderal, Pablo","ESC",1,0],
+   ["Blanco Escolar, Diego","UVPB",1,0],["Tur Mayoral, Diego","ESC",1,0],["Segarra Porres, Fernando","ESC",1,0],["Tortajada Berdejo, Carlos Jose","PUEB",1,0],["Larrabe Valdivia, Carlos","ESC",1,0],["Garcia Custodio, Martin","UVPB",1,0],["Marquet de Solis, Guillermo","INT",1,0],["Martinez Ferrandez, Alberto","PUEB",1,0],
+   ["Rueda Marin, Beltran Domingo","ESC",1,0],["Galera Gomez, Javier","UVPB",1,0],["Valdivielso Melgar, Pablo","PUEB",1,0],["Negueruela Abreu, Nicolas","ESC",1,0],["Alvarado Rumbea, Enrique Alejandro","ESCO",1,0],["Pereira Ortiz, Marcos","ELRB",1,0],["Gómez Pereira, Saul","NAV",1,0],["Espinosa Sanchez, Lucas","SER",1,0],
+   ["Moreno Vaquero, Ignacio Maria","RET",1,1],["Fernandez Benitez, Daniel","INT",1,0],["Kabkab, Anas","NAV",1,0],["Cole de Andres, Yuval","INT",1,0],["Amigo Muñoz, Ignacio","PUEB",1,0],["Lanchas Pego, Rodrigo","TORB",1,0],["Rumayor Beltran, Alejandro Jose","RET",1,0],["Del Amo Gomez, Alejandro","PUEB",1,0],
+   ["Soler Perez, Alvaro","DV7",1,0],["Hinojosa Ruiz, Oscar","RET",1,0],["Ventosinos Leon, Sergio","ESCO",1,0],["Chamba Caiza, Hector Vicente","LIBB",1,0],["Rincon Cordero, Fabio","LMB",1,0],["Milan Sierra, Alfonso","RET",1,0],["Paredes Perez, Victor","ESC",1,1],["Perez Hickman Duran, Javier","ESC",1,0],
+   ["Corral Carabantes, Guillermo","PRO",1,0],["Diaz Martin, Alvaro","LMB",1,0],["Escober Torres, Milton","NAV",1,0],["Lacosta Colorado, Gonzalo","DV7",1,0]
   ],
   scorersNote:null,
   squad:["Asuar Pérez, Ignacio", "Boned González, Javier", "Chozas Martínez, Jorge", "De Lope Pérez, Álvaro", "Estébanez de la Torre, Arturo", "Ferrándiz Maderal, Pablo", "Garaña Castaño, Iván", "Gil Vicente, Jorge", "Larrabe Valdivia, Carlos", "Martín Jiménez, Mateo", "Martínez Fernández, Lucas", "Martínez Salazar López, Pablo", "Montero Barbarín, Jaime", "Negueruela Abreu, Nicolás", "Paredes Pérez, Víctor", "Pérez Hickman Durán, Javier", "Rojano Dorronsoro, Jaime", "Rueda Marín, Beltrán Domingo", "Segarra Porres, Fernando", "Tur Mayoral, Daniel", "Tur Mayoral, Diego", "Velasco Juan, Joaquín"],
@@ -578,7 +582,7 @@ const INFANTILA={
     VILC:{n:"A.D. Villaviciosa de Odón 'C'",k:[C.blanco,C.blanco]},
     AUPA:{n:"C.D.E. AUPA - Ciudad de Boadilla Mentema 'A'",k:[C.celeste,C.marino]}
   },
-  order:["CALB","FDEC","FCB","FRME","POZE","ESC","ENC","DUX","VILC","NAVJ","NBG","AUPA","PM3B"],
+  order:["FDEC","CALB","ESC","FCB","FRME","ENC","POZE","DUX","VILC","NAVJ","NBG","AUPA","PM3B"],
   zones:{}, zoneLegend:[],
   dates:["10/10","17/10","24/10","31/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02","13/02","20/02","27/02","06/03","13/03","20/03","03/04","10/04","17/04","24/04","01/05","08/05"],
   m:{
@@ -587,11 +591,11 @@ const INFANTILA={
    3:[["NBG","PM3B",5,0,"24/10","11:10","Boadilla - Pvo. Municipal Ángel Nieto 3"],["ESC","FRME",3,2,"24/10","13:00","Pozuelo - Colegio Escolapios"],["DUX","CALB",0,6,"24/10","12:30","Villaviciosa de Odón 2"],["NAVJ","POZE",5,5,"24/10","12:30","Navalcarnero - El Pinar 2"],["FDEC","AUPA",6,1,"25/10","09:00","Universidad Francisco de Vitoria"],["VILC","ENC",3,3,"24/10","09:30","Villaviciosa de Odón 2"]],
    4:[["PM3B","FCB",1,5,"31/10","12:15","Alcorcón - Alfredo Cenarriaga 2"],["FRME","NBG",5,0,"31/10","13:50","Majadahonda - Inst. Dep. La Oliva - Ctro. Oeste"],["CALB","ESC",4,2,"31/10","11:30","Pozuelo - Pvo. El Pradillo"],["POZE","DUX",4,1,"31/10","10:00","Pozuelo - Valle de las Cañas 2"],["AUPA","NAVJ",1,2,"01/11","14:00","Boadilla - Condesa Chinchón 1"],["ENC","FDEC",3,8,"31/10","12:30","Boadilla - Club Las Encinas"]],
    5:[["FCB","FRME",2,2,"08/11","14:00","Boadilla - Pvo. Municipal Ángel Nieto 1"],["NBG","CALB",0,6,"08/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 3"],["ESC","POZE",1,1,"07/11","09:30","Pozuelo - Colegio Escolapios"],["DUX","AUPA",8,0,"07/11","12:30","Villaviciosa de Odón 2"],["NAVJ","ENC",4,12,"07/11","16:00","Navalcarnero - El Pinar 1"],["VILC","FDEC",1,3,"07/11","16:00","Villaviciosa de Odón 1"]],
-   6:[["PM3B","VILC",null,null,"14/11","16:30","Alcorcón - Alfredo Cenarriaga 2"],["CALB","FCB",null,null,"14/11","18:00","Pozuelo - Pvo. El Pradillo"],["POZE","NBG",null,null,"14/11","16:30","Pozuelo - Valle de las Cañas 2"],["AUPA","ESC",null,null,"15/11","15:40","Boadilla - Condesa Chinchón 1"],["ENC","DUX",null,null,"14/11","16:15","Boadilla - Club Las Encinas"],["FDEC","NAVJ",null,null,"14/11","12:40","Universidad Francisco de Vitoria"]],
-   7:[["PM3B","FRME",null,null,"21/11",null,"Alcorcón - Alfredo Cenarriaga 2"],["FCB","POZE",null,null,"21/11",null,"Boadilla - Condesa Chinchón 1"],["NBG","AUPA",null,null,"21/11","17:00","Boadilla - Condesa Chinchón 2"],["ESC","ENC",null,null,"21/11",null,"Pozuelo - Colegio Escolapios"],["DUX","FDEC",null,null,"21/11",null,"Villaviciosa de Odón 1"],["VILC","NAVJ",null,null,"21/11",null,"Villaviciosa de Odón 1"]]
+   6:[["PM3B","VILC",null,null,"14/11","16:30","Alcorcón - Alfredo Cenarriaga 2"],["CALB","FCB",4,3,"14/11","18:00","Pozuelo - Pvo. El Pradillo"],["POZE","NBG",null,null,"14/11","16:30","Pozuelo - Valle de las Cañas 2"],["AUPA","ESC",0,4,"15/11","16:00","Boadilla - Condesa Chinchón 1"],["ENC","DUX",2,1,"14/11","16:15","Boadilla - Club Las Encinas"],["FDEC","NAVJ",11,0,"14/11","12:40","Universidad Francisco de Vitoria"]],
+   7:[["PM3B","FRME",null,null,"21/11",null,"Alcorcón - Alfredo Cenarriaga 2"],["FCB","POZE",null,null,"21/11",null,"Boadilla - Condesa Chinchón 1"],["NBG","AUPA",null,null,"21/11","17:00","Boadilla - Condesa Chinchón 2"],["ESC","ENC",null,null,"21/11",null,"Pozuelo - Colegio Escolapios"],["DUX","FDEC",null,null,"21/11",null,"Villaviciosa de Odón 1"],["VILC","NAVJ",null,null,"21/11",null,"Villaviciosa de Odón 1"]],
+   8:[["FRME","VILC",null,null,"28/11",null,"Majadahonda - Inst. Dep. La Oliva - Ctro. Oeste"],["CALB","PM3B",null,null,"28/11",null,"Pozuelo - Pvo. El Pradillo"],["AUPA","FCB",null,null,"28/11",null,"Boadilla - Condesa Chinchón 1"],["ENC","NBG",null,null,"28/11",null,"Boadilla - Club Las Encinas"],["FDEC","ESC",null,null,"28/11",null,"Universidad Francisco de Vitoria"],["NAVJ","DUX",null,null,"28/11",null,"Navalcarnero - Estadio Mariano Gonzalez"]]
   },
   pairs:{
-   8:"FRME-VILC CALB-PM3B AUPA-FCB ENC-NBG FDEC-ESC NAVJ-DUX",
    9:"FRME-CALB PM3B-POZE FCB-ENC NBG-FDEC ESC-NAVJ VILC-DUX",
    10:"CALB-VILC POZE-FRME AUPA-PM3B FDEC-FCB NAVJ-NBG DUX-ESC",
    11:"CALB-POZE FRME-AUPA PM3B-ENC FCB-NAVJ NBG-DUX VILC-ESC",
@@ -616,20 +620,21 @@ const INFANTILA={
    2:{ref:"Muñoz Rodríguez, Unai",g:[["1","Meroño Reed, Daniel Luka","ESC"],["2","Meroño Reed, Daniel Luka","ESC"],["5","Mhammedi-Alaoui Gómez, Rayan Marc","ESC"],["14","Meroño Reed, Daniel Luka","ESC"],["19","Poblaciones López Otazu, Pablo","ESC"],["22","Meroño Reed, Daniel Luka","ESC"],["29","Aceña Albert, Guillermo","ESC"],["34","Scott-Glendonwyn Morilla, Roque","ESC"],["39","Mhammedi-Alaoui Gómez, Rayan Marc","ESC"],["43","Mhammedi-Alaoui Gómez, Rayan Marc","ESC"],["45","Adasme Vozmediano, Daniel","ESC"],["57","Mhammedi-Alaoui Gómez, Rayan Marc","ESC"],["60","Rodríguez Alonso, Fernando","ESC"],["63","Rodríguez Alonso, Fernando","ESC"],["66","Meroño Reed, Daniel Luka","ESC"]]},
    3:{ref:"Pérez Ortega, Luis",g:[["17","Rodríguez Alonso, Fernando","ESC"],["20","Ibáñez Tovar, Raúl","FRME"],["30","Rodríguez Carrasco, Alex","ESC"],["33","Rodríguez Carrasco, Alex","ESC"],["48","Rodríguez Alfonso, Manuel","FRME"]]},
    4:{ref:"Ventaja Peinado, Juan Manuel",g:[["5","Latorre Carlón, Lucas","ESC"],["33","Alfonso Burguillos, Andrés","CALB"],["43","De Benito Cobo, Martín","CALB"],["45","Meroño Reed, Daniel Luka","ESC"],["50","Alfonso Burguillos, Andrés","CALB"],["69","Alfonso Burguillos, Andrés","CALB"]]},
-   5:{ref:"Ruiz-Capillas Fernández, Álvaro",g:[["34","De Andrés Sierra, Marco (p.p.)","ESC"],["49","Gómez Agudo, Ignacio Rocco","POZE"]]}
+   5:{ref:"Ruiz-Capillas Fernández, Álvaro",g:[["34","De Andrés Sierra, Marco (p.p.)","ESC"],["49","Gómez Agudo, Ignacio Rocco","POZE"]]},
+   6:{ref:"Sagaseta Rubio, Manuel",g:[["14","Aceña Albert, Guillermo","ESC"],["14","Rodriguez Alonso, Fernando","ESC"],["31","Rodriguez Cataluña, Hugo","ESC"],["46","Rodriguez Carrasco, Alex","ESC"]]}
   },
   scorers:[
-   ["Ovejero Núñez, Rodrigo","ENC",11,0],["Grande de las Heras, Martín","DUX",10,0],["De Benito Cobo, Martín","CALB",9,0],["González Cordón, Daniel","FCB",7,1],["Meroño Reed, Daniel Luka","ESC",6,0],["Mayor Hernampérez, Raúl","DUX",6,0],["Alija Menéndez, Jaime","ENC",6,0],["Del Nacimiento Maestro, Hugo","VILC",5,0],
-   ["Rodríguez Rubio, Nicolás","NAVJ",5,1],["Muñoz Ramírez, Luis","FDEC",5,0],["Poveda Posso, Jacobo","FRME",5,0],["Mhammedi-Alaoui Gómez, Rayan Marc","ESC",4,0],["Fraile Martín, Nicolás","FCB",4,0],["González Torres, Carlos","FDEC",4,0],["Alfonso Burguillos, Andrés","CALB",3,0],["Apodaca Bogado, Benjamín","POZE",3,0],
-   ["San Andrés Vázquez, Nicolás","CALB",3,0],["Rodríguez Alonso, Fernando","ESC",3,0],["Buil Sanz, Ignacio","FDEC",3,0],["Ballestín Pardo, Hugo","FRME",3,0],["Ibañez Tovar, Raúl","FRME",3,0],["García López, Óscar","FRME",3,0],["Aranda Pedraz, Guillermo","FDEC",3,0],["Lucas Montoro, Miguel Ángel","NAVJ",3,0],
-   ["Rincón Rodríguez, Jorge","ENC",3,0],["Almazán Correas, Álvaro","NBG",2,1],["Merino del Agua, César","FDEC",2,0],["Rodríguez Carrasco, Alex","ESC",2,0],["García Barba, Jaime","CALB",2,0],["De Frutos de la Cuesta, Leo","FCB",2,0],["Espinosa Villalobos, Alejandro","VILC",2,0],["Lozano Díaz, Gonzalo","VILC",2,1],
-   ["De Bustos Ortega, Lucas","POZE",2,0],["Sigliano Vázquez, Marco","CALB",2,1],["Martínez Ibañez, Lucas","NAVJ",2,0],["Hervás Díez, Nicolás","ENC",2,0],["Miguel Octavio de Toledo, Daniel","FRME",2,0],["Matilla Cardoso, Aarón","POZE",2,0],["De Julián Amat, Daniel","AUPA",2,0],["Donikian, Bautista Noah","DUX",2,0],
-   ["Ramos Casariego, Juan","ENC",2,2],["Unceta Prieto-Moreno, Beltrán","POZE",1,0],["Ramírez Pulido, Rodrigo","CALB",1,0],["Latorre Carlón, Lucas","ESC",1,0],["Yanes Ochoa, Jecner Leteniel","PM3B",1,0],["Gutiérrez Rodríguez, Mauro","CALB",1,0],["Guerra Sanz, Gonzalo","NBG",1,0],["Adasme Vozmediano, Daniel","ESC",1,0],
-   ["Delgado Parra, Iago","VILC",1,0],["Liébana Fuentes, Javier","FDEC",1,0],["Redondo Martínez, Samuel","PM3B",1,0],["Toledo Ruiz, Andrés","DUX",1,0],["Caro Cecilia, Carlos","NAVJ",1,0],["Gil Morón, Joaquín","FCB",1,0],["Aceña Albert, Guillermo","ESC",1,0],["Jordá García, Hugo","NAVJ",1,0],
-   ["Scott-Glendonwyn Morilla, Roque","ESC",1,0],["Fernández de Lara García, Sebastián","AUPA",1,0],["Algaba Machuca, Martín","FCB",1,0],["Nieto Vergara, Marcos","AUPA",1,0],["Díaz de Ynclán, Bertín","FCB",1,0],["Poblaciones López Otazu, Pablo","ESC",1,0],["Fanelli, Valentino","FRME",1,0],["Donegan Perello, Liam","VILC",1,0],
-   ["Smet Díaz, Sergio","VILC",1,0],["Sánchez Tobalina, Sergio","FCB",1,0],["Ibañez Eguía, Andrés","POZE",1,0],["González de la Aleja de la Aleja, Luis","CALB",1,0],["Gutiérrez del Val, Carlos","ENC",1,0],["Poveda Posso, Nicolás","FRME",1,0],["Soria Ruiz, Rubén","FDEC",1,0],["Gómez Agudo, Ignacio Rocco","POZE",1,0],
-   ["Potes Martín, Javier","NBG",1,0],["Covello Conde, Agustín","NBG",1,0],["Losada Medina, Andrés","FDEC",1,0],["Martín San Segundo, Ares","AUPA",1,0],["Perono Biacchiardi López, Alessio","ENC",1,0],["Rodríguez Alfonso, Manuel","FRME",1,0],["Astobiza Díez, Marc","CALB",1,0],["Muñoz Terciado, David","DUX",1,0],
-   ["Arroyo Sánchez-Palencia, Nicolás","CALB",1,0],["Denia Villalba, Pablo","CALB",1,0],["Cheja, Joaquín","FDEC",1,0],["Samani Lqati, Achraf","NAVJ",1,0],["Cannata Iglesias, Diego","FDEC",1,0]
+   ["Ovejero Nuñez, Rodrigo","ENC",11,0],["Gonzalez Cordon, Daniel","FCB",10,1],["Grande de las Heras, Martin","DUX",10,0],["De Benito Cobo, Martin","CALB",10,0],["Muñoz Ramirez, Luis","FDEC",8,0],["Mayor Hernamperez, Raul","DUX",7,0],["Alija Menendez, Jaime","ENC",7,0],["Meroño Reed, Daniel Luka","ESC",6,0],
+   ["Aranda Pedraz, Guillermo","FDEC",6,0],["Del Nacimiento Maestro, Hugo","VILC",5,0],["Poveda Posso, Jacobo","FRME",5,0],["Rodríguez Rubio, Nicolás","NAVJ",5,1],["Gonzalez Torres, Carlos","FDEC",5,0],["Rodriguez Alonso, Fernando","ESC",4,1],["Fraile Martin, Nicolas","FCB",4,0],["Mhammedi-Alaoui Gomez, Rayan Marc","ESC",4,0],
+   ["Apodaca Bogado, Benjamin","POZE",3,0],["Merino del Agua, Cesar","FDEC",3,0],["Alfonso Burguillos, Andres","CALB",3,0],["Rodriguez Carrasco, Alex","ESC",3,0],["Buil Sanz, Ignacio","FDEC",3,0],["San Andres Vazquez, Nicolas","CALB",3,0],["Garcia Barba, Jaime","CALB",3,0],["Ballestin Pardo, Hugo","FRME",3,0],
+   ["Garcia Lopez, Oscar","FRME",3,0],["Ibañez Tovar, Raul","FRME",3,0],["Ramos Casariego, Juan","ENC",3,3],["Lucas Montoro, Miguel Angel","NAVJ",3,0],["Rincon Rodriguez, Jorge","ENC",3,0],["Sigliano Vazquez, Marco","CALB",3,1],["Almazán Correas, Álvaro","NBG",2,1],["Gutiérrez Rodríguez, Mauro","CALB",2,0],
+   ["Lozano Diaz, Gonzalo","VILC",2,1],["Espinosa Villalobos, Alejandro","VILC",2,0],["Aceña Albert, Guillermo","ESC",2,0],["De Frutos de la Cuesta, Leo","FCB",2,0],["Martinez Ibañez, Lucas","NAVJ",2,0],["Miguel Octavio de Toledo, Daniel","FRME",2,0],["Donikian, Bautista Noah","DUX",2,0],["Matilla Cardoso, Aaron","POZE",2,0],
+   ["De Julian Amat, Daniel","AUPA",2,0],["Hervas Diez, Nicolas","ENC",2,0],["Cannata Iglesias, Diego","FDEC",2,0],["De Bustos Ortega, Lucas","POZE",2,0],["Unceta Prieto-Moreno, Beltran","POZE",1,0],["Ramirez Pulido, Rodrigo","CALB",1,0],["Yanes Ochoa, Jecner Leteniel","PM3B",1,0],["Adasme Vozmediano, Daniel","ESC",1,0],
+   ["Delgado Parra, Iago","VILC",1,0],["Redondo Martinez, Samuel","PM3B",1,0],["Toledo Ruiz, Andres","DUX",1,0],["Latorre Carlon, Lucas","ESC",1,0],["Rodriguez Cataluña, Hugo","ESC",1,0],["Poveda Posso, Nicolas","FRME",1,0],["Donegan Perello, Liam","VILC",1,0],["Ramirez de Teresa, Nicolas","FDEC",1,0],
+   ["González de la Aleja de la Aleja, Luis","CALB",1,0],["Caro Cecilia, Carlos","NAVJ",1,0],["Smet Diaz, Sergio","VILC",1,0],["Scott-Glendonwyn Morilla, Roque","ESC",1,0],["Jorda García, Hugo","NAVJ",1,0],["Fanelli, Valentino","FRME",1,0],["Liebana Fuentes, Javier","FDEC",1,0],["Guerra Sanz, Gonzalo","NBG",1,0],
+   ["Gil Moron, Joaquin","FCB",1,0],["Rodriguez Alfonso, Manuel","FRME",1,0],["Poblaciones Lopez Otazu, Pablo","ESC",1,0],["Fernandez de Lara Garcia, Sebastian","AUPA",1,0],["Diaz de Ynclan, Bertin","FCB",1,0],["Nieto Vergara, Marcos","AUPA",1,0],["Algaba Machuca, Martin","FCB",1,0],["Sanchez Tobalina, Sergio","FCB",1,0],
+   ["Ibañez Eguia, Andres","POZE",1,0],["Potes Martin, Javier","NBG",1,0],["Gomez Agudo, Ignacio Rocco","POZE",1,0],["Soria Ruiz, Ruben","FDEC",1,0],["Gutierrez del Val, Carlos","ENC",1,0],["Covello Conde, Agustin","NBG",1,0],["Perono Biacchiardi López, Alessio","ENC",1,0],["Muñoz Terciado, David","DUX",1,0],
+   ["Martín San Segundo, Ares","AUPA",1,0],["Morales Rodriguez, Jaime","FDEC",1,0],["Samani Lqati, Achraf","NAVJ",1,0],["Cheja, Joaquin","FDEC",1,0],["Astobiza Diez, Marc","CALB",1,0],["Arroyo Sanchez-Palencia, Nicolas","CALB",1,0],["Denia Villalba, Pablo","CALB",1,0],["Losada Medina, Andres","FDEC",1,0]
   ],
   scorersNote:null,
   squad:["Aceña Albert, Guillermo", "Adasme Vozmediano, Daniel", "Amian Manzano, Alejandro", "Amian Manzano, Ignacio", "Arimondi Martínez, Enzo", "Bahillo Jerez, Jose María", "Barrionuevo Laserna, Jorge", "Bravo Llamas, Alejandro", "Costaguta Gavilanes, Jorge", "Eihamy, Shahdad", "Latorre Carlón, Lucas", "Lence Rivera, Jose Ignacio", "Meroño Reed, Daniel Luka", "Mhammedi-Alaoui Gómez, Rayan Marc", "Núñez Núñez, Álvaro", "Poblaciones López Otazu, Pablo", "Rodríguez Alonso, Fernando", "Rodríguez Carrasco, Alex", "Rodríguez Cataluña, Hugo", "Sánchez Roldan, Rubén", "Scott-Glendonwyn Morilla, Roque", "Sobrino Korte, Elooi", "Villena Buey, Rodrigo"],
@@ -660,7 +665,7 @@ const ALEVINF7A={
     UVP:{n:"CDE Unión Villanueva del Pardillo 'A'",k:[C.rojo,C.rojo]},
     DLL:{n:"CDE David Lloyd 'A'",k:[C.blanco,C.blanco]}
   },
-  order:["AUPA","CALB","ESC","INM","FRMB","TORC","UVP","FDE","NBC","PUE","MOR","DLL","VCB"],
+  order:["AUPA","UVP","ESC","CALB","TORC","FRMB","INM","PUE","FDE","NBC","DLL","MOR","VCB"],
   zones:{}, zoneLegend:[],
   dates:["10/10","17/10","24/10","31/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02","13/02","20/02","27/02","06/03","13/03","20/03","03/04","10/04","17/04","24/04","01/05","08/05"],
   m:{
@@ -669,11 +674,11 @@ const ALEVINF7A={
    3:[["AUPA","FDE",3,2,"24/10","13:20","Boadilla - Condesa Chinchón 1"],["PUE","DLL",3,2,"25/10","18:45","Majadahonda - La Sacedilla"],["ESC","UVP",1,4,"24/10","12:00","Pozuelo - Colegio Escolapios"],["INM","VCB",6,0,"24/10","10:00","Majadahonda - Inst. Dep. La Oliva - Ctro. Oeste"],["TORC","CALB",1,6,"25/10","11:40","Torrelodones (Antonio Martín)"],["FRMB","MOR",7,0,"24/10","17:00","Majadahonda - La Sacedilla"]],
    4:[["FDE","FRMB",1,4,"31/10","09:15","Universidad Francisco de Vitoria"],["DLL","AUPA",4,11,"31/10","10:00","Pozuelo - La Finca"],["UVP","PUE",11,2,"31/10","09:30","Villanueva del Pardillo 2 (Municipal Juan Manuel Angelina)"],["NBC","ESC",2,1,"31/10","13:00","Boadilla - Pvo. Municipal Ángel Nieto 4 - F/7"],["CALB","INM",5,3,"31/10","10:00","Pozuelo - Pvo. El Pradillo"],["MOR","TORC",2,5,"31/10","09:00","Moralzarzal - Pvo. Municipal"]],
    5:[["FDE","DLL",5,4,"07/11","10:15","Universidad Francisco de Vitoria"],["AUPA","UVP",3,1,"08/11","15:50","Boadilla - Condesa Chinchón 1"],["PUE","NBC",4,4,"08/11","17:30","Majadahonda (La Sacedilla)"],["ESC","VCB",7,0,"07/11","13:00","Pozuelo - Colegio Escolapios"],["INM","MOR",3,2,"07/11","10:00","Majadahonda - Inst. Dep. La Oliva - Ctro. Oeste"],["FRMB","TORC",4,0,"07/11","18:00","Majadahonda (La Sacedilla)"]],
-   6:[["DLL","FRMB",null,null,"14/11","10:00","Pozuelo - La Finca"],["FDE","UVP",null,null,"15/11","09:15","Universidad Francisco de Vitoria"],["NBC","AUPA",null,null,"14/11","15:00","Boadilla - Condesa Chinchón 1"],["VCB","PUE",null,null,"14/11","09:00","Villanueva de la Cañada"],["CALB","ESC",null,null,"15/11","13:30","Pozuelo - Pvo. El Pradillo"],["TORC","INM",null,null,"14/11","11:00","Torrelodones (Minifútbol F-7)"]],
-   7:[["DLL","UVP",null,null,"21/11","10:00","Pozuelo - La Finca"],["FDE","NBC",null,null,"21/11",null,""],["AUPA","VCB",null,null,"21/11",null,""],["PUE","CALB",null,null,"22/11","17:30","Majadahonda - La Sacedilla"],["ESC","MOR",null,null,"21/11",null,""],["FRMB","INM",null,null,"21/11","18:00","Majadahonda - La Sacedilla"]]
+   6:[["DLL","FRMB",5,2,"14/11","10:00","Pozuelo - La Finca"],["FDE","UVP",1,4,"15/11","09:15","Universidad Francisco de Vitoria"],["NBC","AUPA",0,3,"14/11","15:05","Boadilla - Condesa Chinchón 1"],["VCB","PUE",1,5,"14/11","09:00","Villanueva de la Cañada"],["CALB","ESC",3,6,"15/11","13:30","Pozuelo - Pvo. El Pradillo"],["TORC","INM",3,1,"14/11","11:00","Torrelodones (Minifútbol F-7)"]],
+   7:[["DLL","UVP",null,null,"21/11","10:00","Pozuelo - La Finca"],["FDE","NBC",null,null,"22/11","16:20","Universidad Francisco de Vitoria"],["AUPA","VCB",null,null,"22/11","14:00","Boadilla - Condesa Chinchón 1"],["PUE","CALB",null,null,"22/11","17:30","Majadahonda - La Sacedilla"],["ESC","MOR",null,null,"21/11",null,null],["FRMB","INM",null,null,"21/11","18:00","Majadahonda - La Sacedilla"]],
+   8:[["UVP","FRMB",null,null,"28/11",null,null],["NBC","DLL",null,null,"28/11",null,null],["VCB","FDE",null,null,"28/11",null,null],["CALB","AUPA",null,null,"28/11",null,null],["MOR","PUE",null,null,"28/11",null,null],["TORC","ESC",null,null,"28/11",null,null]]
   },
   pairs:{
-   8:"UVP-FRMB NBC-DLL VCB-FDE CALB-AUPA MOR-PUE TORC-ESC",
    9:"UVP-NBC FDE-CALB AUPA-MOR PUE-TORC ESC-INM DLL-VCB",
    10:"NBC-FRMB VCB-UVP CALB-DLL MOR-FDE TORC-AUPA INM-PUE",
    11:"NBC-VCB UVP-CALB FDE-TORC AUPA-INM FRMB-ESC DLL-MOR",
@@ -702,16 +707,17 @@ const ALEVINF7A={
    5:{ref:"Tenorio Núñez, Mario",g:[["18","Fernández Ramos, Antonio","ESC"],["20","Martín Bonilla, Óliver","ESC"],["33","Cerrato Cuesta, Carlos","ESC"],["34","Marchal Sanz, Jaime","ESC"],["40","Marchal Sanz, Jaime","ESC"],["53","Marchal Sanz, Jaime","ESC"],["56","Aceña Albert, Jorge","ESC"]]}
   },
   scorers:[
-   ["Marchal Sanz, Jaime","ESC",7,0],["Prieto Toledo, Pablo","AUPA",7,0],["Urraca García, Enzo","NBC",6,0],["Bautista Garrido, Hugo","AUPA",6,0],["Riboo Jara, Sergio","UVP",5,0],["Sicre González, Carlos","ESC",5,0],["Cordero Gargallo, Tomás","CALB",5,0],["Revalliente Wibberley, Óscar","TORC",5,0],
-   ["Garrido Berlanga, Ignacio","DLL",4,0],["Gonzalo Alares, Yago","INM",4,0],["Presas González, Lucas","CALB",4,0],["Agudo Muñoz, Adolfo","FRMB",4,0],["Adán Gómez, Diego","PUE",4,0],["Alonso de Elvira, Marcos","FRMB",4,1],["Bayona Cantero, Santiago","FDE",4,0],["Rubio Leal, Martín","UVP",3,1],
-   ["Romera Kovachev, Alex","CALB",3,0],["Pérez Cabrera, Pedro","TORC",3,0],["Calix Peña, Evinson Osiel","INM",3,0],["García Manrique, Daniel","FDE",3,0],["Quijano Figueroa, Gabriel Alejandro","DLL",3,0],["Fernández Alonso, Teo","INM",3,0],["Gonzalo Chumillas, Martín","CALB",3,0],["Calcerrada García, Hugo","INM",3,0],
-   ["Cañedo Grau, Miguel","MOR",3,0],["Viloria Flórez, Thiago David","FRMB",3,0],["Cerrato Cuesta, Carlos","ESC",3,0],["Gallart Losada, Martín","AUPA",3,0],["Viñuela García, Nicolás","AUPA",3,0],["Thomas, Alfonso","UVP",2,0],["Martínez Montero, Iñigo","INM",2,0],["Pillajo Cahuasqui, Dylan Steven","VCB",2,0],
-   ["Alonso Gómez Ullate, Guillermo","CALB",2,0],["García González, Jorge","NBC",2,0],["Esteban López Tormos, Manuel","AUPA",2,0],["Rodríguez Martín, Iker","MOR",2,0],["Mendoza Fernández, Jorge","PUE",2,0],["Gascón Monreal, Fabio","MOR",2,0],["Falquet Martín, David","FRMB",2,0],["Pique Saiz, Iker","TORC",2,0],
-   ["García-Barrios Lancheros, Oliver","FDE",2,0],["Aceña Albert, Jorge","ESC",2,0],["Fernández de Lara García, Sebastián","AUPA",2,0],["Fernández Ramos, Antonio","ESC",2,0],["Diez Recalde, Simón","UVP",1,0],["Cruz Rabazo, Alejandro","UVP",1,0],["Deweer Pérez, Bruno","UVP",1,0],["Peinado Abajo, Hugo","UVP",1,0],
-   ["Díaz Anseán, Mario","PUE",1,0],["González Vivas, Miguel","UVP",1,0],["Montes Domínguez, Mateo","PUE",1,0],["Teyssier Díaz, Tomás","VCB",1,0],["García Buendía, Alejandro","ESC",1,0],["Marcano Carrasco, Jon","NBC",1,0],["Bhogal Aoufi, Ryan","FDE",1,0],["Rondón Rodrigues, Gustavo Andrés","DLL",1,0],
-   ["Fernández Mendiguita, Iago","CALB",1,0],["Fernández Martínez, Mateo","CALB",1,0],["Azpilicueta Guerendiain, Matteo","DLL",1,0],["Pérez Olivares, Sergio","DLL",1,0],["Álvarez Pinilla, Eduardo","MOR",1,0],["De la Peña Pérez, Martín","TORC",1,0],["Escudero Sánchez, Beltrán","TORC",1,0],["Torrijos Salazar, Nicolás","DLL",1,0],
-   ["Jiménez Antón, Mateo","TORC",1,0],["Bonet Muñoz, Ignacio","FRMB",1,0],["Torres Smith, Jorge","TORC",1,0],["Lara Castrejón, Manuel","FDE",1,0],["Samani Samani, Ayoub","AUPA",1,0],["Lifu, Robert Gabriel","FDE",1,0],["Martín Pérez, Nicolás","AUPA",1,0],["Toledano Sánchez, Carlos","FRMB",1,0],
-   ["Pacheco Acilona, Carlos Javier","FRMB",1,0],["Condado Sánchez, Diego","MOR",1,0],["Rodríguez Martínez, Bruno","MOR",1,0],["Del Barrio Rodríguez, Martín","TORC",1,0],["Martín Bonilla, Óliver","ESC",1,0],["Bernabéu Zelthelius, Jon Emil","PUE",1,0],["Robles Herrera, Jaime","PUE",1,0]
+   ["Marchal Sanz, Jaime","ESC",11,0],["Thomas, Alfonso","UVP",9,1],["Cordero Gargallo, Tomas","CALB",7,0],["Prieto Toledo, Pablo","AUPA",7,0],["Urraca Garcia, Enzo","NBC",6,0],["Riboo Jara, Sergio","UVP",6,0],["Bautista Garrido, Hugo","AUPA",6,0],["Revalliente Wibberley, Oscar","TORC",6,0],
+   ["Quijano Figueroa, Gabriel Alejandro","DLL",5,0],["Sicre Gonzalez, Carlos","ESC",5,0],["Garrido Berlanga, Ignacio","DLL",5,0],["Agudo Muñoz, Adolfo","FRMB",5,0],["Pérez Cabrera, Pedro","TORC",4,0],["Diz Criado, Carlos","PUE",4,0],["Presas Gonzalez, Lucas","CALB",4,0],["Adan Gomez, Diego","PUE",4,0],
+   ["Viñuela Garcia, Nicolas","AUPA",4,0],["Gonzalo Alares, Yago","INM",4,0],["Bayona Cantero, Santiago","FDE",4,0],["Alonso de Elvira, Marcos","FRMB",4,1],["Peinado Abajo, Hugo","UVP",3,0],["Romera Kovachev, Alex","CALB",3,0],["Rubio Leal, Martin","UVP",3,1],["García Manrique, Daniel","FDE",3,0],
+   ["Gonzalo Chumillas, Martin","CALB",3,0],["Cañedo Grau, Miguel","MOR",3,0],["Mendoza Fernández, Jorge","PUE",3,0],["Viloria Florez, Thiago David","FRMB",3,0],["Calix Peña, Evinson Osiel","INM",3,0],["Gallart Losada, Martín","AUPA",3,0],["Fernández Alonso, Teo","INM",3,0],["Calcerrada García, Hugo","INM",3,0],
+   ["Fernandez Ramos, Antonio","ESC",3,0],["Cerrato Cuesta, Carlos","ESC",3,0],["Teyssier Diaz, Tomas","VCB",2,0],["Pillajo Cahuasqui, Dylan Steven","VCB",2,0],["Garcia Buendia, Alejandro","ESC",2,0],["Alonso Gomez Ullate, Guillermo","CALB",2,0],["Pérez Olivares, Sergio","DLL",2,0],["Rodriguez Martin, Iker","MOR",2,0],
+   ["Esteban Lopez Tormos, Manuel","AUPA",2,0],["Gascón Monreal, Fabio","MOR",2,0],["Martínez Montero, Iñigo","INM",2,0],["Garcia Gonzalez, Jorge","NBC",2,0],["Martin Perez, Nicolas","AUPA",2,0],["Aceña Albert, Jorge","ESC",2,0],["Fernandez de Lara Garcia, Sebastian","AUPA",2,0],["Falquet Martin, David","FRMB",2,0],
+   ["Garcia-Barrios Lancheros, Oliver","FDE",2,0],["Pique Saiz, Iker","TORC",2,0],["Torres Smith, Jorge","TORC",2,0],["Díaz Anseán, Mario","PUE",1,0],["Martínez Aponte, Javier","FDE",1,0],["Han, Qiyu","UVP",1,0],["Deweer Perez, Bruno Francisco","UVP",1,0],["Montes Dominguez, Mateo","PUE",1,0],
+   ["Cruz Rabazo, Alejandro","UVP",1,0],["Diez Recalde, Simon","UVP",1,0],["Marcano Carrasco, Jon","NBC",1,0],["Lozano, Lorenzo Andrés","DLL",1,0],["Rondón Rodrigues, Gustavo Andrés","DLL",1,0],["Gonzalez Vivas, Miguel","UVP",1,0],["Alvarez Pinilla, Eduardo","MOR",1,0],["Bernabéu Zelthelius, Jon Emil","PUE",1,0],
+   ["De la Peña Pérez, Martin","TORC",1,0],["Escudero Sanchez, Beltran","TORC",1,0],["Rodriguez Vela, Mateo","AUPA",1,0],["Bhogal Aoufi, Ryan","FDE",1,0],["Fernandez Martinez, Mateo","CALB",1,0],["Azpilicueta Guerendiain, Matteo","DLL",1,0],["Torrijos Salazar, Nicolas","DLL",1,0],["Rodríguez Martínez, Bruno","MOR",1,0],
+   ["Condado Sanchez, Diego","MOR",1,0],["Anton Camilo, Guillermo","CALB",1,0],["Fernandez Mendiguita, Iago","CALB",1,0],["Jimenez Anton, Mateo","TORC",1,0],["Bonet Muñoz, Ignacio","FRMB",1,0],["Samani Samani, Ayoub","AUPA",1,0],["Lifu, Robert Gabriel","FDE",1,0],["Toledano Sanchez, Carlos","FRMB",1,0],
+   ["Pacheco Acilona, Carlos Javier","FRMB",1,0],["Hernandez Valera, Maximiliano Alejandro","INM",1,0],["Lara Castrejon, Manuel","FDE",1,0],["Arcos Gonzalez de la Peña, Ignacio","FRMB",1,0],["Robles Herrera, Jaime","PUE",1,0],["Martín Bonilla, Óliver","ESC",1,0],["Del Barrio Rodriguez, Martin","TORC",1,0]
   ],
   scorersNote:null,
   squad:["Aceña Albert, Jorge", "Cerrato Cuesta, Carlos", "Crespo Brox, Adrián", "Fernández Ramos, Antonio", "García Buendía, Alejandro", "García Sánchez-Tembleque, David", "Lence Rivera, Gonzalo", "Marchal Sanz, Jaime", "Martín Bonilla, Óliver", "Sicre González, Carlos", "Valles Martínez, Álvaro", "Velasquez González, Lucas", "Velez Ladaga, Bruno", "Visa, Robert Ioan"],
@@ -740,18 +746,18 @@ const ALEVINF7B={
     ESC:{n:"EE PP San Fernando Escolapios Pozuelo 'B'",short:"Escolapios 'B'",k:[C.verde,C.blanco]},
     ESCC:{n:"EE PP San Fernando Escolapios Pozuelo 'C'",short:"Escolapios 'C'",k:[C.verde,C.blanco]}
   },
-  order:["ESCC","STMF","UADC","POZD","CALC","POZC","ESC","CIRB","ARAC","CELD","ARAD","UADD"],
+  order:["STMF","ESCC","ARAC","ARAD","CALC","UADC","CELD","CIRB","POZC","ESC","POZD","UADD"],
   zones:{}, zoneLegend:[],
   dates:["17/10","24/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01"],
   m:{
    1:[["ESC","ESCC",0,1,"17/10","15:00"],["POZD","POZC",0,1,"28/10","17:30"],["CIRB","CELD",0,0,"17/10","16:00"],["CALC","STMF",0,1,"17/10","18:00"],["ARAC","ARAD",0,0,"17/10","19:00"],["UADD","UADC",0,1,"17/10","17:00"]],
    2:[["ESCC","UADD",1,0,"24/10","15:00"],["POZC","ESC",0,1,"24/10","16:00"],["CELD","POZD",0,1,"24/10","14:00"],["STMF","CIRB",1,0,"24/10","18:00"],["ARAD","CALC",0,1,"24/10","19:00"],["UADC","ARAC",1,0,"24/10","17:00"]],
    3:[["ESCC","POZC",1,0,"07/11","17:00"],["ESC","CELD",0,0,"07/11","15:00"],["POZD","STMF",0,1,"07/11","19:00"],["CIRB","ARAD",0,1,"07/11","13:58"],["CALC","UADC",1,0,"07/11","18:00"],["UADD","ARAC",0,1,"07/11","16:00"]],
-   4:[["POZC","UADD",null,null,"14/11","14:00"],["CELD","ESCC",null,null,"14/11","18:00"],["STMF","ESC",null,null,"14/11","19:00"],["ARAD","POZD",null,null,"14/11","17:00"],["UADC","CIRB",null,null,"14/11","15:00"],["ARAC","CALC",null,null,"14/11","16:00"]],
-   5:[["POZC","CELD",null,null,"21/11","14:00"],["ESCC","STMF",null,null,"21/11","19:00"],["ESC","ARAD",null,null,"21/11","15:00"],["POZD","UADC",null,null,"21/11","16:00"],["CIRB","ARAC",null,null,"21/11","17:00"],["UADD","CALC",null,null,"21/11","18:00"]]
+   4:[["POZC","UADD",0,0,"14/11","14:00"],["CELD","ESCC",1,0,"14/11","18:00"],["STMF","ESC",1,0,"14/11","19:00"],["ARAD","POZD",1,0,"14/11","17:00"],["UADC","CIRB",0,1,"14/11","15:00"],["ARAC","CALC",1,0,"14/11","16:00"]],
+   5:[["POZC","CELD",null,null,"21/11","14:00"],["ESCC","STMF",null,null,"21/11","19:00"],["ESC","ARAD",null,null,"21/11","15:00"],["POZD","UADC",null,null,"21/11","16:00"],["CIRB","ARAC",null,null,"21/11","17:00"],["UADD","CALC",null,null,"21/11","18:00"]],
+   6:[["CELD","UADD",null,null,"28/11","17:00"],["STMF","POZC",null,null,"28/11","18:00"],["ARAD","ESCC",null,null,"28/11","16:00"],["UADC","ESC",null,null,"28/11","14:00"],["ARAC","POZD",null,null,"28/11","15:00"],["CALC","CIRB",null,null,"28/11","19:00"]]
   },
   pairs:{
-   6:"UADC-ESC ARAC-POZD ARAD-ESCC CELD-UADD STMF-POZC CALC-CIRB",
    7:"POZD-CALC ESCC-UADC UADD-CIRB ESC-ARAC POZC-ARAD CELD-STMF",
    8:"CALC-ESC ARAC-ESCC ARAD-CELD UADC-POZC STMF-UADD CIRB-POZD",
    9:"POZC-ARAC ESCC-CALC ESC-CIRB CELD-UADC STMF-ARAD UADD-POZD",
@@ -762,7 +768,8 @@ const ALEVINF7B={
   acta:{
    1:{ref:"Tinajero Cabrera, Carlos"},
    2:{ref:"Martínez García, Lucas"},
-   3:{ref:"Cervantes Medina, Daniel Alexander"}
+   3:{ref:"Cervantes Medina, Daniel Alexander"},
+   4:{ref:"Jimenez Perez, Gonzalo"}
   },
   scorers:[
    ["Moser Camacho, Nicolás","UADC",4,0],["García Sobrino, Bastián","UADC",2,0],["Quintero Díez, Mateo","UADC",2,0],["López Guerrero, Alejandro","STMF",2,0],["González Benito, Álvaro","ARAC",2,0],["Fernández Elbaile, Lucas","STMF",1,0],["Láriz Galdós, Jaime","STMF",1,0],["Yanguas Herranz, Álvaro","CALC",1,0],
@@ -797,18 +804,18 @@ const ALEVINF7C={
     ESC:{n:"EE PP San Fernando Escolapios Pozuelo 'C'",short:"Escolapios 'C'",k:[C.verde,C.blanco]},
     ESCB:{n:"EE PP San Fernando Escolapios Pozuelo 'B'",short:"Escolapios 'B'",k:[C.verde,C.blanco]}
   },
-  order:["ESC","STMF","UADC","POZD","CALC","POZC","ESCB","CIRB","ARAC","CELD","ARAD","UADD"],
+  order:["STMF","ESC","ARAC","ARAD","CALC","UADC","CELD","CIRB","POZC","ESCB","POZD","UADD"],
   zones:{}, zoneLegend:[],
   dates:["17/10","24/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01"],
   m:{
    1:[["ESCB","ESC",0,1,"17/10","15:00"],["POZD","POZC",0,1,"28/10","17:30"],["CIRB","CELD",0,0,"17/10","16:00"],["CALC","STMF",0,1,"17/10","18:00"],["ARAC","ARAD",0,0,"17/10","19:00"],["UADD","UADC",0,1,"17/10","17:00"]],
    2:[["ESC","UADD",1,0,"24/10","15:00"],["POZC","ESCB",0,1,"24/10","16:00"],["CELD","POZD",0,1,"24/10","14:00"],["STMF","CIRB",1,0,"24/10","18:00"],["ARAD","CALC",0,1,"24/10","19:00"],["UADC","ARAC",1,0,"24/10","17:00"]],
    3:[["ESC","POZC",1,0,"07/11","17:00"],["ESCB","CELD",0,0,"07/11","15:00"],["POZD","STMF",0,1,"07/11","19:00"],["CIRB","ARAD",0,1,"07/11","13:58"],["CALC","UADC",1,0,"07/11","18:00"],["UADD","ARAC",0,1,"07/11","16:00"]],
-   4:[["POZC","UADD",null,null,"14/11","14:00"],["CELD","ESC",null,null,"14/11","18:00"],["STMF","ESCB",null,null,"14/11","19:00"],["ARAD","POZD",null,null,"14/11","17:00"],["UADC","CIRB",null,null,"14/11","15:00"],["ARAC","CALC",null,null,"14/11","16:00"]],
-   5:[["POZC","CELD",null,null,"21/11","14:00"],["ESC","STMF",null,null,"21/11","19:00"],["ESCB","ARAD",null,null,"21/11","15:00"],["POZD","UADC",null,null,"21/11","16:00"],["CIRB","ARAC",null,null,"21/11","17:00"],["UADD","CALC",null,null,"21/11","18:00"]]
+   4:[["POZC","UADD",0,0,"14/11","14:00"],["CELD","ESC",1,0,"14/11","18:00"],["STMF","ESCB",1,0,"14/11","19:00"],["ARAD","POZD",1,0,"14/11","17:00"],["UADC","CIRB",0,1,"14/11","15:00"],["ARAC","CALC",1,0,"14/11","16:00"]],
+   5:[["POZC","CELD",null,null,"21/11","14:00"],["ESC","STMF",null,null,"21/11","19:00"],["ESCB","ARAD",null,null,"21/11","15:00"],["POZD","UADC",null,null,"21/11","16:00"],["CIRB","ARAC",null,null,"21/11","17:00"],["UADD","CALC",null,null,"21/11","18:00"]],
+   6:[["CELD","UADD",null,null,"28/11","17:00"],["STMF","POZC",null,null,"28/11","18:00"],["ARAD","ESC",null,null,"28/11","16:00"],["UADC","ESCB",null,null,"28/11","14:00"],["ARAC","POZD",null,null,"28/11","15:00"],["CALC","CIRB",null,null,"28/11","19:00"]]
   },
   pairs:{
-   6:"UADC-ESCB ARAC-POZD ARAD-ESC CELD-UADD STMF-POZC CALC-CIRB",
    7:"POZD-CALC ESC-UADC UADD-CIRB ESCB-ARAC POZC-ARAD CELD-STMF",
    8:"CALC-ESCB ARAC-ESC ARAD-CELD UADC-POZC STMF-UADD CIRB-POZD",
    9:"POZC-ARAC ESC-CALC ESCB-CIRB CELD-UADC STMF-ARAD UADD-POZD",
@@ -819,7 +826,8 @@ const ALEVINF7C={
   acta:{
    1:{ref:"Tinajero Cabrera, Carlos"},
    2:{ref:"Martínez García, Lucas"},
-   3:{ref:"García Rodríguez, Sergi"}
+   3:{ref:"García Rodríguez, Sergi"},
+   4:{ref:"Jimenez Perez, Gonzalo"}
   },
   scorers:[
    ["Moser Camacho, Nicolás","UADC",4,0],["García Sobrino, Bastián","UADC",2,0],["Quintero Díez, Mateo","UADC",2,0],["López Guerrero, Alejandro","STMF",2,0],["González Benito, Álvaro","ARAC",2,0],["Fernández Elbaile, Lucas","STMF",1,0],["Láriz Galdós, Jaime","STMF",1,0],["Yanguas Herranz, Álvaro","CALC",1,0],
@@ -854,17 +862,17 @@ const ALEVINFEM={
     CVA:{n:"C.F. Collado Villalba 'A'",k:[C.amarillo,C.azul]},
     OLYC:{n:"CDB Fútbol Femenino Olympia Las Rozas 'C'",k:[C.marino,C.marino]}
   },
-  order:["GCOL","GAL","FRMB","UVP","POZC","PUE","AUPA","POZB","LRB","OLYC","CVA","ESC"],
+  order:["GAL","UVP","GCOL","FRMB","CVA","LRB","POZB","POZC","PUE","AUPA","OLYC","ESC"],
   zones:{}, zoneLegend:[],
   dates:["24/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02"],
   m:{
    1:[["GCOL","ESC",9,0,"24/10","15:00","Collado Villalba"],["UVP","LRB",4,0,"24/10","15:00","Collado Villalba"],["POZB","POZC",3,5,"24/10","15:00","Collado Villalba F7"],["AUPA","PUE",5,5,"24/10","16:00","Collado Villalba F7"],["GAL","CVA",8,0,"25/10","15:00","Galapagar - El Chopo F7"],["FRMB","OLYC",7,1,"25/10","16:00","Galapagar - El Chopo F7"]],
    2:[["CVA","AUPA",7,1,"07/11","12:30","Collado Villalba F7"],["OLYC","GAL",0,18,"08/11","12:00","Galapagar - El Chopo F7"],["ESC","FRMB",0,7,"07/11","13:30","Collado Villalba F7"],["LRB","GCOL",5,4,"08/11","11:00","Galapagar - El Chopo F7"],["POZC","UVP",0,6,"07/11","13:30","Collado Villalba"],["PUE","POZB",3,3,"07/11","14:30","Collado Villalba"]],
-   3:[["CVA","OLYC",null,null,"14/11","10:15","Collado Villalba"],["GAL","ESC",null,null,"15/11","11:00","Galapagar - El Chopo F7"],["FRMB","LRB",null,null,"14/11","16:00","Collado Villalba F7"],["GCOL","POZC",null,null,"14/11","16:00","Collado Villalba F7"],["UVP","PUE",null,null,"15/11","12:00","Galapagar - El Chopo F7"],["AUPA","POZB",null,null,"14/11","15:00","Collado Villalba"]],
-   4:[["OLYC","AUPA",null,null,"21/11","15:00","Collado Villalba"],["ESC","CVA",null,null,"21/11","15:00","Collado Villalba F7"],["LRB","GAL",null,null,"22/11","11:00","Galapagar - El Chopo F7"],["POZC","FRMB",null,null,"21/11","15:00","Collado Villalba"],["PUE","GCOL",null,null,"21/11","16:00","Collado Villalba F7"],["POZB","UVP",null,null,"22/11","12:00","Galapagar - El Chopo F7"]]
+   3:[["CVA","OLYC",9,0,"14/11","10:15","Collado Villalba"],["GAL","ESC",21,0,"15/11","11:00","Galapagar - El Chopo F7"],["FRMB","LRB",1,5,"14/11","16:00","Collado Villalba F7"],["GCOL","POZC",2,1,"14/11","16:00","Collado Villalba F7"],["UVP","PUE",6,0,"15/11","12:00","Galapagar - El Chopo F7"],["AUPA","POZB",3,6,"14/11","15:00","Collado Villalba"]],
+   4:[["OLYC","AUPA",null,null,"21/11","15:00","Collado Villalba"],["ESC","CVA",null,null,"21/11","15:00","Collado Villalba F7"],["LRB","GAL",null,null,"22/11","11:00","Galapagar - El Chopo F7"],["POZC","FRMB",null,null,"21/11","15:00","Collado Villalba"],["PUE","GCOL",null,null,"21/11","16:00","Collado Villalba F7"],["POZB","UVP",null,null,"22/11","12:00","Galapagar - El Chopo F7"]],
+   5:[["OLYC","ESC",null,null,"28/11","15:00","Collado Villalba"],["CVA","LRB",null,null,"28/11","16:00","Collado Villalba F7"],["GAL","POZC",null,null,"29/11","11:00","Galapagar - El Chopo F7"],["FRMB","PUE",null,null,"28/11","15:00","Collado Villalba"],["GCOL","POZB",null,null,"29/11","12:00","Galapagar - El Chopo F7"],["AUPA","UVP",null,null,"28/11","15:00","Collado Villalba F7"]]
   },
   pairs:{
-   5:"OLYC-ESC FRMB-PUE AUPA-UVP CVA-LRB GAL-POZC GCOL-POZB",
    6:"ESC-AUPA POZC-CVA UVP-GCOL POZB-FRMB LRB-OLYC PUE-GAL",
    7:"ESC-LRB CVA-PUE AUPA-GCOL OLYC-POZC GAL-POZB FRMB-UVP",
    8:"LRB-AUPA POZB-CVA GCOL-FRMB POZC-ESC PUE-OLYC UVP-GAL",
@@ -875,13 +883,17 @@ const ALEVINFEM={
   rest:{},
   acta:{
    1:{ref:"Leguineche Iza, Antonio",g:[["1","Laabbar Hagouch, Sara","GCOL"],["22","Laabbar Hagouch, Sara","GCOL"],["26","Casado Castro, Silvia","GCOL"],["27","Sanz Padilla, Olivia","GCOL"],["37","Laabbar Hagouch, Sara","GCOL"],["39","Sanz Padilla, Olivia","GCOL"],["40","Laabbar Hagouch, Sara","GCOL"],["42","Sanz Padilla, Olivia","GCOL"],["44","Sanz Padilla, Olivia","GCOL"]]},
-   2:{ref:"Chacón Cobo, Jorge",g:[["6","Rodríguez Flores, Isis Valentina","FRMB"],["14","Rodríguez Flores, Isis Valentina","FRMB"],["15","Navarro Bravo, Chloe","FRMB"],["16","Lada Romeu, Catalina","FRMB"],["40","Monfort Sánchez, Martina","FRMB"],["41","Navarro Bravo, Chloe","FRMB"],["49","Rodríguez Flores, Isis Valentina","FRMB"]]}
+   2:{ref:"Chacón Cobo, Jorge",g:[["6","Rodríguez Flores, Isis Valentina","FRMB"],["14","Rodríguez Flores, Isis Valentina","FRMB"],["15","Navarro Bravo, Chloe","FRMB"],["16","Lada Romeu, Catalina","FRMB"],["40","Monfort Sánchez, Martina","FRMB"],["41","Navarro Bravo, Chloe","FRMB"],["49","Rodríguez Flores, Isis Valentina","FRMB"]]},
+   3:{ref:"Bermudez Molina, Raul",g:[["4","Montero Diaz, Lola","GAL"],["7","Montero Diaz, Lola","GAL"],["11","Barinaga Perez, Paula","GAL"],["12","Barinaga Perez, Paula","GAL"],["15","Barinaga Perez, Paula","GAL"],["15","Mesto Mejias, Lucia","GAL"],["17","Mesto Mejias, Lucia","GAL"],["25","Mesto Mejias, Lucia","GAL"],["25","Mesto Mejias, Lucia","GAL"],["26","Santos Diaz-Hellin, Ariadna","GAL"],["27","Santos Diaz-Hellin, Ariadna","GAL"],["28","Santos Diaz-Hellin, Ariadna","GAL"],["30","Benitez de Aranzabal, June","GAL"],["32","Benitez de Aranzabal, June","GAL"],["33","Garcia-Arroba Nieto, Valeria","GAL"],["35","Garcia-Arroba Nieto, Valeria","GAL"],["38","Garcia-Arroba Nieto, Valeria","GAL"],["38","Alonso Villar, Vega","GAL"],["39","Alonso Villar, Vega","GAL"],["50","Echeita Neagu, Sofia","GAL"],["57","Jimenez Alonso, Paula","GAL"]]}
   },
   scorers:[
-   ["Laabbar Hagouch, Sara","GCOL",4,0],["Jiménez Grille, Carmen","POZC",4,0],["Sanz Padilla, Olivia","GCOL",4,0],["Santos Díaz-Hellín, Ariadna","GAL",3,0],["Rodríguez Flores, Isis Valentina","FRMB",2,0],["Manzano Merino, Valentina","AUPA",2,0],["Barinaga Pérez, Paula","GAL",2,0],["Hernández de Gregorio, Paula","UVP",2,0],
-   ["Bensalid Allali, Nour","PUE",2,0],["Lada Romeu, Catalina","FRMB",2,0],["Manzano Merino, Candela","AUPA",2,0],["Maldonado Tapia, Angely","PUE",2,0],["Pardo Cantero, Carmen","POZB",1,0],["Montero Fernández-Avilés, Esther","OLYC",1,0],["Cabaleiro Bombart, Chloé","POZB",1,0],["Belato Meguro, Saori","FRMB",1,0],
-   ["Estévez Valentín, Adriana","UVP",1,0],["Navarro Bravo, Chloe","FRMB",1,0],["Casado Castro, Silvia","GCOL",1,0],["Muñoz Sanz, Delia","POZB",1,0],["Martínez Pérez, María","POZC",1,0],["Herrezuelo Requejo, Marina","AUPA",1,0],["Martín Raya, Claudia","UVP",1,0],["Gallego Mesas, Julieta","FRMB",1,0],
-   ["García-Arroba Nieto, Valeria","GAL",1,0],["Mesto Mejías, Lucía","GAL",1,0]
+   ["Garcia-Arroba Nieto, Valeria","GAL",9,0],["Hernandez de Gregorio, Paula","UVP",8,0],["Santos Diaz-Hellin, Ariadna","GAL",8,0],["Laabbar Hagouch, Sara","GCOL",7,0],["Mesto Mejias, Lucia","GAL",7,0],["Barinaga Perez, Paula","GAL",7,0],["Sanz Padilla, Olivia","GCOL",6,0],["Jimenez Alonso, Paula","GAL",6,0],
+   ["Jimenez Grille, Carmen","POZC",5,0],["Rodriguez Flores, Isis Valentina","FRMB",5,0],["Martin Garcia, Aitana","CVA",5,0],["Muñoz Sanz, Delia","POZB",5,0],["Alonso Villar, Vega","GAL",4,0],["Martin Raya, Claudia","UVP",4,0],["Lumbreras Luquero, Daniela","CVA",4,0],["Abel Izquierdo, Valeria","CVA",4,0],
+   ["Castro Rafai, Alba Cristina","AUPA",3,0],["Bensalid Allali, Nour","PUE",3,0],["Lada Romeu, Catalina","FRMB",3,0],["Maldonado Tapia, Angely","PUE",3,0],["Perea Aquino, Carla","LRB",3,0],["Navarro Bravo, Chloe","FRMB",3,0],["Manzano Merino, Valentina","AUPA",3,0],["Estevez Valentín, Adriana","UVP",3,0],
+   ["Calleja Castro, Sofia","POZB",2,0],["Sanchez Pindado, Lidia","CVA",2,0],["Benitez de Aranzabal, June","GAL",2,0],["Jiménez Nappe, Sofía","LRB",2,0],["Garcia Gutierrez, Jimena","LRB",2,0],["Monfort Sanchez, Martina","FRMB",2,0],["Sánchez García, Cecilia","POZB",2,0],["Montero Diaz, Lola","GAL",2,0],
+   ["Manzano Merino, Candela","AUPA",2,0],["Rodríguez Fernández, Juana","POZB",1,0],["Casado Castro, Silvia","GCOL",1,0],["Navas Loro, Noa","CVA",1,0],["Brunel Gonzalez, Paula","GCOL",1,0],["Rozas del Barco, Olivia","LRB",1,0],["Montero Fernández-Avilés, Esther","OLYC",1,0],["Pardo Cantero, Carmen","POZB",1,0],
+   ["Echeita Neagu, Sofia","GAL",1,0],["Ramírez Díez, Emma","PUE",1,0],["Martínez Pérez, María","POZC",1,0],["Belato Meguro, Saori","FRMB",1,0],["Tarrero Esteban, Jimena","LRB",1,0],["Herrezuelo Requejo, Marina","AUPA",1,0],["Tejedor Sanchez, Daniela","UVP",1,0],["Gallego Mesas, Julieta","FRMB",1,0],
+   ["Resino Gonzalez, Paula","LRB",1,0],["Cabaleiro Bombart, Chloé","POZB",1,0]
   ],
   scorersNote:null,
   squad:["Ancochea Toscano, Marta Julieta", "Aragon Seris, Isabel", "Bermúdez de Castro Meroño, Valentina", "Bravo Sepúlveda, Cayetana", "Goiburu Pellegrini, Martina", "Hevia Campomanes Urrutia, Alicia", "Lobato Junquera, Isabel", "Massari Brizuela, Camila", "Poveda Hernández, Celia", "Redondo Rufo, Sofía", "Sobrino Marín, Julieta"],
@@ -911,7 +923,7 @@ const BENJAMINC={
     EFB:{n:"E.F.M.O. Boadilla 'B'",k:[C.rojo,C.blanco]},
     EFC:{n:"E.F.M.O. Boadilla 'C'",k:[C.rojo,C.blanco]}
   },
-  order:["TKC","CAL","FDE","NBD","NBE","POZB","EFC","POZC","NBF","ESCB","EFB","POZD","ESC"],
+  order:["TKC","CAL","EFC","POZB","NBE","FDE","NBD","NBF","EFB","POZC","ESCB","POZD","ESC"],
   zones:{}, zoneLegend:[],
   dates:["03/10","17/10","24/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02"],
   m:{
@@ -919,11 +931,11 @@ const BENJAMINC={
    2:[["POZB","POZC",1,0,"17/10","09:00"],["NBE","POZD",1,0,"17/10","10:00"],["NBF","NBD",0,1,"17/10","11:00"],["CAL","EFB",1,0,"17/10","12:00"],["ESCB","FDE",0,1,"17/10","13:00"],["EFC","ESC",1,0,"17/10","14:00"]],
    3:[["FDE","EFC",0,0,"24/10","09:00"],["NBD","POZB",0,1,"24/10","10:00"],["POZC","ESCB",1,0,"24/10","11:00"],["NBE","NBF",1,0,"24/10","12:00"],["ESC","CAL",0,1,"24/10","13:00"],["POZD","TKC",0,1,"24/10","15:05"]],
    4:[["NBF","POZD",1,0,"07/11","09:00"],["POZB","NBE",1,0,"07/11","13:00"],["ESCB","NBD",0,0,"07/11","14:00"],["EFC","POZC",1,0,"07/11","12:00"],["CAL","FDE",1,0,"07/11","10:00"],["TKC","EFB",1,0,"07/11","11:00"]],
-   5:[["NBF","POZB",null,null,"14/11","14:00"],["NBE","ESCB",null,null,"14/11","10:00"],["NBD","EFC",null,null,"14/11","11:00"],["POZC","CAL",null,null,"14/11","13:00"],["ESC","TKC",null,null,"14/11","09:00"],["POZD","EFB",null,null,"14/11","12:00"]],
-   6:[["POZB","POZD",null,null,"21/11","11:00"],["ESCB","NBF",null,null,"21/11","09:00"],["EFC","NBE",null,null,"21/11","14:00"],["CAL","NBD",null,null,"21/11","13:00"],["TKC","FDE",null,null,"21/11","12:00"],["EFB","ESC",null,null,"21/11","10:00"]]
+   5:[["NBF","POZB",null,null,"14/11","14:00"],["NBE","ESCB",1,0,"14/11","10:00"],["NBD","EFC",0,1,"14/11","11:00"],["POZC","CAL",0,1,"14/11","13:00"],["ESC","TKC",0,1,"14/11","09:00"],["POZD","EFB",0,1,"14/11","12:00"]],
+   6:[["POZB","POZD",null,null,"21/11","11:00"],["ESCB","NBF",null,null,"21/11","09:00"],["EFC","NBE",null,null,"21/11","14:00"],["CAL","NBD",null,null,"21/11","13:00"],["TKC","FDE",null,null,"21/11","12:00"],["EFB","ESC",null,null,"21/11","10:00"]],
+   7:[["POZB","ESCB",null,null,"28/11","12:00"],["NBF","EFC",null,null,"28/11","10:00"],["NBE","CAL",null,null,"28/11","11:00"],["POZC","TKC",null,null,"28/11","13:00"],["FDE","EFB",null,null,"28/11","14:00"],["POZD","ESC",null,null,"28/11","09:00"]]
   },
   pairs:{
-   7:"POZD-ESC NBF-EFC NBE-CAL POZB-ESCB POZC-TKC FDE-EFB",
    8:"EFB-POZC TKC-NBD ESC-FDE EFC-POZB ESCB-POZD CAL-NBF",
    9:"POZB-CAL ESCB-EFC NBE-TKC NBD-EFB POZD-FDE POZC-ESC",
    10:"CAL-ESCB FDE-POZC EFC-POZD ESC-NBD TKC-NBF EFB-NBE",
@@ -932,7 +944,9 @@ const BENJAMINC={
    13:"EFC-TKC ESCB-EFB NBE-POZC NBF-FDE NBD-POZD POZB-ESC"
   },
   rest:{1:"POZD",2:"TKC",3:"EFB",4:"ESC",5:"FDE",6:"POZC",7:"NBD",8:"NBE",9:"NBF",10:"POZB",11:"ESCB",12:"EFC",13:"CAL"},
-  acta:{},
+  acta:{
+   5:{ref:"Mingo Mingo, Alejandro"}
+  },
   scorers:[],
   scorersNote:"La RFFM no publica goleadores en esta categoría.",
   squad:["Bellver Seoanez, Jose", "Bermúdez de Castro Meroño, Yago", "Cervantes García, Manuel", "García-Bernalt Benito, Juan", "Hernández de la Bandera, Héctor", "Jiménez Sánchez, Miguel", "Morillo Inglese, Santiago David", "Poblaciones López-Otazu, Ignacio", "Rodríguez de Lazaro Ros, Marco", "Ruíz Hidalgo, Alejandro", "Ruíz de Villa García, Diego"],
@@ -962,18 +976,18 @@ const BENJAMIND={
     CALC:{n:"A.D. Cala Pozuelo 'C'",k:[C.azul,C.blanco]},
     POZE:{n:"C.F. Pozuelo de Alarcón 'E'",k:[C.verde,C.verde]}
   },
-  order:["RETB","UADE","CALB","DLL","UADB","TAB","CALC","ARAD","UADC","POZE","ESC"],
+  order:["UADE","CALB","DLL","RETB","TAB","UADC","CALC","UADB","ARAD","POZE","ESC"],
   zones:{}, zoneLegend:[],
   dates:["16/10","23/10","06/11","13/11","20/11","27/11","11/12","18/12","15/01","22/01","29/01"],
   m:{
    1:[["CALC","CALB",0,1,"16/10","18:30"],["UADB","UADE",0,1,"16/10","18:30"],["DLL","ESC",1,0,"16/10","19:30"],["UADC","RETB",0,1,"17/10","18:00","Pozuelo - Colegio Retamar"],["ARAD","POZE",1,0,"28/10","18:00"]],
    2:[["UADE","CALC",1,0,"23/10","17:30"],["ESC","UADB",0,1,"23/10","17:30"],["POZE","TAB",0,1,"23/10","18:30"],["RETB","ARAD",1,0,"23/10","18:45"],["CALB","UADC",0,0,"23/10","19:30"]],
    3:[["POZE","RETB",0,1,"06/11","19:30"],["ARAD","CALB",0,1,"06/11","17:30"],["UADC","UADE",0,1,"06/11","18:30"],["CALC","ESC",1,0,"06/11","18:30"],["TAB","DLL",0,1,"06/11","17:30"]],
-   4:[["RETB","TAB",null,null,"13/11","19:30"],["CALB","POZE",null,null,"13/11","17:30"],["UADE","ARAD",null,null,"13/11","18:30"],["ESC","UADC",null,null,"13/11","17:30"],["DLL","UADB",null,null,"13/11","18:30"]],
-   5:[["RETB","CALB",null,null,"20/11","18:30"],["POZE","UADE",null,null,"20/11","17:30"],["ARAD","ESC",null,null,"20/11","18:30"],["CALC","DLL",null,null,"20/11","17:30"],["TAB","UADB",null,null,"20/11","19:30"]]
+   4:[["RETB","TAB",0,1,"13/11","19:30"],["CALB","POZE",1,0,"13/11","17:30"],["UADE","ARAD",1,0,"13/11","18:30"],["ESC","UADC",0,1,"13/11","17:30"],["DLL","UADB",1,0,"13/11","18:30"]],
+   5:[["RETB","CALB",null,null,"20/11","18:30"],["POZE","UADE",null,null,"20/11","17:30"],["ARAD","ESC",null,null,"20/11","18:30"],["CALC","DLL",null,null,"20/11","17:30"],["TAB","UADB",null,null,"20/11","19:30"]],
+   6:[["CALB","TAB",null,null,"27/11","17:30"],["UADE","RETB",null,null,"27/11","19:30"],["ESC","POZE",null,null,"27/11","18:30"],["DLL","UADC",null,null,"27/11","18:30"],["UADB","CALC",null,null,"27/11","17:30"]]
   },
   pairs:{
-   6:"CALB-TAB UADB-CALC ESC-POZE DLL-UADC UADE-RETB",
    7:"RETB-ESC ARAD-DLL CALB-UADE TAB-CALC UADC-UADB",
    8:"UADE-TAB UADB-ARAD ESC-CALB DLL-POZE CALC-UADC",
    9:"RETB-DLL ARAD-CALC POZE-UADB TAB-UADC UADE-ESC",
@@ -984,7 +998,8 @@ const BENJAMIND={
   acta:{
    1:{ref:"Martínez Torquemada, Diego"},
    2:{ref:"Gómez Menéndez, Marcos"},
-   3:{ref:"Martínez Torquemada, Diego"}
+   3:{ref:"Martínez Torquemada, Diego"},
+   4:{ref:"García Merinero, Javier"}
   },
   scorers:[],
   scorersNote:"La RFFM no publica goleadores en esta categoría.",
@@ -1023,11 +1038,11 @@ const PREBENJAMINA={
    1:[["NBB","NBA",0,1,"17/10","09:00"],["EFA","NBC",1,0,"17/10","10:00"],["ESC","NBD",1,0,"17/10","11:00"],["ARA","ARB",1,0,"17/10","12:00"],["FRM","FDE",0,0,"17/10","13:00"],["TKA","POZA",1,0,"17/10","14:00"]],
    2:[["NBD","EFA",0,1,"24/10","09:00"],["NBA","TKA",1,0,"24/10","10:00"],["NBC","NBB",0,1,"24/10","11:00"],["POZA","FRM",0,1,"24/10","12:00"],["ARB","ESC",0,1,"24/10","13:00"],["FDE","ARA",0,1,"24/10","14:00"]],
    3:[["NBA","NBC",1,0,"07/11","09:00"],["NBB","NBD",0,0,"07/11","09:50"],["EFA","ARB",1,0,"07/11","10:40"],["ESC","FDE",1,0,"07/11","11:30"],["ARA","POZA",1,0,"07/11","12:20"],["TKA","FRM",1,0,"07/11","13:10"]],
-   4:[["NBC","TKA",null,null,"14/11","09:50"],["NBD","NBA",null,null,"14/11","09:00"],["ARB","NBB",null,null,"14/11","10:40"],["FDE","EFA",null,null,"14/11","12:20"],["POZA","ESC",null,null,"14/11","13:10"],["FRM","ARA",null,null,"14/11","11:30"]],
-   5:[["NBC","NBD",null,null,"21/11","11:30"],["NBA","ARB",null,null,"21/11","09:50"],["NBB","FDE",null,null,"21/11","10:40"],["EFA","POZA",null,null,"21/11","09:00"],["ESC","FRM",null,null,"21/11","12:20"],["TKA","ARA",null,null,"21/11","13:10"]]
+   4:[["NBC","TKA",0,1,"14/11","09:50"],["NBD","NBA",0,1,"14/11","09:00"],["ARB","NBB",0,1,"14/11","10:40"],["FDE","EFA",0,1,"14/11","12:20"],["POZA","ESC",0,1,"14/11","13:10"],["FRM","ARA",0,1,"14/11","11:30"]],
+   5:[["NBC","NBD",null,null,"21/11","11:30"],["NBA","ARB",null,null,"21/11","09:50"],["NBB","FDE",null,null,"21/11","10:40"],["EFA","POZA",null,null,"21/11","09:00"],["ESC","FRM",null,null,"21/11","12:20"],["TKA","ARA",null,null,"21/11","13:10"]],
+   6:[["NBD","TKA",null,null,"28/11","09:00"],["ARB","NBC",null,null,"28/11","12:20"],["FDE","NBA",null,null,"28/11","13:10"],["POZA","NBB",null,null,"28/11","11:30"],["FRM","EFA",null,null,"28/11","09:50"],["ARA","ESC",null,null,"28/11","10:40"]]
   },
   pairs:{
-   6:"NBD-TKA FRM-EFA ARA-ESC POZA-NBB ARB-NBC FDE-NBA",
    7:"NBC-FDE NBA-POZA NBB-FRM EFA-ARA TKA-ESC NBD-ARB",
    8:"FRM-NBA FDE-NBD POZA-NBC ARB-TKA ARA-NBB ESC-EFA",
    9:"NBB-ESC ARB-FDE TKA-EFA NBA-ARA NBD-POZA NBC-FRM",
@@ -1038,7 +1053,8 @@ const PREBENJAMINA={
   acta:{
    1:{ref:"Bermejo Galán, Ángel"},
    2:{ref:"Blanco Moreno, Adrián"},
-   3:{ref:"Sánchez Martín, Gabriel"}
+   3:{ref:"Sánchez Martín, Gabriel"},
+   4:{ref:"Sanchez Martín, Gabriel"}
   },
   scorers:[],
   scorersNote:"La RFFM no publica goleadores en esta categoría.",
@@ -1069,18 +1085,18 @@ const PREBENJAMINB={
     FRMC:{n:"S.A.D. Fundación Rayo Majadahonda 'C'",k:[C.blanco,C.azul]},
     RMJB:{n:"C.F. Rayo Majadahonda SAD 'B'",k:[C.blanco,C.azul],p:"sash"}
   },
-  order:["NBH","SEKA","CNV","RMJB","FRMC","VAL","NBL","NBN","ESCC","SEKB","ESC"],
+  order:["NBH","SEKA","RMJB","NBL","CNV","FRMC","VAL","NBN","ESCC","SEKB","ESC"],
   zones:{}, zoneLegend:[],
   dates:["16/10","23/10","06/11","13/11","20/11","27/11","11/12","18/12","15/01","22/01","29/01"],
   m:{
    1:[["NBH","NBL",1,0,"16/10","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESC","NBN",0,1,"26/10","18:00","Pozuelo - Colegio Escolapios"],["FRMC","ESCC",1,0,"16/10","19:40","Villanueva del Pardillo - Colegio Vallmont"],["VAL","RMJB",2,3,"29/10","18:00","Villanueva del Pardillo - Colegio Vallmont"],["SEKA","SEKB",1,0,"16/10","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"]],
    2:[["NBL","SEKA",0,1,"23/10","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBN","NBH",0,1,"23/10","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESCC","ESC",1,0,"23/10","18:00","Villanueva del Pardillo - Colegio Vallmont"],["CNV","FRMC",1,0,"23/10","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["SEKB","VAL",0,1,"23/10","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"]],
    3:[["NBL","NBN",1,0,"06/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBH","ESCC",1,0,"06/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESC","CNV",0,1,"06/11","19:40","Villanueva del Pardillo - Colegio Vallmont"],["FRMC","RMJB",0,1,"10/11","17:45","Majadahonda - Inst. Dep. La Oliva - Ctro. Oeste"],["SEKA","VAL",1,0,"06/11","18:00","Villanueva del Pardillo - Colegio Vallmont"]],
-   4:[["NBN","SEKA",null,null,"13/11","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["ESCC","NBL",null,null,"13/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["CNV","NBH",null,null,"13/11","18:00","Villanueva del Pardillo - Colegio Vallmont"],["RMJB","ESC",null,null,"13/11","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"],["SEKB","FRMC",null,null,"13/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"]],
-   5:[["NBN","ESCC",null,null,"20/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBL","CNV",null,null,"20/11","19:40","Villanueva del Pardillo - Colegio Vallmont"],["NBH","RMJB",null,null,"20/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESC","SEKB",null,null,"20/11","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"],["FRMC","VAL",null,null,"20/11","18:00","Villanueva del Pardillo - Colegio Vallmont"]]
+   4:[["NBN","SEKA",0,1,"13/11","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["ESCC","NBL",4,9,"13/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["CNV","NBH",2,4,"13/11","18:00","Villanueva del Pardillo - Colegio Vallmont"],["RMJB","ESC",1,0,"13/11","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"],["SEKB","FRMC",0,1,"13/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"]],
+   5:[["NBN","ESCC",null,null,"20/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBL","CNV",null,null,"20/11","19:40","Villanueva del Pardillo - Colegio Vallmont"],["NBH","RMJB",null,null,"20/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESC","SEKB",null,null,"20/11","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"],["FRMC","VAL",null,null,"20/11","18:00","Villanueva del Pardillo - Colegio Vallmont"]],
+   6:[["ESCC","SEKA",null,null,"27/11","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["CNV","NBN",null,null,"27/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["RMJB","NBL",null,null,"27/11","19:40","Villanueva del Pardillo - Colegio Vallmont"],["SEKB","NBH",null,null,"27/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["VAL","ESC",null,null,"27/11","18:00","Villanueva del Pardillo - Colegio Vallmont"]]
   },
   pairs:{
-   6:"ESCC-SEKA VAL-ESC CNV-NBN SEKB-NBH RMJB-NBL",
    7:"NBH-VAL SEKA-FRMC ESCC-CNV NBN-RMJB NBL-SEKB",
    8:"CNV-SEKA VAL-NBL RMJB-ESCC SEKB-NBN FRMC-ESC",
    9:"NBN-VAL SEKA-ESC ESCC-SEKB NBH-FRMC CNV-RMJB",
@@ -1091,7 +1107,8 @@ const PREBENJAMINB={
   acta:{
    1:{ref:"Arnes Esteban, Gonzalo"},
    2:{ref:"Moreno Orellana, Rodrigo"},
-   3:{ref:"Botaro Ruiz, Adrián"}
+   3:{ref:"Botaro Ruiz, Adrián"},
+   4:{ref:"Sánchez Rodríguez, Álvaro"}
   },
   scorers:[],
   scorersNote:"La RFFM no publica goleadores en esta categoría.",
@@ -1121,18 +1138,18 @@ const PREBENJAMINC={
     FRMC:{n:"S.A.D. Fundación Rayo Majadahonda 'C'",k:[C.blanco,C.azul]},
     RMJB:{n:"C.F. Rayo Majadahonda SAD 'B'",k:[C.blanco,C.azul],p:"sash"}
   },
-  order:["NBH","SEKA","CNV","RMJB","FRMC","VAL","NBL","NBN","ESC","SEKB","ESCB"],
+  order:["NBH","SEKA","RMJB","NBL","CNV","FRMC","VAL","NBN","ESC","SEKB","ESCB"],
   zones:{}, zoneLegend:[],
   dates:["16/10","23/10","06/11","13/11","20/11","27/11","11/12","18/12","15/01","22/01","29/01"],
   m:{
    1:[["NBH","NBL",1,0,"16/10","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESCB","NBN",0,1,"26/10","18:00","Pozuelo - Colegio Escolapios"],["FRMC","ESC",1,0,"16/10","19:40","Villanueva del Pardillo - Colegio Vallmont"],["VAL","RMJB",2,3,"29/10","18:00","Villanueva del Pardillo - Colegio Vallmont"],["SEKA","SEKB",1,0,"16/10","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"]],
    2:[["NBL","SEKA",0,1,"23/10","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBN","NBH",0,1,"23/10","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESC","ESCB",1,0,"23/10","18:00","Villanueva del Pardillo - Colegio Vallmont"],["CNV","FRMC",1,0,"23/10","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["SEKB","VAL",0,1,"23/10","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"]],
    3:[["NBL","NBN",1,0,"06/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBH","ESC",1,0,"06/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESCB","CNV",0,1,"06/11","19:40","Villanueva del Pardillo - Colegio Vallmont"],["FRMC","RMJB",0,1,"10/11","17:45","Majadahonda - Inst. Dep. La Oliva - Ctro. Oeste"],["SEKA","VAL",1,0,"06/11","18:00","Villanueva del Pardillo - Colegio Vallmont"]],
-   4:[["NBN","SEKA",null,null,"13/11","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["ESC","NBL",null,null,"13/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["CNV","NBH",null,null,"13/11","18:00","Villanueva del Pardillo - Colegio Vallmont"],["RMJB","ESCB",null,null,"13/11","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"],["SEKB","FRMC",null,null,"13/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"]],
-   5:[["NBN","ESC",null,null,"20/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBL","CNV",null,null,"20/11","19:40","Villanueva del Pardillo - Colegio Vallmont"],["NBH","RMJB",null,null,"20/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESCB","SEKB",null,null,"20/11","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"],["FRMC","VAL",null,null,"20/11","18:00","Villanueva del Pardillo - Colegio Vallmont"]]
+   4:[["NBN","SEKA",0,1,"13/11","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["ESC","NBL",4,9,"13/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["CNV","NBH",2,4,"13/11","18:00","Villanueva del Pardillo - Colegio Vallmont"],["RMJB","ESCB",1,0,"13/11","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"],["SEKB","FRMC",0,1,"13/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"]],
+   5:[["NBN","ESC",null,null,"20/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["NBL","CNV",null,null,"20/11","19:40","Villanueva del Pardillo - Colegio Vallmont"],["NBH","RMJB",null,null,"20/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["ESCB","SEKB",null,null,"20/11","19:40","Villanueva de la Cañada - Colegio SEK El Castillo"],["FRMC","VAL",null,null,"20/11","18:00","Villanueva del Pardillo - Colegio Vallmont"]],
+   6:[["ESC","SEKA",null,null,"27/11","18:00","Villanueva de la Cañada - Colegio SEK El Castillo"],["CNV","NBN",null,null,"27/11","18:50","Villanueva del Pardillo - Colegio Vallmont"],["RMJB","NBL",null,null,"27/11","19:40","Villanueva del Pardillo - Colegio Vallmont"],["SEKB","NBH",null,null,"27/11","18:50","Villanueva de la Cañada - Colegio SEK El Castillo"],["VAL","ESCB",null,null,"27/11","18:00","Villanueva del Pardillo - Colegio Vallmont"]]
   },
   pairs:{
-   6:"ESC-SEKA VAL-ESCB CNV-NBN SEKB-NBH RMJB-NBL",
    7:"NBH-VAL SEKA-FRMC ESC-CNV NBN-RMJB NBL-SEKB",
    8:"CNV-SEKA VAL-NBL RMJB-ESC SEKB-NBN FRMC-ESCB",
    9:"NBN-VAL SEKA-ESCB ESC-SEKB NBH-FRMC CNV-RMJB",
@@ -1143,7 +1160,8 @@ const PREBENJAMINC={
   acta:{
    1:{ref:"García Rodríguez, Sergi"},
    2:{ref:"Moreno Orellana, Rodrigo"},
-   3:{ref:"Botaro Ruiz, Adrián"}
+   3:{ref:"Botaro Ruiz, Adrián"},
+   4:{ref:"Sánchez Rodríguez, Álvaro"}
   },
   scorers:[],
   scorersNote:"La RFFM no publica goleadores en esta categoría.",
@@ -1173,17 +1191,17 @@ const PREBENJAMIND={
     EFC:{n:"E.F.M.O. Boadilla 'C'",k:[C.rojo,C.blanco]},
     ESC:{n:"EE PP San Fernando Escolapios Pozuelo 'D'",short:"Escolapios 'D'",k:[C.verde,C.blanco]}
   },
-  order:["TKC","EFB","NBE","AUB","NBG","NBO","AUC","ESC","NBK","MTA","EFC"],
+  order:["TKC","NBE","AUC","NBO","EFB","ESC","NBG","MTA","AUB","NBK","EFC"],
   zones:{}, zoneLegend:[],
   dates:["24/10","07/11","14/11","21/11","28/11","12/12","19/12","16/01","23/01","30/01","06/02"],
   m:{
    1:[["NBG","NBE",0,1,"24/10","09:00"],["EFB","NBK",1,0,"24/10","10:00"],["EFC","NBO",0,1,"24/10","11:00"],["ESC","TKC",0,1,"24/10","12:00"],["AUC","MTA",1,0,"24/10","13:23","Boadilla - Condesa de Chinchón 1"]],
    2:[["NBK","NBG",0,1,"07/11","09:00"],["NBO","EFB",0,1,"07/11","09:50"],["TKC","EFC",1,0,"07/11","10:40"],["MTA","ESC",0,1,"07/11","11:40"],["AUB","AUC",1,0,"07/11","12:35"]],
-   3:[["NBE","NBK",null,null,"14/11","09:50"],["NBG","NBO",null,null,"14/11","10:40"],["EFB","TKC",null,null,"14/11","09:00"],["EFC","MTA",null,null,"14/11","12:20"],["ESC","AUB",null,null,"14/11","11:30"]],
-   4:[["NBO","NBE",null,null,"21/11","09:00"],["TKC","NBG",null,null,"21/11","09:50"],["MTA","EFB",null,null,"21/11","10:40"],["AUB","EFC",null,null,"21/11","11:30"],["AUC","ESC",null,null,"21/11","12:20"]]
+   3:[["NBE","NBK",1,0,"14/11","09:50"],["NBG","NBO",0,1,"14/11","10:40"],["EFB","TKC",0,1,"14/11","09:00"],["EFC","MTA",0,1,"14/11","12:20"],["ESC","AUB",1,0,"14/11","11:30"]],
+   4:[["NBO","NBE",null,null,"21/11","09:00"],["TKC","NBG",null,null,"21/11","09:50"],["MTA","EFB",null,null,"21/11","10:40"],["AUB","EFC",null,null,"21/11","11:30"],["AUC","ESC",null,null,"21/11","12:20"]],
+   5:[["NBK","NBO",null,null,"28/11","11:30"],["NBE","TKC",null,null,"28/11","12:20"],["NBG","MTA",null,null,"28/11","09:50"],["EFB","AUB",null,null,"28/11","10:40"],["EFC","AUC",null,null,"28/11","09:00"]]
   },
   pairs:{
-   5:"EFC-AUC NBG-MTA EFB-AUB NBK-NBO NBE-TKC",
    6:"MTA-NBE ESC-EFC TKC-NBK AUC-EFB AUB-NBG",
    7:"EFB-ESC NBE-AUB NBG-AUC NBO-TKC NBK-MTA",
    8:"AUB-NBK MTA-NBO AUC-NBE ESC-NBG EFC-EFB",
@@ -1194,7 +1212,8 @@ const PREBENJAMIND={
   rest:{1:"AUB",2:"NBE",3:"AUC",4:"NBK",5:"ESC",6:"NBO",7:"EFC",8:"TKC",9:"EFB",10:"MTA",11:"NBG"},
   acta:{
    1:{ref:"Sánchez Ortiz, Miguel"},
-   2:{ref:"Breña Barba, Martina"}
+   2:{ref:"Breña Barba, Martina"},
+   3:{ref:"Bryyovskyy Chirkova, David"}
   },
   scorers:[],
   scorersNote:"La RFFM no publica goleadores en esta categoría.",
@@ -1226,18 +1245,18 @@ const PREBENJAMINE={
     FPAD:{n:"C.D.E. F.P.A. Las Rozas 'D'",k:[C.naranja,C.naranja]},
     FRMB:{n:"S.A.D. Fundación Rayo Majadahonda 'B'",k:[C.blanco,C.azul]}
   },
-  order:["LRB","NBF","VCB","QUI","EFBA","FPAD","ESC","NBI","NBJ","NBM","EFBB","FRMB"],
+  order:["NBF","VCB","QUI","EFBA","LRB","NBI","FPAD","ESC","NBJ","NBM","EFBB","FRMB"],
   zones:{}, zoneLegend:[],
   dates:["16/10","23/10","06/11","13/11","20/11","27/11","11/12","18/12","15/01","22/01","29/01"],
   m:{
    1:[["NBF","NBI",1,0,"16/10","18:00","Brunete - Los Arcos"],["VCB","NBJ",1,0,"16/10","18:00","Brunete - Los Arcos"],["QUI","NBM",1,0,"16/10","18:50","Brunete - Los Arcos"],["EFBA","EFBB",1,0,"16/10","19:40","Brunete - Los Arcos"],["LRB","FRMB",8,2,"27/10","17:50","Majadahonda - Inst. Dep. La Oliva (Centro Oeste)"],["ESC","FPAD",0,1,"27/10","18:30","Las Rozas - Recinto Ferial"]],
    2:[["FRMB","QUI",0,1,"23/10","18:00","Brunete - Los Arcos"],["FPAD","LRB",0,1,"23/10","18:00","Brunete - Los Arcos"],["NBI","EFBA",0,1,"23/10","18:50","Brunete - Los Arcos"],["NBJ","NBF",0,1,"23/10","18:50","Brunete - Los Arcos"],["NBM","VCB",0,1,"23/10","19:40","Brunete - Los Arcos"],["EFBB","ESC",0,1,"23/10","19:40","Brunete - Los Arcos"]],
    3:[["NBI","NBJ",1,0,"06/11","19:40","Brunete - Los Arcos"],["NBF","NBM",1,0,"06/11","18:00","Brunete - Los Arcos"],["VCB","FRMB",1,0,"06/11","18:50","Brunete - Los Arcos"],["QUI","FPAD",1,0,"06/11","18:50","Brunete - Los Arcos"],["LRB","EFBB",1,0,"06/11","19:40","Brunete - Los Arcos"],["EFBA","ESC",1,0,"06/11","18:00","Brunete - Los Arcos"]],
-   4:[["NBJ","EFBA",null,null,"13/11","18:00","Brunete - Los Arcos"],["NBM","NBI",null,null,"13/11","18:50","Brunete - Los Arcos"],["FRMB","NBF",null,null,"13/11","19:40","Brunete - Los Arcos"],["FPAD","VCB",null,null,"13/11","18:50","Brunete - Los Arcos"],["EFBB","QUI",null,null,"13/11","18:00","Brunete - Los Arcos"],["ESC","LRB",null,null,"13/11","19:40","Brunete - Los Arcos"]],
-   5:[["NBJ","NBM",null,null,"20/11","19:40","Brunete - Los Arcos"],["NBI","FRMB",null,null,"20/11","18:00","Brunete - Los Arcos"],["NBF","FPAD",null,null,"20/11","18:50","Brunete - Los Arcos"],["VCB","EFBB",null,null,"20/11","18:50","Brunete - Los Arcos"],["QUI","ESC",null,null,"20/11","19:40","Brunete - Los Arcos"],["EFBA","LRB",null,null,"20/11","18:00","Brunete - Los Arcos"]]
+   4:[["NBJ","EFBA",0,1,"13/11","18:00","Brunete - Los Arcos"],["NBM","NBI",0,1,"13/11","18:50","Brunete - Los Arcos"],["FRMB","NBF",0,1,"13/11","19:40","Brunete - Los Arcos"],["FPAD","VCB",0,1,"13/11","18:50","Brunete - Los Arcos"],["EFBB","QUI",0,1,"13/11","18:00","Brunete - Los Arcos"],["ESC","LRB",0,1,"13/11","19:40","Brunete - Los Arcos"]],
+   5:[["NBJ","NBM",null,null,"20/11","19:40","Brunete - Los Arcos"],["NBI","FRMB",null,null,"20/11","18:00","Brunete - Los Arcos"],["NBF","FPAD",null,null,"20/11","18:50","Brunete - Los Arcos"],["VCB","EFBB",null,null,"20/11","18:50","Brunete - Los Arcos"],["QUI","ESC",null,null,"20/11","19:40","Brunete - Los Arcos"],["EFBA","LRB",null,null,"20/11","18:00","Brunete - Los Arcos"]],
+   6:[["NBM","EFBA",null,null,"27/11","18:00","Brunete - Los Arcos"],["FRMB","NBJ",null,null,"27/11","18:50","Brunete - Los Arcos"],["FPAD","NBI",null,null,"27/11","18:50","Brunete - Los Arcos"],["EFBB","NBF",null,null,"27/11","18:00","Brunete - Los Arcos"],["ESC","VCB",null,null,"27/11","19:40","Brunete - Los Arcos"],["LRB","QUI",null,null,"27/11","19:40","Brunete - Los Arcos"]]
   },
   pairs:{
-   6:"NBM-EFBA EFBB-NBF FRMB-NBJ FPAD-NBI ESC-VCB LRB-QUI",
    7:"NBI-EFBB EFBA-QUI NBM-FRMB NBJ-FPAD NBF-ESC VCB-LRB",
    8:"FRMB-EFBA EFBB-NBJ LRB-NBF QUI-VCB FPAD-NBM ESC-NBI",
    9:"NBM-EFBB NBF-QUI FRMB-FPAD NBJ-ESC EFBA-VCB NBI-LRB",
@@ -1247,7 +1266,8 @@ const PREBENJAMINE={
   rest:{},
   acta:{
    1:{ref:"Pérez Romero, David"},
-   2:{ref:"Viles Martínez, Diego"}
+   2:{ref:"Viles Martínez, Diego"},
+   4:{ref:"Viles Martínez, Diego"}
   },
   scorers:[],
   scorersNote:"La RFFM no publica goleadores en esta categoría.",
@@ -1283,10 +1303,10 @@ const DEBUTANTEA={
   dates:["21/11","28/11","12/12","16/01","23/01","30/01","06/02","20/02","27/02","06/03","13/03","03/04","10/04","24/04","08/05","22/05"],
   m:{
    1:[["NBC","ESCB",null,null,"21/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","EFB",null,null,"21/11","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","TKA",null,null,"21/11","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","AUPA",null,null,"21/11","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESC","NBD",null,null,"21/11","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESCC","NBB",null,null,"21/11","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]],
-   2:[["NBA","ESCB",null,null,"28/11","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["NBC","TKA",null,null,"28/11","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","AUPA",null,null,"28/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","NBD",null,null,"28/11","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","NBB",null,null,"28/11","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESC","ESCC",null,null,"28/11","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]]
+   2:[["NBA","ESCB",null,null,"28/11","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["NBC","TKA",null,null,"28/11","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","AUPA",null,null,"28/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","NBD",null,null,"28/11","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","NBB",null,null,"28/11","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESC","ESCC",null,null,"28/11","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]],
+   3:[["NBA","EFB",null,null,"12/12","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["NBC","NBD",null,null,"12/12","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","NBB",null,null,"12/12","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","ESCC",null,null,"12/12","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","ESC",null,null,"12/12","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESCB","TKA",null,null,"12/12","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]]
   },
   pairs:{
-   3:"NBA-EFB NBC-NBD AUPB-NBB FCB-ESCC EFA-ESC ESCB-TKA",
    4:"NBA-TKA EFB-AUPA ESCB-NBD NBC-ESCC AUPB-ESC FCB-EFA",
    5:"NBA-AUPA TKA-NBD EFB-NBB ESCB-ESCC NBC-EFA AUPB-FCB",
    6:"NBA-NBD AUPA-NBB TKA-ESCC EFB-ESC ESCB-EFA NBC-AUPB",
@@ -1337,10 +1357,10 @@ const DEBUTANTEB={
   dates:["21/11","28/11","12/12","16/01","23/01","30/01","06/02","20/02","27/02","06/03","13/03","03/04","10/04","24/04","08/05","22/05"],
   m:{
    1:[["NBC","ESC",null,null,"21/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","EFB",null,null,"21/11","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","TKA",null,null,"21/11","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","AUPA",null,null,"21/11","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESCB","NBD",null,null,"21/11","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESCC","NBB",null,null,"21/11","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]],
-   2:[["NBA","ESC",null,null,"28/11","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["NBC","TKA",null,null,"28/11","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","AUPA",null,null,"28/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","NBD",null,null,"28/11","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","NBB",null,null,"28/11","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESCB","ESCC",null,null,"28/11","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]]
+   2:[["NBA","ESC",null,null,"28/11","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["NBC","TKA",null,null,"28/11","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","AUPA",null,null,"28/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","NBD",null,null,"28/11","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","NBB",null,null,"28/11","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESCB","ESCC",null,null,"28/11","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]],
+   3:[["NBA","EFB",null,null,"12/12","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["NBC","NBD",null,null,"12/12","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","NBB",null,null,"12/12","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","ESCC",null,null,"12/12","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","ESCB",null,null,"12/12","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESC","TKA",null,null,"12/12","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]]
   },
   pairs:{
-   3:"NBA-EFB NBC-NBD AUPB-NBB FCB-ESCC EFA-ESCB ESC-TKA",
    4:"NBA-TKA EFB-AUPA ESC-NBD NBC-ESCC AUPB-ESCB FCB-EFA",
    5:"NBA-AUPA TKA-NBD EFB-NBB ESC-ESCC NBC-EFA AUPB-FCB",
    6:"NBA-NBD AUPA-NBB TKA-ESCC EFB-ESCB ESC-EFA NBC-AUPB",
@@ -1391,10 +1411,10 @@ const DEBUTANTEC={
   dates:["21/11","28/11","12/12","16/01","23/01","30/01","06/02","20/02","27/02","06/03","13/03","03/04","10/04","24/04","08/05","22/05"],
   m:{
    1:[["NBC","ESCC",null,null,"21/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","EFB",null,null,"21/11","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","TKA",null,null,"21/11","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","AUPA",null,null,"21/11","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESCB","NBD",null,null,"21/11","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESC","NBB",null,null,"21/11","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]],
-   2:[["NBA","ESCC",null,null,"28/11","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["NBC","TKA",null,null,"28/11","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","AUPA",null,null,"28/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","NBD",null,null,"28/11","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","NBB",null,null,"28/11","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESCB","ESC",null,null,"28/11","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]]
+   2:[["NBA","ESCC",null,null,"28/11","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["NBC","TKA",null,null,"28/11","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","AUPA",null,null,"28/11","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","NBD",null,null,"28/11","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","NBB",null,null,"28/11","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESCB","ESC",null,null,"28/11","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]],
+   3:[["NBA","EFB",null,null,"12/12","09:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["NBC","NBD",null,null,"12/12","09:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["AUPB","NBB",null,null,"12/12","11:00","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["FCB","ESC",null,null,"12/12","10:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["EFA","ESCB",null,null,"12/12","12:20","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"],["ESCC","TKA",null,null,"12/12","11:40","Boadilla - Pvo. Municipal Ángel Nieto 5 - F/5"]]
   },
   pairs:{
-   3:"NBA-EFB NBC-NBD AUPB-NBB FCB-ESC EFA-ESCB ESCC-TKA",
    4:"NBA-TKA EFB-AUPA ESCC-NBD NBC-ESC AUPB-ESCB FCB-EFA",
    5:"NBA-AUPA TKA-NBD EFB-NBB ESCC-ESC NBC-EFA AUPB-FCB",
    6:"NBA-NBD AUPA-NBB TKA-ESC EFB-ESCB ESCC-EFA NBC-AUPB",
@@ -1423,11 +1443,8 @@ DEBUTANTEC.teamName="EE PP San Fernando Escolapios Pozuelo 'C'";
 const DATA={"segunda-aficionado":AFICIONADO,"infantil-a":INFANTILA,alevin:ALEVIN,"alevin-f7-a":ALEVINF7A,"alevin-f7-b":ALEVINF7B,"alevin-f7-c":ALEVINF7C,"alevin-fem":ALEVINFEM,benjamin:BENJAMIN,"benjamin-b":BENJAMINB,"benjamin-c":BENJAMINC,"benjamin-d":BENJAMIND,"prebenjamin-a":PREBENJAMINA,"prebenjamin-b":PREBENJAMINB,"prebenjamin-c":PREBENJAMINC,"prebenjamin-d":PREBENJAMIND,"prebenjamin-e":PREBENJAMINE,"debutante-a":DEBUTANTEA,"debutante-b":DEBUTANTEB,"debutante-c":DEBUTANTEC};
 const COMPS=DATA;
 /* Actualización automática (lunes a viernes): fecha de la última revisión y cambios detectados en horarios/sedes */
-const UPDATED="13 nov 2026, 08:21";
+const UPDATED="15 nov 2026, 21:06";
 const CHANGES=[
- {team:"alevin",j:6,when:"lun 9 nov, 08:32",txt:"El partido contra Nuevo Boadilla 'C' pasa del sáb 14 nov a las 16:15 (Boadilla - Condesa Chinchón 2) al dom 15 nov a las 09:00 en Boadilla - Pvo. Municipal Ángel Nieto 3"},
- {team:"infantil-a",j:6,when:"lun 9 nov, 08:32",txt:"El partido pasa del sáb 14 nov al dom 15 nov a las 15:40 (Boadilla - Condesa Chinchón 1)"},
- {team:"alevin-f7-a",j:6,when:"lun 9 nov, 08:32",txt:"El partido pasa del sáb 14 nov al dom 15 nov a las 13:30 en Pozuelo - Pvo. El Pradillo"}
 ];
 const TODAY=(()=>{const d=new Date();d.setHours(0,0,0,0);return d})();
 
